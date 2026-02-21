@@ -1,0 +1,9 @@
+{
+  "class_id": "silent_knife",
+  "class_name": "Silent Knife",
+  "image_filename": "silent_knife_mat.jpg",
+  "hp_table": [10, 12, 14, 16, 18, 20, 22, 24, 26],
+  "perks": [
+    "Remove two -1 cards"
+  ]
+}
