@@ -110,6 +110,14 @@ def find_character_mat(inner_box: dict[str, Any]) -> dict[str, Any]:
     raise RuntimeError("Could not find Character Mat object in cloned class.")
 
 
+def find_character_sheet(inner_box: dict[str, Any]) -> dict[str, Any]:
+    for child in inner_box.get("ContainedObjects", []) or []:
+        nick = normalize(child.get("Nickname"))
+        if child.get("Name") == "Custom_Tile" and "character sheet" in nick:
+            return child
+    raise RuntimeError("Could not find Character Sheet object in cloned class.")
+
+
 def find_personal_supply_deck(inner_box: dict[str, Any]) -> dict[str, Any] | None:
     for child in inner_box.get("ContainedObjects", []) or []:
         if child.get("Name") == "Deck" and "personal supply" in normalize(child.get("Nickname")):
@@ -158,6 +166,20 @@ def random_guid(existing: set[str]) -> str:
             return guid
 
 
+def collect_guids(node: Any) -> set[str]:
+    found: set[str] = set()
+    if isinstance(node, dict):
+        guid = node.get("GUID")
+        if isinstance(guid, str):
+            found.add(guid)
+        for value in node.values():
+            found.update(collect_guids(value))
+    elif isinstance(node, list):
+        for item in node:
+            found.update(collect_guids(item))
+    return found
+
+
 def regenerate_guids(node: Any, seen: set[str]) -> None:
     if isinstance(node, dict):
         if isinstance(node.get("GUID"), str):
@@ -170,7 +192,11 @@ def regenerate_guids(node: Any, seen: set[str]) -> None:
 
 
 def build_single_object(
-    source_mod: dict[str, Any], class_data: dict[str, Any], image_url: str | None
+    source_mod: dict[str, Any],
+    class_data: dict[str, Any],
+    image_url: str | None,
+    regenerate_class_guids: bool,
+    rename_internal_class_identity: bool,
 ) -> dict[str, Any]:
     class_name = class_data["class_name"]
     root_template = get_root_content_box(source_mod)
@@ -181,21 +207,27 @@ def build_single_object(
 
     # Keep only one class in the Classes bag.
     classes_bag["ContainedObjects"] = [quartermaster_outer]
+    if regenerate_class_guids:
+        # Avoid GUID collisions with existing Quartermaster content in the same table.
+        used_guids = collect_guids(clone)
+        regenerate_guids(quartermaster_outer, seen=used_guids)
 
     # Minimal visible rename only (leave scripts and component nicknames intact).
     clone["Nickname"] = f"{class_name} Content Box"
     clone["Description"] = f"Single-class content box for {class_name} (Quartermaster clone)"
     quartermaster_outer["Nickname"] = class_name
-    update_outer_class_lua(quartermaster_outer, class_name)
+    if rename_internal_class_identity:
+        update_outer_class_lua(quartermaster_outer, class_name)
 
     inner_box = find_inner_class_box(quartermaster_outer)
     inner_box["Nickname"] = class_name
-    personal_supply = find_personal_supply_deck(inner_box)
-    if personal_supply is not None:
-        personal_supply["Nickname"] = f"{class_name} Personal Supply"
-    figure = find_character_figure(inner_box)
-    if figure is not None:
-        figure["Nickname"] = class_name
+    if rename_internal_class_identity:
+        personal_supply = find_personal_supply_deck(inner_box)
+        if personal_supply is not None:
+            personal_supply["Nickname"] = f"{class_name} Personal Supply"
+        figure = find_character_figure(inner_box)
+        if figure is not None:
+            figure["Nickname"] = class_name
 
     character_mat = find_character_mat(inner_box)
     custom_image = character_mat.get("CustomImage")
@@ -205,6 +237,12 @@ def build_single_object(
         custom_image["ImageURL"] = image_url
         # Bottom/back image for Custom_Tile; keep in sync to avoid mixed fronts/backs.
         custom_image["ImageSecondaryURL"] = image_url
+        character_sheet = find_character_sheet(inner_box)
+        sheet_image = character_sheet.get("CustomImage")
+        if not isinstance(sheet_image, dict):
+            raise RuntimeError("Character Sheet has no CustomImage object.")
+        sheet_image["ImageURL"] = image_url
+        sheet_image["ImageSecondaryURL"] = image_url
 
     return clone
 
@@ -264,6 +302,19 @@ def parse_args() -> argparse.Namespace:
         default="assets",
         help="Local assets directory used to verify image filenames before URL injection.",
     )
+    parser.add_argument(
+        "--regenerate-class-guids",
+        action="store_true",
+        help="Regenerate GUIDs in the cloned class subtree (off by default for safety).",
+    )
+    parser.add_argument(
+        "--rename-internal-class-identity",
+        action="store_true",
+        help=(
+            "Rename internal class identity in Lua (registerClass name, figure/supply names). "
+            "Off by default for safety."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -290,7 +341,13 @@ def main() -> None:
                 "keeping original Character Mat image URL."
             )
 
-    single_object = build_single_object(source_mod, class_data, image_url)
+    single_object = build_single_object(
+        source_mod,
+        class_data,
+        image_url,
+        regenerate_class_guids=args.regenerate_class_guids,
+        rename_internal_class_identity=args.rename_internal_class_identity,
+    )
     wrapped = wrap_as_save(single_object, class_data["class_name"])
 
     save_json(out_object_state_path, single_object)
