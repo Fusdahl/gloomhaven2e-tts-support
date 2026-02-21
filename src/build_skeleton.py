@@ -2,10 +2,10 @@
 """Build a standalone TTS saved object for a single GH2E class.
 
 Current scope:
-- Clone the Quartermaster class object from the existing reference mod.
-- Rename visible fields to Silent Knife (or other class_name from data json).
-- Regenerate GUIDs recursively so the clone can coexist with original objects.
-- Update the Character Mat image URL to a GitHub raw URL.
+- Clone the full GH2E content box from the reference mod.
+- Keep only one class (Quartermaster template) inside Classes.
+- Rename only a few visible labels to the target class name.
+- Update the Character Mat image URL(s) to a GitHub raw URL.
 """
 
 from __future__ import annotations
@@ -53,15 +53,45 @@ def iter_objects(node: Any):
             yield from iter_objects(item)
 
 
-def find_quartermaster_outer(save_data: dict[str, Any]) -> dict[str, Any]:
-    for obj in iter_objects(save_data.get("ObjectStates", [])):
+def get_root_content_box(save_data: dict[str, Any]) -> dict[str, Any]:
+    object_states = save_data.get("ObjectStates")
+    if not isinstance(object_states, list) or not object_states:
+        raise RuntimeError("Source mod JSON has no ObjectStates root content box.")
+    root = object_states[0]
+    if not isinstance(root, dict) or "ContainedObjects" not in root:
+        raise RuntimeError("Invalid root content box object in source mod JSON.")
+    return root
+
+
+def find_assets_bag(root_box: dict[str, Any]) -> dict[str, Any]:
+    for child in root_box.get("ContainedObjects", []) or []:
+        if child.get("GUID") == "assets":
+            return child
+    for child in root_box.get("ContainedObjects", []) or []:
+        if child.get("Name") == "Bag" and normalize(child.get("Nickname")) == "autoassets":
+            return child
+    raise RuntimeError("Could not find assets bag inside root content box.")
+
+
+def find_classes_bag(assets_bag: dict[str, Any]) -> dict[str, Any]:
+    for child in assets_bag.get("ContainedObjects", []) or []:
+        if child.get("GUID") == "classes":
+            return child
+    for child in assets_bag.get("ContainedObjects", []) or []:
+        if child.get("Name") == "Bag" and normalize(child.get("Nickname")) == "classes":
+            return child
+    raise RuntimeError("Could not find classes bag inside assets bag.")
+
+
+def find_quartermaster_outer(classes_bag: dict[str, Any]) -> dict[str, Any]:
+    for obj in classes_bag.get("ContainedObjects", []) or []:
         if obj.get("Name") != "Custom_Model_Infinite_Bag":
             continue
         for child in obj.get("ContainedObjects", []) or []:
             nick = normalize(child.get("Nickname"))
             if any(hint in nick for hint in QUARTERMASTER_HINTS):
                 return obj
-    raise RuntimeError("Could not find Quartermaster outer class bag in source mod JSON.")
+    raise RuntimeError("Could not find Quartermaster class in classes bag.")
 
 
 def find_inner_class_box(outer_bag: dict[str, Any]) -> dict[str, Any]:
@@ -98,58 +128,36 @@ def regenerate_guids(node: Any, seen: set[str]) -> None:
             regenerate_guids(item, seen)
 
 
-def rename_visible_fields(node: Any, class_name: str) -> None:
-    if isinstance(node, dict):
-        if isinstance(node.get("Nickname"), str):
-            nick = node["Nickname"]
-            node["Nickname"] = (
-                nick.replace("Quartermaster", class_name).replace("Three Spears", class_name)
-            )
-        if isinstance(node.get("Description"), str):
-            desc = node["Description"]
-            node["Description"] = (
-                desc.replace("Quartermaster", class_name).replace("Three Spears", class_name)
-            )
-        if isinstance(node.get("LuaScript"), str):
-            lua = node["LuaScript"]
-            node["LuaScript"] = (
-                lua.replace("Quartermaster", class_name).replace("Three Spears", class_name)
-            )
-        for value in node.values():
-            rename_visible_fields(value, class_name)
-    elif isinstance(node, list):
-        for item in node:
-            rename_visible_fields(item, class_name)
-
-
 def build_single_object(
     source_mod: dict[str, Any], class_data: dict[str, Any], image_url: str | None
 ) -> dict[str, Any]:
     class_name = class_data["class_name"]
+    root_template = get_root_content_box(source_mod)
+    clone = copy.deepcopy(root_template)
+    assets_bag = find_assets_bag(clone)
+    classes_bag = find_classes_bag(assets_bag)
+    quartermaster_outer = find_quartermaster_outer(classes_bag)
 
-    outer_template = find_quartermaster_outer(source_mod)
-    clone = copy.deepcopy(outer_template)
+    # Keep only one class in the Classes bag.
+    classes_bag["ContainedObjects"] = [quartermaster_outer]
 
-    regenerate_guids(clone, seen=set())
-    rename_visible_fields(clone, class_name)
+    # Minimal visible rename only (leave scripts and component nicknames intact).
+    clone["Nickname"] = f"{class_name} Content Box"
+    clone["Description"] = f"Single-class content box for {class_name} (Quartermaster clone)"
+    quartermaster_outer["Nickname"] = class_name
 
-    inner_box = find_inner_class_box(clone)
+    inner_box = find_inner_class_box(quartermaster_outer)
     inner_box["Nickname"] = class_name
 
     character_mat = find_character_mat(inner_box)
-    character_mat["Nickname"] = f"Character Mat - {class_name}"
     custom_image = character_mat.get("CustomImage")
     if not isinstance(custom_image, dict):
         raise RuntimeError("Character Mat has no CustomImage object.")
     if image_url:
         custom_image["ImageURL"] = image_url
+        # Bottom/back image for Custom_Tile; keep in sync to avoid mixed fronts/backs.
+        custom_image["ImageSecondaryURL"] = image_url
 
-    for child in inner_box.get("ContainedObjects", []) or []:
-        nick = child.get("Nickname")
-        if isinstance(nick, str) and normalize(nick) == "character sheet":
-            child["Nickname"] = f"Character Sheet - {class_name}"
-
-    clone["Nickname"] = class_name
     return clone
 
 
