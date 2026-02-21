@@ -154,7 +154,7 @@ def build_single_object(
 
 
 def wrap_as_save(single_object: dict[str, Any], class_name: str) -> dict[str, Any]:
-    # Minimal save wrapper so it can be loaded as its own save if needed.
+    # Minimal SaveState wrapper.
     return {
         "SaveName": f"{class_name} Test Save",
         "Date": "",
@@ -189,9 +189,14 @@ def parse_args() -> argparse.Namespace:
         help="Path to class data JSON file.",
     )
     parser.add_argument(
-        "--out-object",
+        "--out-object-state",
+        default="dist/Silent_Knife_object_state.json",
+        help="Output path for raw ObjectState JSON (debug/advanced use).",
+    )
+    parser.add_argument(
+        "--out-saved-object",
         default="dist/Silent_Knife_saved_object.json",
-        help="Output path for a single saved-object JSON.",
+        help="Output path for wrapped JSON to use in TTS Saved Objects.",
     )
     parser.add_argument(
         "--out-save",
@@ -210,7 +215,8 @@ def main() -> None:
     args = parse_args()
     source_mod_path = Path(args.source_mod)
     class_data_path = Path(args.class_data)
-    out_object_path = Path(args.out_object)
+    out_object_state_path = Path(args.out_object_state)
+    out_saved_object_path = Path(args.out_saved_object)
     out_save_path = Path(args.out_save)
     assets_dir = Path(args.assets_dir)
 
@@ -229,11 +235,15 @@ def main() -> None:
             )
 
     single_object = build_single_object(source_mod, class_data, image_url)
-    save_json(out_object_path, single_object)
-    save_json(out_save_path, wrap_as_save(single_object, class_data["class_name"]))
+    wrapped = wrap_as_save(single_object, class_data["class_name"])
 
-    print(f"Wrote saved object: {out_object_path}")
-    print(f"Wrote full save:    {out_save_path}")
+    save_json(out_object_state_path, single_object)
+    save_json(out_saved_object_path, wrapped)
+    save_json(out_save_path, wrapped)
+
+    print(f"Wrote raw object state: {out_object_state_path}")
+    print(f"Wrote saved object:     {out_saved_object_path}")
+    print(f"Wrote full save:        {out_save_path}")
 
 
 if __name__ == "__main__":
