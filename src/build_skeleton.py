@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import re
 import secrets
 from pathlib import Path
 from typing import Any
@@ -109,6 +110,46 @@ def find_character_mat(inner_box: dict[str, Any]) -> dict[str, Any]:
     raise RuntimeError("Could not find Character Mat object in cloned class.")
 
 
+def find_personal_supply_deck(inner_box: dict[str, Any]) -> dict[str, Any] | None:
+    for child in inner_box.get("ContainedObjects", []) or []:
+        if child.get("Name") == "Deck" and "personal supply" in normalize(child.get("Nickname")):
+            return child
+    return None
+
+
+def find_character_figure(inner_box: dict[str, Any]) -> dict[str, Any] | None:
+    for child in inner_box.get("ContainedObjects", []) or []:
+        if child.get("Name") == "Custom_Model":
+            return child
+    return None
+
+
+def update_outer_class_lua(outer_bag: dict[str, Any], class_name: str) -> None:
+    lua = outer_bag.get("LuaScript")
+    if not isinstance(lua, str) or not lua:
+        raise RuntimeError("Outer class bag is missing LuaScript.")
+
+    # Keep replacements narrow and explicit to avoid changing bundled library internals.
+    lua, class_replaced = re.subn(
+        r'ClassApi\.registerClass\("([^"]+)"',
+        f'ClassApi.registerClass("{class_name}"',
+        lua,
+        count=1,
+    )
+    lua, supply_replaced = re.subn(
+        r'name = "([^"]*Personal Supply)"',
+        f'name = "{class_name} Personal Supply"',
+        lua,
+        count=1,
+    )
+    outer_bag["LuaScript"] = lua
+
+    if class_replaced != 1:
+        raise RuntimeError("Could not update ClassApi.registerClass(...) in outer LuaScript.")
+    if supply_replaced != 1:
+        raise RuntimeError("Could not update Personal Supply name in outer LuaScript.")
+
+
 def random_guid(existing: set[str]) -> str:
     while True:
         guid = "".join(secrets.choice("0123456789abcdef") for _ in range(6))
@@ -145,9 +186,16 @@ def build_single_object(
     clone["Nickname"] = f"{class_name} Content Box"
     clone["Description"] = f"Single-class content box for {class_name} (Quartermaster clone)"
     quartermaster_outer["Nickname"] = class_name
+    update_outer_class_lua(quartermaster_outer, class_name)
 
     inner_box = find_inner_class_box(quartermaster_outer)
     inner_box["Nickname"] = class_name
+    personal_supply = find_personal_supply_deck(inner_box)
+    if personal_supply is not None:
+        personal_supply["Nickname"] = f"{class_name} Personal Supply"
+    figure = find_character_figure(inner_box)
+    if figure is not None:
+        figure["Nickname"] = class_name
 
     character_mat = find_character_mat(inner_box)
     custom_image = character_mat.get("CustomImage")
