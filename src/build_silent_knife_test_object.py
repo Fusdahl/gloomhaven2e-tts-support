@@ -540,6 +540,35 @@ def main() -> int:
     _prune_character_mat(data)
     _rebalance_ability_contained_objects(data)
 
+    # Keep both TTS formats stable:
+    # - "saved_object" output => wrapped save JSON with ObjectStates
+    # - "object_state" output => raw object-state JSON only
+    output_name = output_path.name.lower()
+    if "saved_object" in output_name and "ObjectStates" not in data:
+        data = {
+            "SaveName": f"{CLASS_NAME} Test Save (v2)",
+            "Date": "",
+            "VersionNumber": "",
+            "GameMode": "",
+            "GameType": "",
+            "GameComplexity": "",
+            "Tags": [],
+            "Gravity": 0.5,
+            "PlayArea": 0.5,
+            "Table": "",
+            "Sky": "",
+            "Note": "",
+            "TabStates": {},
+            "LuaScript": "",
+            "LuaScriptState": "",
+            "XmlUI": "",
+            "ObjectStates": [data],
+        }
+    elif "object_state" in output_name and "ObjectStates" in data:
+        object_states = data.get("ObjectStates") or []
+        if object_states:
+            data = object_states[0]
+
     # If this is a full save, set a distinct SaveName so it is obvious in TTS load list.
     if isinstance(data, dict) and "SaveName" in data:
         data["SaveName"] = f"{CLASS_NAME} Test Save (v2)"
