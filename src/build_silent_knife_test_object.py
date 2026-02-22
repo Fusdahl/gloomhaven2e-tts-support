@@ -23,7 +23,7 @@ LEGACY_CLASS_BAG_GUID = "gh2e-spears-big-box"
 LEGACY_ID_PREFIX = "gh2e-spears"
 CLASS_ID_PREFIX = "gh2e-silent-knife"
 SILENT_KNIFE_HP = [8, 9, 11, 12, 14, 15, 17, 18, 20]
-ASSET_REV = "r20260222a"
+ASSET_REV = "r20260222b"
 SILENT_KNIFE_ORDER_FILE = (
     Path(__file__).resolve().parent.parent
     / "assets"
