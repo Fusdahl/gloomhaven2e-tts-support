@@ -29,11 +29,14 @@ SILENT_KNIFE_ORDER_FILE = (
     / "ordered_for_rows"
     / "ORDER.txt"
 )
-SCOUNDREL_SOURCE_FILE = (
+SCOUNDREL_SOURCE_CANDIDATES = [
     Path(__file__).resolve().parent.parent
     / "saved objects for working 1st class"
-    / "Scoundrel  working 1st edition.json"
-)
+    / "Scoundrel  working 1st edition.json",
+    Path(__file__).resolve().parent.parent
+    / "saved objects for working 1st class"
+    / "Scoundrel  top box.json",
+]
 
 ABILITY_FACE = RAW_BASE + "final_class_ability_atlases/silent_knife_ability_atlas.png" + f"?v={ASSET_REV}"
 ABILITY_BACK = RAW_BASE + "final_class_ability_atlases/silent_knife_ability_back.png" + f"?v={ASSET_REV}"
@@ -125,8 +128,9 @@ SCOUNDREL_BOX_MASK_SIDE_URL = RAW_BASE + "final_class_models/scoundrel_source/ch
 CONTENT_BOX_MESH_URL = RAW_BASE + "final_class_models/content_box_source/content_box_mesh.obj" + f"?v={ASSET_REV}"
 CONTENT_BOX_DIFFUSE_URL = RAW_BASE + "final_class_models/content_box_source/content_box_diffuse.png" + f"?v={ASSET_REV}"
 CONTENT_BOX_ICON_URL = RAW_BASE + "final_class_models/content_box_source/content_icon.png" + f"?v={ASSET_REV}"
-CLASS_BIG_BOX_MESH_URL = RAW_BASE + "final_class_models/class_big_box_source/class_big_box_mesh.obj" + f"?v={ASSET_REV}"
-CLASS_BIG_BOX_DIFFUSE_URL = RAW_BASE + "final_class_models/class_big_box_source/class_big_box_diffuse.png" + f"?v={ASSET_REV}"
+CLASS_TOP_BOX_MESH_URL = RAW_BASE + "final_class_models/scoundrel_top_box_source/scoundrel_top_box_mesh.obj" + f"?v={ASSET_REV}"
+CLASS_TOP_BOX_DIFFUSE_URL = RAW_BASE + "final_class_models/scoundrel_top_box_source/scoundrel_top_box_diffuse.png" + f"?v={ASSET_REV}"
+CLASS_TOP_BOX_ICON_URL = RAW_BASE + "final_class_models/scoundrel_top_box_source/scoundrel_top_box_icon.png" + f"?v={ASSET_REV}"
 SILENT_KNIFE_ICON_URL = RAW_BASE + "final_class_models/silent_knife_source/silent_knife_icon.png" + f"?v={ASSET_REV}"
 
 _ABILITY_ENTRIES_CACHE: list[dict[str, Any]] | None = None
@@ -220,10 +224,12 @@ def _load_scoundrel_figure_template() -> dict[str, Any]:
     if _SCOUNDREL_FIGURE_TEMPLATE_CACHE is not None:
         return _SCOUNDREL_FIGURE_TEMPLATE_CACHE
 
-    if not SCOUNDREL_SOURCE_FILE.exists():
-        raise RuntimeError(f"Missing Scoundrel source file: {SCOUNDREL_SOURCE_FILE}")
+    source_file = next((p for p in SCOUNDREL_SOURCE_CANDIDATES if p.exists()), None)
+    if source_file is None:
+        joined = ", ".join(str(p) for p in SCOUNDREL_SOURCE_CANDIDATES)
+        raise RuntimeError(f"Missing Scoundrel source file. Checked: {joined}")
 
-    source = json.loads(SCOUNDREL_SOURCE_FILE.read_text(encoding="utf-8"))
+    source = json.loads(source_file.read_text(encoding="utf-8"))
     root = source
     if isinstance(source, dict) and isinstance(source.get("ObjectStates"), list) and source["ObjectStates"]:
         root = source["ObjectStates"][0]
@@ -483,10 +489,17 @@ def _patch_object(obj: dict[str, Any]) -> None:
             obj["ContainedObjects"] = filtered_cards
 
     if nickname == "Starting Abilities" and isinstance(obj.get("DeckIDs"), list):
+        if obj.get("Name") == "Deck":
+            obj["Name"] = "DeckCustom"
         obj["DeckIDs"] = STARTING_ABILITY_DECK_IDS.copy()
 
     if nickname == "Advanced Abilities" and isinstance(obj.get("DeckIDs"), list):
+        if obj.get("Name") == "Deck":
+            obj["Name"] = "DeckCustom"
         obj["DeckIDs"] = ADVANCED_ABILITY_DECK_IDS.copy()
+
+    if nickname == "Attack Modifiers" and obj.get("Name") == "Deck":
+        obj["Name"] = "DeckCustom"
 
     if nickname == "Character Sheet" and isinstance(obj.get("CustomImage"), dict):
         custom_image = obj["CustomImage"]
@@ -555,17 +568,25 @@ def _patch_object(obj: dict[str, Any]) -> None:
                 ui_assets.append(content_icon)
             content_icon["URL"] = CONTENT_BOX_ICON_URL
 
-    # Keep the large class box model in-repo as well.
+    # Keep the top class box model in-repo as well.
     if (
         obj.get("GUID") in {LEGACY_CLASS_BAG_GUID, CLASS_BAG_GUID}
-        and obj.get("Name") in {"Custom_Model_Infinite_Bag", "Custom_Model_Bag"}
+        and obj.get("Name") == "Custom_Model_Infinite_Bag"
         and isinstance(obj.get("CustomMesh"), dict)
     ):
+        obj["GUID"] = CLASS_BAG_GUID
         custom_mesh = obj["CustomMesh"]
-        custom_mesh["MeshURL"] = CLASS_BIG_BOX_MESH_URL
-        custom_mesh["DiffuseURL"] = CLASS_BIG_BOX_DIFFUSE_URL
+        custom_mesh["MeshURL"] = CLASS_TOP_BOX_MESH_URL
+        custom_mesh["DiffuseURL"] = CLASS_TOP_BOX_DIFFUSE_URL
         custom_mesh["MaterialIndex"] = 3
-        custom_mesh["TypeIndex"] = 6
+        custom_mesh["TypeIndex"] = 7
+
+        ui_assets = obj.get("CustomUIAssets")
+        if isinstance(ui_assets, list):
+            for asset in ui_assets:
+                if isinstance(asset, dict) and asset.get("Name") == CLASS_ICON_NAME:
+                    asset["URL"] = CLASS_TOP_BOX_ICON_URL
+                    break
 
     # Use the Scoundrel character model implementation for Silent Knife figure.
     # Keep the existing GH2 figure script/state so interactions remain on the same object.
@@ -754,7 +775,6 @@ def main() -> int:
 
     data = json.loads(input_path.read_text(encoding="utf-8"))
     _walk_and_patch(data)
-    _flatten_classes_packaging(data)
     _prune_character_mat(data)
     _rebalance_ability_contained_objects(data)
 
