@@ -18,6 +18,7 @@ RAW_BASE = "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/m
 CLASS_NAME = "Silent Knife"
 CLASS_ICON_NAME = "Silent_Knife_Icon"
 SILENT_KNIFE_HP = [8, 9, 11, 12, 14, 15, 17, 18, 20]
+ASSET_REV = "r20260222a"
 SILENT_KNIFE_ORDER_FILE = (
     Path(__file__).resolve().parent.parent
     / "assets"
@@ -26,18 +27,18 @@ SILENT_KNIFE_ORDER_FILE = (
     / "ORDER.txt"
 )
 
-ABILITY_FACE = RAW_BASE + "final_class_ability_atlases/silent_knife_ability_atlas.png"
-ABILITY_BACK = RAW_BASE + "final_class_ability_atlases/silent_knife_ability_back.png"
+ABILITY_FACE = RAW_BASE + "final_class_ability_atlases/silent_knife_ability_atlas.png" + f"?v={ASSET_REV}"
+ABILITY_BACK = RAW_BASE + "final_class_ability_atlases/silent_knife_ability_back.png" + f"?v={ASSET_REV}"
 
 # Quartermaster-compatible layout (5x5) with filler + back in slot 24.
-AMD_FACE = RAW_BASE + "final_class_amd_atlases/silent_knife_amd_atlas_5x5.png"
-AMD_BACK = RAW_BASE + "final_class_amd_atlases/silent_knife_amd_back_814x531.png"
+AMD_FACE = RAW_BASE + "final_class_amd_atlases/silent_knife_amd_atlas_5x5.png" + f"?v={ASSET_REV}"
+AMD_BACK = RAW_BASE + "final_class_amd_atlases/silent_knife_amd_back_814x531.png" + f"?v={ASSET_REV}"
 
-EXTRA_FACE = RAW_BASE + "final_class_amd_atlases/silent_knife_extra_perks_atlas_2x2.png"
+EXTRA_FACE = RAW_BASE + "final_class_amd_atlases/silent_knife_extra_perks_atlas_2x2.png" + f"?v={ASSET_REV}"
 EXTRA_BACK = AMD_BACK
 
-SHEET_FRONT = RAW_BASE + "FH_compatible_sheets/silent_knife_character_sheet_front.png"
-SHEET_BACK = RAW_BASE + "FH_compatible_sheets/silent_knife_character_sheet_back.png"
+SHEET_FRONT = RAW_BASE + "FH_compatible_sheets/silent_knife_character_sheet_front.png" + f"?v={ASSET_REV}"
+SHEET_BACK = RAW_BASE + "FH_compatible_sheets/silent_knife_character_sheet_back.png" + f"?v={ASSET_REV}"
 
 # Keep extra cards but prevent 5019 filler slots from becoming drawable.
 SAFE_ATTACK_MODIFIER_DECK_IDS = [
