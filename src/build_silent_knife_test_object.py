@@ -15,6 +15,16 @@ from typing import Any
 
 
 RAW_BASE = "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/"
+CLASS_NAME = "Silent Knife"
+CLASS_ICON_NAME = "Silent_Knife_Icon"
+SILENT_KNIFE_HP = [8, 9, 11, 12, 14, 15, 17, 18, 20]
+SILENT_KNIFE_ORDER_FILE = (
+    Path(__file__).resolve().parent.parent
+    / "assets"
+    / "silent_knife_asset_downloads"
+    / "ordered_for_rows"
+    / "ORDER.txt"
+)
 
 ABILITY_FACE = RAW_BASE + "final_class_ability_atlases/silent_knife_ability_atlas.png"
 ABILITY_BACK = RAW_BASE + "final_class_ability_atlases/silent_knife_ability_back.png"
@@ -83,6 +93,176 @@ SILENT_KNIFE_MASTERY_POSITIONS = [
 ]
 
 WHITE_DIFFUSE = {"r": 1.0, "g": 1.0, "b": 1.0}
+DROP_OBJECT_NICKNAMES = {
+    "character mat",
+    "decorative crate",
+    "quartermaster personal supply",
+    "silent knife personal supply",
+}
+
+_ABILITY_ENTRIES_CACHE: list[dict[str, Any]] | None = None
+_ABILITY_BY_CARD_ID_CACHE: dict[int, dict[str, Any]] | None = None
+
+
+def _normalize_spaces(text: str) -> str:
+    return text.replace("\u00A0", " ")
+
+
+def _normalize_key(text: str) -> str:
+    return re.sub(r"\s+", " ", _normalize_spaces(text)).strip().lower()
+
+
+def _slug_to_display_name(slug: str) -> str:
+    special = {
+        "tricksters": "Trickster's",
+        "duelists": "Duelist's",
+    }
+    parts = slug.split("-")
+    out_parts: list[str] = []
+    for part in parts:
+        if part in special:
+            out_parts.append(special[part])
+        else:
+            out_parts.append(part.capitalize())
+    return " ".join(out_parts)
+
+
+def _load_silent_knife_ability_entries() -> list[dict[str, Any]]:
+    global _ABILITY_ENTRIES_CACHE
+    if _ABILITY_ENTRIES_CACHE is not None:
+        return _ABILITY_ENTRIES_CACHE
+
+    if not SILENT_KNIFE_ORDER_FILE.exists():
+        raise RuntimeError(f"Missing Silent Knife order file: {SILENT_KNIFE_ORDER_FILE}")
+
+    entries: list[dict[str, Any]] = []
+    lines = SILENT_KNIFE_ORDER_FILE.read_text(encoding="utf-8").splitlines()
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        parts = line.split("|")
+        if len(parts) != 4:
+            continue
+        idx_raw, level_raw, init_raw, filename = parts
+        idx = int(idx_raw)
+        level = level_raw.strip()
+        initiative = int(init_raw)
+        slug = filename.rsplit(".", 1)[0]
+        card_name = _slug_to_display_name(slug)
+        entries.append(
+            {
+                "idx": idx,
+                "card_id": 345299 + idx,
+                "name": card_name,
+                "level": level,
+                "initiative": initiative,
+            }
+        )
+
+    entries.sort(key=lambda x: x["idx"])
+    if len(entries) != 28:
+        raise RuntimeError(
+            f"Expected 28 Silent Knife ability entries, got {len(entries)} from {SILENT_KNIFE_ORDER_FILE}"
+        )
+    _ABILITY_ENTRIES_CACHE = entries
+    return entries
+
+
+def _get_ability_by_card_id() -> dict[int, dict[str, Any]]:
+    global _ABILITY_BY_CARD_ID_CACHE
+    if _ABILITY_BY_CARD_ID_CACHE is not None:
+        return _ABILITY_BY_CARD_ID_CACHE
+    entries = _load_silent_knife_ability_entries()
+    _ABILITY_BY_CARD_ID_CACHE = {entry["card_id"]: entry for entry in entries}
+    return _ABILITY_BY_CARD_ID_CACHE
+
+
+def _build_abilities_lua_block() -> str:
+    lines = ["  abilities = {"]
+    for entry in _load_silent_knife_ability_entries():
+        level = entry["level"]
+        if level.upper() == "X":
+            level_lua = '"X"'
+        else:
+            level_lua = str(int(level))
+        lines.append(f'    ["{entry["name"]}"] = {{')
+        lines.append(f"      level = {level_lua},")
+        lines.append(f'      initiative = {entry["initiative"]},')
+        lines.append("    },")
+    lines.append("  }")
+    return "\n".join(lines)
+
+
+def _contains_class_lua(lua_script: str) -> bool:
+    return (
+        "ClassApi.registerClass(" in lua_script
+        and "perks" in lua_script
+        and "abilities" in lua_script
+    )
+
+
+def _patch_outer_class_lua(lua_script: str) -> str:
+    patched = re.sub(
+        r'ClassApi\.registerClass\("([^"]+)"',
+        f'ClassApi.registerClass("{CLASS_NAME}"',
+        lua_script,
+        count=1,
+    )
+    hp_values = "".join(f"    {value},\n" for value in SILENT_KNIFE_HP)
+    hp_block = "hp = {\n" + hp_values + "  },"
+    patched = re.sub(
+        r"hp\s*=\s*\{\s*[\d,\s]*\s*\},",
+        hp_block,
+        patched,
+        count=1,
+        flags=re.S,
+    )
+    # Remove template-only extras so no missing-object spawn is attempted.
+    patched = re.sub(
+        r"extra\s*=\s*\{\s*\{\s*name\s*=\s*\"Decorative crate\"\s*,\s*target\s*=\s*\"PlayerMat\"\s*,\s*\}\s*,\s*\{\s*name\s*=\s*\"[^\"]*Personal Supply\"\s*,\s*target\s*=\s*\"PlayerMat\"\s*,\s*\}\s*,\s*\}\s*,",
+        "extra = {\n  },",
+        patched,
+        count=1,
+        flags=re.S,
+    )
+    patched = re.sub(
+        r"\r?\n  extra = \{\s*.*?\s*  \},\r?\n  perks = \{",
+        "\n  extra = {\n  },\n  perks = {",
+        patched,
+        count=1,
+        flags=re.S,
+    )
+    # Disable automatic perk transformations; deck can be managed manually.
+    patched = re.sub(
+        r"perks\s*=\s*\{.*?\}\s*,\s*\r?\n\s*abilities\s*=",
+        "perks = {\n  },\n  abilities =",
+        patched,
+        count=1,
+        flags=re.S,
+    )
+    # Replace ability map with Silent Knife names/levels/initiatives from ORDER.txt.
+    ability_block = _build_abilities_lua_block()
+    patched = re.sub(
+        r"abilities\s*=\s*\{.*?\n\s*\}\s*\r?\n\}\)",
+        ability_block + "\n})",
+        patched,
+        count=1,
+        flags=re.S,
+    )
+    # Keep visible naming coherent for this clone stage.
+    patched = patched.replace("Quartermaster\u00A0 Personal Supply", f"{CLASS_NAME} Personal Supply")
+    patched = patched.replace("Quartermaster Personal Supply", f"{CLASS_NAME} Personal Supply")
+    return patched
+
+
+def _patch_text_value(text: str) -> str:
+    out = _normalize_spaces(text)
+    out = out.replace("Quartermaster", CLASS_NAME)
+    out = out.replace("Valrath Silent Knife", "Human Silent Knife")
+    out = out.replace("Quartermaster clone", "Silent Knife clone")
+    out = re.sub(r"\s+", " ", out).strip()
+    return out
 
 
 def _patch_custom_deck(custom_deck: dict[str, Any]) -> None:
@@ -125,14 +305,96 @@ def _patch_character_sheet_lua(lua_script: str) -> str:
 
     patched = perk_pattern.sub(rf"\1{perk_lines}\3", lua_script, count=1)
     patched = mastery_pattern.sub(rf"\1{mastery_lines}\3", patched, count=1)
+
+    # Standalone-sheet safety: if owner/player linkage is missing,
+    # fall back to click player and avoid hard runtime failures.
+    patched = patched.replace(
+        "  this.onChangeLevel = function(_, value, element)",
+        "  this.onChangeLevel = function(player, value, element)",
+        1,
+    )
+    patched = patched.replace(
+        "    CharacterApi.setLevel(this.player, newLevel)",
+        """    local targetPlayer = this.player or (player and player.color) or player
+    if targetPlayer ~= nil then
+      this.player = targetPlayer
+      pcall(CharacterApi.setLevel, targetPlayer, newLevel)
+    end""",
+        1,
+    )
+    patched = patched.replace(
+        "  this.onPerkClicked = function(_, value, element)",
+        "  this.onPerkClicked = function(player, value, element)",
+        1,
+    )
+    patched = patched.replace(
+        "    CharacterApi.changePerk(this.player, perk, value)",
+        """    local targetPlayer = this.player or (player and player.color) or player
+    if targetPlayer ~= nil then
+      this.player = targetPlayer
+      pcall(CharacterApi.changePerk, targetPlayer, perk, value)
+    end""",
+        1,
+    )
     return patched
 
 
 def _patch_object(obj: dict[str, Any]) -> None:
     nickname = obj.get("Nickname")
 
+    if isinstance(obj.get("Description"), str):
+        obj["Description"] = _patch_text_value(obj["Description"])
+    if isinstance(obj.get("Memo"), str):
+        memo = obj["Memo"]
+        try:
+            memo_obj = json.loads(memo)
+        except json.JSONDecodeError:
+            memo_obj = None
+        if isinstance(memo_obj, dict):
+            changed = False
+            if isinstance(memo_obj.get("name"), str):
+                memo_obj["name"] = _patch_text_value(memo_obj["name"])
+                changed = True
+            if changed:
+                obj["Memo"] = json.dumps(memo_obj, ensure_ascii=False, separators=(",", ":"))
+
+    if isinstance(nickname, str):
+        obj["Nickname"] = _patch_text_value(nickname)
+        nickname = obj["Nickname"]
+
+    if isinstance(obj.get("Name"), str) and "Quartermaster" in _normalize_spaces(obj["Name"]):
+        obj["Name"] = _patch_text_value(obj["Name"])
+
+    if isinstance(obj.get("XmlUI"), str):
+        xml = _normalize_spaces(obj["XmlUI"])
+        xml = xml.replace("Quartermaster _Icon", CLASS_ICON_NAME)
+        xml = xml.replace("Quartermaster_Icon", CLASS_ICON_NAME)
+        xml = xml.replace("Quartermaster\u00A0_Icon", CLASS_ICON_NAME)
+        obj["XmlUI"] = xml
+
+    custom_ui_assets = obj.get("CustomUIAssets")
+    if isinstance(custom_ui_assets, list):
+        for asset in custom_ui_assets:
+            if not isinstance(asset, dict):
+                continue
+            name = asset.get("Name")
+            if isinstance(name, str) and "Quartermaster" in _normalize_spaces(name):
+                asset["Name"] = CLASS_ICON_NAME
+
     if isinstance(obj.get("CustomDeck"), dict):
         _patch_custom_deck(obj["CustomDeck"])
+
+    if isinstance(obj.get("LuaScript"), str):
+        lua = obj["LuaScript"]
+        if _contains_class_lua(lua):
+            obj["LuaScript"] = _patch_outer_class_lua(lua)
+
+    card_id = obj.get("CardID")
+    if isinstance(card_id, int):
+        ability_map = _get_ability_by_card_id()
+        meta = ability_map.get(card_id)
+        if meta is not None:
+            obj["Nickname"] = f'{meta["name"]} ({meta["initiative"]})'
 
     if nickname == "Attack Modifiers" and isinstance(obj.get("DeckIDs"), list):
         obj["DeckIDs"] = SAFE_ATTACK_MODIFIER_DECK_IDS.copy()
@@ -181,8 +443,16 @@ def _prune_character_mat(node: Any) -> None:
     elif isinstance(node, list):
         filtered = []
         for item in node:
-            if isinstance(item, dict) and item.get("Nickname") == "Character Mat":
-                continue
+            if isinstance(item, dict):
+                nick = item.get("Nickname")
+                if isinstance(nick, str):
+                    normalized = _normalize_key(nick)
+                    if normalized in DROP_OBJECT_NICKNAMES:
+                        continue
+                    if "personal supply" in normalized:
+                        continue
+                    if "decorative crate" in normalized:
+                        continue
             _prune_character_mat(item)
             filtered.append(item)
         node[:] = filtered
@@ -271,7 +541,7 @@ def main() -> int:
 
     # If this is a full save, set a distinct SaveName so it is obvious in TTS load list.
     if isinstance(data, dict) and "SaveName" in data:
-        data["SaveName"] = "Silent Knife Test Save (v2)"
+        data["SaveName"] = f"{CLASS_NAME} Test Save (v2)"
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
