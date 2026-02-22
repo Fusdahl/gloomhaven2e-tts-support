@@ -73,14 +73,16 @@ SILENT_KNIFE_PERK_POSITIONS = [
     (105, -51),
     (80, -86),
     (80, -241),
-    (80, -365),
-    (80, -441),
+    (80, -348),
+    (80, -388),
 ]
 
 SILENT_KNIFE_MASTERY_POSITIONS = [
     (-336, -339),
     (-336, -430),
 ]
+
+WHITE_DIFFUSE = {"r": 1.0, "g": 1.0, "b": 1.0}
 
 
 def _patch_custom_deck(custom_deck: dict[str, Any]) -> None:
@@ -134,15 +136,18 @@ def _patch_object(obj: dict[str, Any]) -> None:
 
     if nickname == "Attack Modifiers" and isinstance(obj.get("DeckIDs"), list):
         obj["DeckIDs"] = SAFE_ATTACK_MODIFIER_DECK_IDS.copy()
+        obj["ColorDiffuse"] = WHITE_DIFFUSE.copy()
         # Keep contained cards consistent with DeckIDs to avoid deck mismatch issues.
         contained = obj.get("ContainedObjects")
         if isinstance(contained, list):
             keep_ids = set(SAFE_ATTACK_MODIFIER_DECK_IDS)
-            obj["ContainedObjects"] = [
-                card
-                for card in contained
-                if isinstance(card, dict) and card.get("CardID") in keep_ids
-            ]
+            filtered_cards: list[dict[str, Any]] = []
+            for card in contained:
+                if not isinstance(card, dict) or card.get("CardID") not in keep_ids:
+                    continue
+                card["ColorDiffuse"] = WHITE_DIFFUSE.copy()
+                filtered_cards.append(card)
+            obj["ContainedObjects"] = filtered_cards
 
     if nickname == "Starting Abilities" and isinstance(obj.get("DeckIDs"), list):
         obj["DeckIDs"] = STARTING_ABILITY_DECK_IDS.copy()
