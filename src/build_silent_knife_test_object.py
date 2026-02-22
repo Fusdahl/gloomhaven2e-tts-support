@@ -20,6 +20,8 @@ CLASS_NAME = "Silent Knife"
 CLASS_ICON_NAME = "Silent_Knife_Icon"
 CLASS_BAG_GUID = "gh2e-silent-knife-box"
 LEGACY_CLASS_BAG_GUID = "gh2e-spears-big-box"
+LEGACY_ID_PREFIX = "gh2e-spears"
+CLASS_ID_PREFIX = "gh2e-silent-knife"
 SILENT_KNIFE_HP = [8, 9, 11, 12, 14, 15, 17, 18, 20]
 ASSET_REV = "r20260222a"
 SILENT_KNIFE_ORDER_FILE = (
@@ -410,6 +412,13 @@ def _patch_character_sheet_lua(lua_script: str) -> str:
     end""",
         1,
     )
+    # Prevent duplicate overlayed text fields if the sheet reloads/re-inits.
+    patched = patched.replace(
+        "    this.initUi()",
+        """    ttsSelf.UI.setXml("")
+    this.initUi()""",
+        1,
+    )
     return patched
 
 
@@ -622,6 +631,13 @@ def _patch_object(obj: dict[str, Any]) -> None:
         obj.pop("CustomMesh", None)
         obj["ColorDiffuse"] = dict(SCOUNDREL_FIGURE_COLOR)
         obj["LuaScriptState"] = ""
+
+    # Rewrite lingering template component identifiers so class-specific
+    # systems do not treat Silent Knife as the legacy "spears" class.
+    for key in ("GUID", "Description", "Memo", "LuaScript", "LuaScriptState", "XmlUI"):
+        value = obj.get(key)
+        if isinstance(value, str) and LEGACY_ID_PREFIX in value:
+            obj[key] = value.replace(LEGACY_ID_PREFIX, CLASS_ID_PREFIX)
 
 
 def _flatten_classes_packaging(root: Any) -> None:
