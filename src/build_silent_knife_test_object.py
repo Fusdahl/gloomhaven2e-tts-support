@@ -98,8 +98,8 @@ SILENT_KNIFE_PERK_POSITIONS = [
     (105, -51),
     (80, -86),
     (80, -241),
-    (80, -348),
-    (80, -388),
+    (80, -390),
+    (80, -393),
 ]
 
 SILENT_KNIFE_MASTERY_POSITIONS = [
@@ -403,13 +403,23 @@ def _patch_character_sheet_lua(lua_script: str) -> str:
         "  this.onPerkClicked = function(player, value, element)",
         1,
     )
+    patched = re.sub(
+        r"(this\.onPerkClicked = function\(player, value, element\)\s+)(local perk = Ui\.getIndex\(element\.id, \"_\(.\*\)\"\)\s+self\.data\.perks\[perk\] = value)",
+        r"""\1if element == nil or element.id == nil then
+      return
+    end
+    local perk = Ui.getIndex(element.id, "_(.*)")
+    if perk == nil then
+      return
+    end
+    self.data.perks[perk] = value""",
+        patched,
+        count=1,
+        flags=re.S,
+    )
     patched = patched.replace(
         "    CharacterApi.changePerk(this.player, perk, value)",
-        """    local targetPlayer = this.player or (player and player.color) or player
-    if targetPlayer ~= nil then
-      this.player = targetPlayer
-      pcall(CharacterApi.changePerk, targetPlayer, perk, value)
-    end""",
+        "    -- Intentionally no CharacterApi perk sync for local test build.",
         1,
     )
     # Prevent duplicate overlayed text fields if the sheet reloads/re-inits.
@@ -417,6 +427,13 @@ def _patch_character_sheet_lua(lua_script: str) -> str:
         "    this.initUi()",
         """    ttsSelf.UI.setXml("")
     this.initUi()""",
+        1,
+    )
+    # Ensure every UI build starts from a clean slate to avoid overlaid counters.
+    patched = patched.replace(
+        "  function this.initUi()",
+        """  function this.initUi()
+    ttsSelf.UI.setXml("")""",
         1,
     )
     return patched
