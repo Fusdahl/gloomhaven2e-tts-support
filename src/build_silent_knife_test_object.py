@@ -429,6 +429,28 @@ def _patch_character_sheet_lua(lua_script: str) -> str:
     this.initUi()""",
         1,
     )
+    # On the player mat, character data is injected shortly after onLoad.
+    # Avoid drawing initial 0/0 counters first; wait briefly for data sync.
+    patched = re.sub(
+        r"this\.player = ComponentApi\.getOwner\(ttsSelf\)\s+ExtensionApi\.registerExtensions\(\)\s+ttsSelf\.UI\.setXml\(\"\"\)\s+this\.initUi\(\)",
+        """this.player = ComponentApi.getOwner(ttsSelf)
+    ExtensionApi.registerExtensions()
+
+    if this.player == nil then
+      ttsSelf.UI.setXml("")
+      this.initUi()
+    else
+      Wait.time(function()
+        if ttsSelf.UI.getXml() == "" then
+          ttsSelf.UI.setXml("")
+          this.initUi()
+        end
+      end, 0.5)
+    end""",
+        patched,
+        count=1,
+        flags=re.S,
+    )
     # Ensure every UI build starts from a clean slate to avoid overlaid counters.
     patched = patched.replace(
         "  function this.initUi()",
