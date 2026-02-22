@@ -8,6 +8,7 @@ It supports both full-save JSON (with ObjectStates) and single object-state JSON
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import re
 from pathlib import Path
@@ -17,6 +18,8 @@ from typing import Any
 RAW_BASE = "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/"
 CLASS_NAME = "Silent Knife"
 CLASS_ICON_NAME = "Silent_Knife_Icon"
+CLASS_BAG_GUID = "gh2e-silent-knife-box"
+LEGACY_CLASS_BAG_GUID = "gh2e-spears-big-box"
 SILENT_KNIFE_HP = [8, 9, 11, 12, 14, 15, 17, 18, 20]
 ASSET_REV = "r20260222a"
 SILENT_KNIFE_ORDER_FILE = (
@@ -25,6 +28,11 @@ SILENT_KNIFE_ORDER_FILE = (
     / "silent_knife_asset_downloads"
     / "ordered_for_rows"
     / "ORDER.txt"
+)
+SCOUNDREL_SOURCE_FILE = (
+    Path(__file__).resolve().parent.parent
+    / "saved objects for working 1st class"
+    / "Scoundrel  working 1st edition.json"
 )
 
 ABILITY_FACE = RAW_BASE + "final_class_ability_atlases/silent_knife_ability_atlas.png" + f"?v={ASSET_REV}"
@@ -123,6 +131,7 @@ SILENT_KNIFE_ICON_URL = RAW_BASE + "final_class_models/silent_knife_source/silen
 
 _ABILITY_ENTRIES_CACHE: list[dict[str, Any]] | None = None
 _ABILITY_BY_CARD_ID_CACHE: dict[int, dict[str, Any]] | None = None
+_SCOUNDREL_FIGURE_TEMPLATE_CACHE: dict[str, Any] | None = None
 
 
 def _normalize_spaces(text: str) -> str:
@@ -188,6 +197,44 @@ def _load_silent_knife_ability_entries() -> list[dict[str, Any]]:
         )
     _ABILITY_ENTRIES_CACHE = entries
     return entries
+
+
+def _find_first_by_guid(node: Any, guid: str) -> dict[str, Any] | None:
+    if isinstance(node, dict):
+        if node.get("GUID") == guid:
+            return node
+        for value in node.values():
+            found = _find_first_by_guid(value, guid)
+            if found is not None:
+                return found
+    elif isinstance(node, list):
+        for item in node:
+            found = _find_first_by_guid(item, guid)
+            if found is not None:
+                return found
+    return None
+
+
+def _load_scoundrel_figure_template() -> dict[str, Any]:
+    global _SCOUNDREL_FIGURE_TEMPLATE_CACHE
+    if _SCOUNDREL_FIGURE_TEMPLATE_CACHE is not None:
+        return _SCOUNDREL_FIGURE_TEMPLATE_CACHE
+
+    if not SCOUNDREL_SOURCE_FILE.exists():
+        raise RuntimeError(f"Missing Scoundrel source file: {SCOUNDREL_SOURCE_FILE}")
+
+    source = json.loads(SCOUNDREL_SOURCE_FILE.read_text(encoding="utf-8"))
+    root = source
+    if isinstance(source, dict) and isinstance(source.get("ObjectStates"), list) and source["ObjectStates"]:
+        root = source["ObjectStates"][0]
+
+    # Source object uses scoundrel-figure GUID in the 1e working file.
+    figure = _find_first_by_guid(root, "scoundrel-figure")
+    if not isinstance(figure, dict):
+        raise RuntimeError("Could not find scoundrel-figure in 1e Scoundrel source object")
+
+    _SCOUNDREL_FIGURE_TEMPLATE_CACHE = figure
+    return figure
 
 
 def _get_ability_by_card_id() -> dict[int, dict[str, Any]]:
@@ -510,8 +557,8 @@ def _patch_object(obj: dict[str, Any]) -> None:
 
     # Keep the large class box model in-repo as well.
     if (
-        obj.get("GUID") == "gh2e-spears-big-box"
-        and obj.get("Name") == "Custom_Model_Infinite_Bag"
+        obj.get("GUID") in {LEGACY_CLASS_BAG_GUID, CLASS_BAG_GUID}
+        and obj.get("Name") in {"Custom_Model_Infinite_Bag", "Custom_Model_Bag"}
         and isinstance(obj.get("CustomMesh"), dict)
     ):
         custom_mesh = obj["CustomMesh"]
@@ -530,10 +577,71 @@ def _patch_object(obj: dict[str, Any]) -> None:
         and "Character" in tags
         and "Figure" in tags
     ):
+        current_guid = obj.get("GUID")
+        current_nickname = obj.get("Nickname")
+        current_transform = obj.get("Transform")
+
+        # Replace figure behavior/profile from Scoundrel 1e template to avoid
+        # inherited GH2 figure config (e.g. wrong HP/resources).
+        scoundrel_template = copy.deepcopy(_load_scoundrel_figure_template())
+        obj.clear()
+        obj.update(scoundrel_template)
+
+        if current_guid is not None:
+            obj["GUID"] = current_guid
+        if current_nickname is not None:
+            obj["Nickname"] = current_nickname
+        if current_transform is not None:
+            obj["Transform"] = current_transform
+
         obj["Name"] = "Custom_Assetbundle"
+        obj["Description"] = ""
+        obj["Tags"] = ["Character", "Figure"]
         obj["CustomAssetbundle"] = dict(SCOUNDREL_FIGURE_BUNDLE)
         obj.pop("CustomMesh", None)
         obj["ColorDiffuse"] = dict(SCOUNDREL_FIGURE_COLOR)
+        obj["LuaScriptState"] = ""
+
+
+def _flatten_classes_packaging(root: Any) -> None:
+    classes = _find_first_by_nickname(root, "Classes")
+    if not isinstance(classes, dict):
+        return
+    contained = classes.get("ContainedObjects")
+    if not isinstance(contained, list):
+        return
+
+    for idx, class_obj in enumerate(contained):
+        if not isinstance(class_obj, dict):
+            continue
+        if class_obj.get("GUID") not in {LEGACY_CLASS_BAG_GUID, CLASS_BAG_GUID}:
+            continue
+        inner = class_obj.get("ContainedObjects")
+        if not isinstance(inner, list):
+            continue
+
+        small = None
+        for obj in inner:
+            if isinstance(obj, dict) and obj.get("GUID") == "gh2e-spears-small-box":
+                small = obj
+                break
+        if not isinstance(small, dict):
+            continue
+
+        # Promote the small class box (Scoundrel-like packaging), but keep
+        # the class registration script and metadata from the current big box.
+        promoted = small
+        promoted["LuaScript"] = class_obj.get("LuaScript", promoted.get("LuaScript", ""))
+        promoted["LuaScriptState"] = class_obj.get("LuaScriptState", promoted.get("LuaScriptState", ""))
+        if class_obj.get("Memo") is not None:
+            promoted["Memo"] = class_obj.get("Memo")
+        if isinstance(class_obj.get("Tags"), list):
+            promoted["Tags"] = class_obj.get("Tags")
+        promoted["Nickname"] = CLASS_NAME
+        promoted["GUID"] = CLASS_BAG_GUID
+
+        contained[idx] = promoted
+        break
 
 
 def _walk_and_patch(node: Any) -> None:
@@ -646,6 +754,7 @@ def main() -> int:
 
     data = json.loads(input_path.read_text(encoding="utf-8"))
     _walk_and_patch(data)
+    _flatten_classes_packaging(data)
     _prune_character_mat(data)
     _rebalance_ability_contained_objects(data)
 
