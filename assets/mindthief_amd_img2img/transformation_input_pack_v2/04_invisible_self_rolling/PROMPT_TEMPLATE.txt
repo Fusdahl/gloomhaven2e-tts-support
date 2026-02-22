@@ -1,0 +1,9 @@
+Generate one Gloomhaven-style attack modifier card image.
+
+Requirements:
+- Keep exact card size and framing of the BASE image.
+- Preserve class style and texture quality.
+- Update only symbols/text/effects required by TASK.txt.
+- Match icon style from donor/reference images.
+- Keep clean print-ready text and no extra artifacts.
+- Output a single PNG card face.

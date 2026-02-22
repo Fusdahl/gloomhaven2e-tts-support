@@ -1,0 +1,4 @@
+GH2 target class: Bruiser (BR2)
+1E reference source: Brute (brute)
+Reason: GH2 uses Bruiser naming while reference mod uses Brute assets/layout.
+All output artifact names are normalized to "bruiser".

@@ -1,0 +1,16 @@
+Task 08: plus1_icon_variant_B_self_2
+
+Goal:
+Create exactly ONE new Silent Knife AMD card from INPUT_reference_card.png.
+
+Target rules text/effect:
++1 with Silent Knife icon effect variant B (self effect), from perks panel
+
+Output file name:
+silent_knife_amd_iconB_02.png
+
+Hard constraints:
+- Keep exact Gloomhaven modifier card frame style and grayscale print look.
+- Preserve card proportions and resolution.
+- Do not add watermark/border/background.
+- Modify only modifier value + rules text/icons area.

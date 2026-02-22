@@ -1,0 +1,832 @@
+effect_key,count,sources,class_count,example_effect_text
+text__0,5,gh1_mod_json,5,(+0)
+text__0_add_target,3,gh1_mod_json,3,(+0) (Add Target)
+text__0_add_target_rolling,3,gh1_mod_json,2,(+0) (Add Target) (Rolling)
+text__0_curse_rolling,12,gh1_mod_json;gh2_mod_json,4,(+0) (Curse) (Rolling)
+text__0_disarm_rolling,2,gh1_mod_json,2,(+0) (Disarm) (Rolling)
+text__0_gain_10_supply,3,gh2_mod_json,1,(+0) (Gain 10 Supply)
+text__0_gain_barbed_strip_or_iron_plate_item,4,gh2_mod_json,1,(+0) (Gain Barbed Strip or Iron Plate item)
+text__0_gain_scroll_of_relocation_or_sharpened_dirk_item_rolling,2,gh2_mod_json,1,(+0) (Gain Scroll of Relocation or Sharpened Dirk item) (Rolling)
+text__0_heal_1_rolling,24,gh1_mod_json,6,(+0) (Heal 1) (Rolling)
+text__0_heal_3_rolling,2,gh1_mod_json,1,(+0) (Heal 3) (Rolling)
+text__0_immobilize_rolling,4,gh1_mod_json,2,(+0) (Immobilize) (Rolling)
+text__0_infuse_air,4,gh1_mod_json,1,(+0) (Infuse Air)
+text__0_infuse_air_rolling,4,gh1_mod_json,3,(+0) (Infuse Air) (Rolling)
+text__0_infuse_any_rolling,5,gh2_mod_json,1,(+0) (Infuse Any) (Rolling)
+text__0_infuse_dark_rolling,2,gh1_mod_json,2,(+0) (Infuse Dark) (Rolling)
+text__0_infuse_earth,4,gh1_mod_json,1,(+0) (Infuse Earth)
+text__0_infuse_earth_rolling,8,gh1_mod_json,4,(+0) (Infuse Earth) (Rolling)
+text__0_infuse_fire,4,gh1_mod_json,1,(+0) (Infuse Fire)
+text__0_infuse_fire_air,1,gh2_mod_json,1,(+0) (Infuse Fire/Air)
+text__0_infuse_fire_earth,1,gh2_mod_json,1,(+0) (Infuse Fire/Earth)
+text__0_infuse_fire_rolling,3,gh1_mod_json,2,(+0) (Infuse Fire) (Rolling)
+text__0_infuse_ice,4,gh1_mod_json,1,(+0) (Infuse Ice)
+text__0_infuse_ice_air,1,gh2_mod_json,1,(+0) (Infuse Ice/Air)
+text__0_infuse_ice_earth,1,gh2_mod_json,1,(+0) (Infuse Ice/Earth)
+text__0_infuse_light_rolling,5,gh1_mod_json,2,(+0) (Infuse Light) (Rolling)
+text__0_invisible_rolling,1,gh1_mod_json,1,(+0) (Invisible) (Rolling)
+text__0_muddle,2,gh2_mod_json,1,(+0) (Muddle)
+text__0_muddle_rolling,16,gh1_mod_json,5,(+0) (Muddle) (Rolling)
+text__0_pierce_3_rolling,8,gh1_mod_json;gh2_mod_json,3,(+0) (Pierce 3) (Rolling)
+text__0_poison,2,gh1_mod_json,1,(+0) (Poison)
+text__0_poison_rolling,9,gh1_mod_json,3,(+0) (Poison) (Rolling)
+text__0_push_1_rolling,9,gh1_mod_json,2,(+0) (Push 1) (Rolling)
+text__0_push_2_rolling,2,gh1_mod_json,1,(+0) (Push 2) (Rolling)
+text__0_refresh_one_item,4,gh1_mod_json,2,(+0) (Refresh one item)
+text__0_shield_1_rolling,2,gh1_mod_json,1,(+0) (Shield 1) (Rolling)
+text__0_skip_moving_tokens,3,gh2_mod_json,1,(+0) (Skip moving tokens)
+text__0_stun,5,gh1_mod_json;gh2_mod_json,3,(+0) (Stun)
+text__0_stun_rolling,12,gh1_mod_json;gh2_mod_json,7,(+0) (Stun) (Rolling)
+text__0_wound,2,gh1_mod_json,1,(+0) (Wound)
+text__0_wound_rolling,9,gh1_mod_json,3,(+0) (Wound) (Rolling)
+text__1,42,gh1_mod_json,15,(+1)
+text__1_add_target_rolling,2,gh1_mod_json,1,(+1) (Add Target) (Rolling)
+text__1_any_ally_gains_shield_1,1,gh1_mod_json,1,(+1) (Any ally gains Shield 1)
+text__1_curse,1,gh1_mod_json,1,(+1) (Curse)
+text__1_disarm,1,gh1_mod_json,1,(+1) (Disarm)
+text__1_disarm_rolling,1,gh1_mod_json,1,(+1) (Disarm) (Rolling)
+text__1_heal_2,2,gh1_mod_json,1,(+1) (Heal 2)
+text__1_heal_2_target_ally,1,gh1_mod_json,1,"(+1) (Heal 2, target ally)"
+text__1_immobilize,11,gh1_mod_json,7,(+1) (Immobilize)
+text__1_infuse_air,4,gh1_mod_json,2,(+1) (Infuse Air)
+text__1_infuse_air_earth,2,gh2_mod_json,1,(+1) (Infuse Air/Earth)
+text__1_infuse_dark,4,gh1_mod_json,2,(+1) (Infuse Dark)
+text__1_infuse_earth,1,gh1_mod_json,1,(+1) (Infuse Earth)
+text__1_infuse_fire_ice,2,gh2_mod_json,1,(+1) (Infuse Fire/Ice)
+text__1_infuse_light,1,gh1_mod_json,1,(+1) (Infuse Light)
+text__1_infuse_light_dark,2,gh2_mod_json,1,(+1) (Infuse Light/Dark)
+text__1_invisible,2,gh1_mod_json,1,(+1) (Invisible)
+text__1_poison,1,gh1_mod_json,1,(+1) (Poison)
+text__1_rolling,23,gh1_mod_json,6,(+1) (Rolling)
+text__1_shield_1,1,gh1_mod_json,1,(+1) (Shield 1)
+text__1_strengthen_target_1_ally,2,gh2_mod_json,1,"(+1) (Strengthen, target 1 ally)"
+text__1_stun,1,gh1_mod_json,1,(+1) (Stun)
+text__1_wound,7,gh1_mod_json,5,(+1) (Wound)
+text__2,25,gh1_mod_json;gh2_mod_json,11,(+2)
+text__2_bless_target_2,1,gh2_mod_json,1,"(-2) (Bless, target 2)"
+text__2_curse,2,gh1_mod_json,2,(+2) (Curse)
+text__2_infuse_dark,1,gh1_mod_json,1,(+2) (Infuse Dark)
+text__2_infuse_fire,4,gh1_mod_json,2,(+2) (Infuse Fire)
+text__2_infuse_ice,4,gh1_mod_json,2,(+2) (Infuse Ice)
+text__2_infuse_light,1,gh1_mod_json,1,(+2) (Infuse Light)
+text__2_muddle,5,gh1_mod_json,3,(+2) (Muddle)
+text__2_poison,1,gh1_mod_json,1,(+2) (Poison)
+text__2_regenerate,1,gh1_mod_json,1,(+2) (Regenerate)
+text__2_rolling,4,gh1_mod_json,2,(+2) (Rolling)
+text__2_wound,1,gh1_mod_json,1,(+2) (Wound)
+text__3,2,gh1_mod_json,2,(+3)
+text__3_muddle,2,gh1_mod_json,2,(+3) (Muddle)
+text__3_shield_1,2,gh1_mod_json,1,(+3) (Shield 1)
+text__4,2,gh1_mod_json,1,(+4)
+text__bear_treat,1,gh1_mod_json,1,Bear Treat
+text__cloak_of_invisibility,1,gh1_mod_json,1,Cloak of Invisibility
+text__earthquakes,1,gh1_mod_json,1,Earthquakes
+text__elemental_proficiency,1,gh1_mod_json,1,Elemental Proficiency
+text__empowering_night,1,gh1_mod_json,1,Empowering Night
+text__etheric_bond,1,gh1_mod_json,1,Etheric Bond
+text__extra_stock,1,gh2_mod_json,1,Extra Stock
+text__grant_ally_mv_2_or_atk_2_rolling,3,gh2_mod_json,1,(Grant ally: MV 2 or ATK 2) (Rolling)
+text__lying_low,1,gh1_mod_json,1,Lying Low
+text__marked_for_the_hunt,1,gh1_mod_json,1,Marked for the Hunt
+text__perk_1,3,gh2_mod_json,3,Perk 1
+text__perk_2,3,gh2_mod_json,3,Perk 2
+text__perk_3,2,gh2_mod_json,2,Perk 3
+text__phase_out,1,gh1_mod_json,1,Phase Out
+text__rapid_recovery,1,gh1_mod_json,1,Rapid Recovery
+text__rejuvenating_vapor,1,gh1_mod_json,1,Rejuvenating Vapor
+text__rested_and_ready,1,gh1_mod_json,1,Rested and Ready
+text__revitalizing_medicine,1,gh1_mod_json,1,Revitalizing Medicine
+text__shielding_light,1,gh1_mod_json,1,Shielding Light
+text__spinning_up,1,gh1_mod_json,1,Spinning Up
+text__storyteller,1,gh1_mod_json,1,Storyteller
+text__tip_the_scales,1,gh1_mod_json,1,Tip the Scales
+text__well_supplied,1,gh1_mod_json,1,Well Supplied
+text__xorn_s_boon,1,gh1_mod_json,1,Xorn's Boon
+xws__fhambb01,1,worldhaven,1,fh-am-bb-01
+xws__fhambb02,1,worldhaven,1,fh-am-bb-02
+xws__fhambb03,1,worldhaven,1,fh-am-bb-03
+xws__fhambb04,1,worldhaven,1,fh-am-bb-04
+xws__fhambb05,1,worldhaven,1,fh-am-bb-05
+xws__fhambb06,1,worldhaven,1,fh-am-bb-06
+xws__fhambb07,1,worldhaven,1,fh-am-bb-07
+xws__fhambb08,1,worldhaven,1,fh-am-bb-08
+xws__fhambb09,1,worldhaven,1,fh-am-bb-09
+xws__fhambb10,1,worldhaven,1,fh-am-bb-10
+xws__fhambb11,1,worldhaven,1,fh-am-bb-11
+xws__fhambb12,1,worldhaven,1,fh-am-bb-12
+xws__fhambb13,1,worldhaven,1,fh-am-bb-13
+xws__fhambb14,1,worldhaven,1,fh-am-bb-14
+xws__fhambb15,1,worldhaven,1,fh-am-bb-15
+xws__fhambbback,1,worldhaven,1,fh-am-bb-back
+xws__fhambn01,1,worldhaven,1,fh-am-bn-01
+xws__fhambn02,1,worldhaven,1,fh-am-bn-02
+xws__fhambn03,1,worldhaven,1,fh-am-bn-03
+xws__fhambn04,1,worldhaven,1,fh-am-bn-04
+xws__fhambn05,1,worldhaven,1,fh-am-bn-05
+xws__fhambn06,1,worldhaven,1,fh-am-bn-06
+xws__fhambn07,1,worldhaven,1,fh-am-bn-07
+xws__fhambn08,1,worldhaven,1,fh-am-bn-08
+xws__fhambn09,1,worldhaven,1,fh-am-bn-09
+xws__fhambn10,1,worldhaven,1,fh-am-bn-10
+xws__fhambn11,1,worldhaven,1,fh-am-bn-11
+xws__fhambn12,1,worldhaven,1,fh-am-bn-12
+xws__fhambn13,1,worldhaven,1,fh-am-bn-13
+xws__fhambn14,1,worldhaven,1,fh-am-bn-14
+xws__fhambn15,1,worldhaven,1,fh-am-bn-15
+xws__fhambn16,1,worldhaven,1,fh-am-bn-16
+xws__fhambn17,1,worldhaven,1,fh-am-bn-17
+xws__fhambnback,1,worldhaven,1,fh-am-bn-back
+xws__fhambo01,1,worldhaven,1,fh-am-bo-01
+xws__fhambo02,1,worldhaven,1,fh-am-bo-02
+xws__fhambo03,1,worldhaven,1,fh-am-bo-03
+xws__fhambo04,1,worldhaven,1,fh-am-bo-04
+xws__fhambo05,1,worldhaven,1,fh-am-bo-05
+xws__fhambo06,1,worldhaven,1,fh-am-bo-06
+xws__fhambo07,1,worldhaven,1,fh-am-bo-07
+xws__fhambo08,1,worldhaven,1,fh-am-bo-08
+xws__fhambo09,1,worldhaven,1,fh-am-bo-09
+xws__fhambo10,1,worldhaven,1,fh-am-bo-10
+xws__fhambo11,1,worldhaven,1,fh-am-bo-11
+xws__fhambo12,1,worldhaven,1,fh-am-bo-12
+xws__fhambo13,1,worldhaven,1,fh-am-bo-13
+xws__fhambo14,1,worldhaven,1,fh-am-bo-14
+xws__fhambo15,1,worldhaven,1,fh-am-bo-15
+xws__fhambo16,1,worldhaven,1,fh-am-bo-16
+xws__fhambo17,1,worldhaven,1,fh-am-bo-17
+xws__fhambo18,1,worldhaven,1,fh-am-bo-18
+xws__fhambo19,1,worldhaven,1,fh-am-bo-19
+xws__fhamboback,1,worldhaven,1,fh-am-bo-back
+xws__fhamcr01,1,worldhaven,1,fh-am-cr-01
+xws__fhamcr02,1,worldhaven,1,fh-am-cr-02
+xws__fhamcr03,1,worldhaven,1,fh-am-cr-03
+xws__fhamcr04,1,worldhaven,1,fh-am-cr-04
+xws__fhamcr05,1,worldhaven,1,fh-am-cr-05
+xws__fhamcr06,1,worldhaven,1,fh-am-cr-06
+xws__fhamcr07,1,worldhaven,1,fh-am-cr-07
+xws__fhamcr08,1,worldhaven,1,fh-am-cr-08
+xws__fhamcr09,1,worldhaven,1,fh-am-cr-09
+xws__fhamcr10,1,worldhaven,1,fh-am-cr-10
+xws__fhamcr11,1,worldhaven,1,fh-am-cr-11
+xws__fhamcr12,1,worldhaven,1,fh-am-cr-12
+xws__fhamcr13,1,worldhaven,1,fh-am-cr-13
+xws__fhamcr14,1,worldhaven,1,fh-am-cr-14
+xws__fhamcr15,1,worldhaven,1,fh-am-cr-15
+xws__fhamcr16,1,worldhaven,1,fh-am-cr-16
+xws__fhamcr17,1,worldhaven,1,fh-am-cr-17
+xws__fhamcr18,1,worldhaven,1,fh-am-cr-18
+xws__fhamcr19,1,worldhaven,1,fh-am-cr-19
+xws__fhamcrback,1,worldhaven,1,fh-am-cr-back
+xws__fhamdf01,1,worldhaven,1,fh-am-df-01
+xws__fhamdf02,1,worldhaven,1,fh-am-df-02
+xws__fhamdf03,1,worldhaven,1,fh-am-df-03
+xws__fhamdf04,1,worldhaven,1,fh-am-df-04
+xws__fhamdf05,1,worldhaven,1,fh-am-df-05
+xws__fhamdf06,1,worldhaven,1,fh-am-df-06
+xws__fhamdf07,1,worldhaven,1,fh-am-df-07
+xws__fhamdf08,1,worldhaven,1,fh-am-df-08
+xws__fhamdf09,1,worldhaven,1,fh-am-df-09
+xws__fhamdf10,1,worldhaven,1,fh-am-df-10
+xws__fhamdf11,1,worldhaven,1,fh-am-df-11
+xws__fhamdf12,1,worldhaven,1,fh-am-df-12
+xws__fhamdf13,1,worldhaven,1,fh-am-df-13
+xws__fhamdf14,1,worldhaven,1,fh-am-df-14
+xws__fhamdf15,1,worldhaven,1,fh-am-df-15
+xws__fhamdf16,1,worldhaven,1,fh-am-df-16
+xws__fhamdf17,1,worldhaven,1,fh-am-df-17
+xws__fhamdf18,1,worldhaven,1,fh-am-df-18
+xws__fhamdf19,1,worldhaven,1,fh-am-df-19
+xws__fhamdfback,1,worldhaven,1,fh-am-df-back
+xws__fhamdt01,1,worldhaven,1,fh-am-dt-01
+xws__fhamdt02,1,worldhaven,1,fh-am-dt-02
+xws__fhamdt03,1,worldhaven,1,fh-am-dt-03
+xws__fhamdt04,1,worldhaven,1,fh-am-dt-04
+xws__fhamdt05,1,worldhaven,1,fh-am-dt-05
+xws__fhamdt06,1,worldhaven,1,fh-am-dt-06
+xws__fhamdt07,1,worldhaven,1,fh-am-dt-07
+xws__fhamdt08,1,worldhaven,1,fh-am-dt-08
+xws__fhamdt09,1,worldhaven,1,fh-am-dt-09
+xws__fhamdt10,1,worldhaven,1,fh-am-dt-10
+xws__fhamdt11,1,worldhaven,1,fh-am-dt-11
+xws__fhamdt12,1,worldhaven,1,fh-am-dt-12
+xws__fhamdt13,1,worldhaven,1,fh-am-dt-13
+xws__fhamdt14,1,worldhaven,1,fh-am-dt-14
+xws__fhamdt15,1,worldhaven,1,fh-am-dt-15
+xws__fhamdt16,1,worldhaven,1,fh-am-dt-16
+xws__fhamdt17,1,worldhaven,1,fh-am-dt-17
+xws__fhamdt18,1,worldhaven,1,fh-am-dt-18
+xws__fhamdtback,1,worldhaven,1,fh-am-dt-back
+xws__fhamdw01,1,worldhaven,1,fh-am-dw-01
+xws__fhamdw02,1,worldhaven,1,fh-am-dw-02
+xws__fhamdw03,1,worldhaven,1,fh-am-dw-03
+xws__fhamdw04,1,worldhaven,1,fh-am-dw-04
+xws__fhamdw05,1,worldhaven,1,fh-am-dw-05
+xws__fhamdw06,1,worldhaven,1,fh-am-dw-06
+xws__fhamdw07,1,worldhaven,1,fh-am-dw-07
+xws__fhamdw08,1,worldhaven,1,fh-am-dw-08
+xws__fhamdw09,1,worldhaven,1,fh-am-dw-09
+xws__fhamdw10,1,worldhaven,1,fh-am-dw-10
+xws__fhamdw11,1,worldhaven,1,fh-am-dw-11
+xws__fhamdw12,1,worldhaven,1,fh-am-dw-12
+xws__fhamdw13,1,worldhaven,1,fh-am-dw-13
+xws__fhamdw14,1,worldhaven,1,fh-am-dw-14
+xws__fhamdw15,1,worldhaven,1,fh-am-dw-15
+xws__fhamdw16,1,worldhaven,1,fh-am-dw-16
+xws__fhamdw17,1,worldhaven,1,fh-am-dw-17
+xws__fhamdwback,1,worldhaven,1,fh-am-dw-back
+xws__fhamff01,1,worldhaven,1,fh-am-ff-01
+xws__fhamff02,1,worldhaven,1,fh-am-ff-02
+xws__fhamff03,1,worldhaven,1,fh-am-ff-03
+xws__fhamff04,1,worldhaven,1,fh-am-ff-04
+xws__fhamff05,1,worldhaven,1,fh-am-ff-05
+xws__fhamff06,1,worldhaven,1,fh-am-ff-06
+xws__fhamff07,1,worldhaven,1,fh-am-ff-07
+xws__fhamff08,1,worldhaven,1,fh-am-ff-08
+xws__fhamff09,1,worldhaven,1,fh-am-ff-09
+xws__fhamff10,1,worldhaven,1,fh-am-ff-10
+xws__fhamff11,1,worldhaven,1,fh-am-ff-11
+xws__fhamff12,1,worldhaven,1,fh-am-ff-12
+xws__fhamff13,1,worldhaven,1,fh-am-ff-13
+xws__fhamff14,1,worldhaven,1,fh-am-ff-14
+xws__fhamff15,1,worldhaven,1,fh-am-ff-15
+xws__fhamff16,1,worldhaven,1,fh-am-ff-16
+xws__fhamff17,1,worldhaven,1,fh-am-ff-17
+xws__fhamffback,1,worldhaven,1,fh-am-ff-back
+xws__fhamge01,1,worldhaven,1,fh-am-ge-01
+xws__fhamge02,1,worldhaven,1,fh-am-ge-02
+xws__fhamge03,1,worldhaven,1,fh-am-ge-03
+xws__fhamge04,1,worldhaven,1,fh-am-ge-04
+xws__fhamge05,1,worldhaven,1,fh-am-ge-05
+xws__fhamge06,1,worldhaven,1,fh-am-ge-06
+xws__fhamge07,1,worldhaven,1,fh-am-ge-07
+xws__fhamge08,1,worldhaven,1,fh-am-ge-08
+xws__fhamge09,1,worldhaven,1,fh-am-ge-09
+xws__fhamge10,1,worldhaven,1,fh-am-ge-10
+xws__fhamge11,1,worldhaven,1,fh-am-ge-11
+xws__fhamge12,1,worldhaven,1,fh-am-ge-12
+xws__fhamge13,1,worldhaven,1,fh-am-ge-13
+xws__fhamge14,1,worldhaven,1,fh-am-ge-14
+xws__fhamge15,1,worldhaven,1,fh-am-ge-15
+xws__fhamgeback,1,worldhaven,1,fh-am-ge-back
+xws__fhamhv01,1,worldhaven,1,fh-am-hv-01
+xws__fhamhv02,1,worldhaven,1,fh-am-hv-02
+xws__fhamhv03,1,worldhaven,1,fh-am-hv-03
+xws__fhamhv04,1,worldhaven,1,fh-am-hv-04
+xws__fhamhv05,1,worldhaven,1,fh-am-hv-05
+xws__fhamhv06,1,worldhaven,1,fh-am-hv-06
+xws__fhamhv07,1,worldhaven,1,fh-am-hv-07
+xws__fhamhv08,1,worldhaven,1,fh-am-hv-08
+xws__fhamhv09,1,worldhaven,1,fh-am-hv-09
+xws__fhamhv10,1,worldhaven,1,fh-am-hv-10
+xws__fhamhv11,1,worldhaven,1,fh-am-hv-11
+xws__fhamhv12,1,worldhaven,1,fh-am-hv-12
+xws__fhamhv13,1,worldhaven,1,fh-am-hv-13
+xws__fhamhv14,1,worldhaven,1,fh-am-hv-14
+xws__fhamhv15,1,worldhaven,1,fh-am-hv-15
+xws__fhamhvback,1,worldhaven,1,fh-am-hv-back
+xws__fhamif01,1,worldhaven,1,fh-am-if-01
+xws__fhamif02,1,worldhaven,1,fh-am-if-02
+xws__fhamif03,1,worldhaven,1,fh-am-if-03
+xws__fhamif04,1,worldhaven,1,fh-am-if-04
+xws__fhamif05,1,worldhaven,1,fh-am-if-05
+xws__fhamif06,1,worldhaven,1,fh-am-if-06
+xws__fhamif07,1,worldhaven,1,fh-am-if-07
+xws__fhamif08,1,worldhaven,1,fh-am-if-08
+xws__fhamif09,1,worldhaven,1,fh-am-if-09
+xws__fhamif10,1,worldhaven,1,fh-am-if-10
+xws__fhamif11,1,worldhaven,1,fh-am-if-11
+xws__fhamif12,1,worldhaven,1,fh-am-if-12
+xws__fhamif13,1,worldhaven,1,fh-am-if-13
+xws__fhamif14,1,worldhaven,1,fh-am-if-14
+xws__fhamif15,1,worldhaven,1,fh-am-if-15
+xws__fhamif16,1,worldhaven,1,fh-am-if-16
+xws__fhamif17,1,worldhaven,1,fh-am-if-17
+xws__fhamif18,1,worldhaven,1,fh-am-if-18
+xws__fhamif19,1,worldhaven,1,fh-am-if-19
+xws__fhamif20,1,worldhaven,1,fh-am-if-20
+xws__fhamifback,1,worldhaven,1,fh-am-if-back
+xws__fhamme01,1,worldhaven,1,fh-am-me-01
+xws__fhamme02,1,worldhaven,1,fh-am-me-02
+xws__fhamme03,1,worldhaven,1,fh-am-me-03
+xws__fhamme04,1,worldhaven,1,fh-am-me-04
+xws__fhamme05,1,worldhaven,1,fh-am-me-05
+xws__fhamme06,1,worldhaven,1,fh-am-me-06
+xws__fhamme07,1,worldhaven,1,fh-am-me-07
+xws__fhamme08,1,worldhaven,1,fh-am-me-08
+xws__fhamme09,1,worldhaven,1,fh-am-me-09
+xws__fhamme10,1,worldhaven,1,fh-am-me-10
+xws__fhamme11,1,worldhaven,1,fh-am-me-11
+xws__fhamme12,1,worldhaven,1,fh-am-me-12
+xws__fhamme13,1,worldhaven,1,fh-am-me-13
+xws__fhamme14,1,worldhaven,1,fh-am-me-14
+xws__fhamme15,1,worldhaven,1,fh-am-me-15
+xws__fhamme16,1,worldhaven,1,fh-am-me-16
+xws__fhammeback,1,worldhaven,1,fh-am-me-back
+xws__fhampc01,1,worldhaven,1,fh-am-pc-01
+xws__fhampc02,1,worldhaven,1,fh-am-pc-02
+xws__fhampc03,1,worldhaven,1,fh-am-pc-03
+xws__fhampc04,1,worldhaven,1,fh-am-pc-04
+xws__fhampc05,1,worldhaven,1,fh-am-pc-05
+xws__fhampc06,1,worldhaven,1,fh-am-pc-06
+xws__fhampc07,1,worldhaven,1,fh-am-pc-07
+xws__fhampc08,1,worldhaven,1,fh-am-pc-08
+xws__fhampc09,1,worldhaven,1,fh-am-pc-09
+xws__fhampc10,1,worldhaven,1,fh-am-pc-10
+xws__fhampc11,1,worldhaven,1,fh-am-pc-11
+xws__fhampc12,1,worldhaven,1,fh-am-pc-12
+xws__fhampc13,1,worldhaven,1,fh-am-pc-13
+xws__fhampc14,1,worldhaven,1,fh-am-pc-14
+xws__fhampc15,1,worldhaven,1,fh-am-pc-15
+xws__fhampc16,1,worldhaven,1,fh-am-pc-16
+xws__fhampc17,1,worldhaven,1,fh-am-pc-17
+xws__fhampc18,1,worldhaven,1,fh-am-pc-18
+xws__fhampc19,1,worldhaven,1,fh-am-pc-19
+xws__fhampcback,1,worldhaven,1,fh-am-pc-back
+xws__fhampy01,1,worldhaven,1,fh-am-py-01
+xws__fhampy02,1,worldhaven,1,fh-am-py-02
+xws__fhampy03,1,worldhaven,1,fh-am-py-03
+xws__fhampy04,1,worldhaven,1,fh-am-py-04
+xws__fhampy05,1,worldhaven,1,fh-am-py-05
+xws__fhampy06,1,worldhaven,1,fh-am-py-06
+xws__fhampy07,1,worldhaven,1,fh-am-py-07
+xws__fhampy08,1,worldhaven,1,fh-am-py-08
+xws__fhampy09,1,worldhaven,1,fh-am-py-09
+xws__fhampy10,1,worldhaven,1,fh-am-py-10
+xws__fhampy11,1,worldhaven,1,fh-am-py-11
+xws__fhampy12,1,worldhaven,1,fh-am-py-12
+xws__fhampy13,1,worldhaven,1,fh-am-py-13
+xws__fhampy14,1,worldhaven,1,fh-am-py-14
+xws__fhampy15,1,worldhaven,1,fh-am-py-15
+xws__fhampy16,1,worldhaven,1,fh-am-py-16
+xws__fhampyback,1,worldhaven,1,fh-am-py-back
+xws__fhamsd01,1,worldhaven,1,fh-am-sd-01
+xws__fhamsd02,1,worldhaven,1,fh-am-sd-02
+xws__fhamsd03,1,worldhaven,1,fh-am-sd-03
+xws__fhamsd04,1,worldhaven,1,fh-am-sd-04
+xws__fhamsd05,1,worldhaven,1,fh-am-sd-05
+xws__fhamsd06,1,worldhaven,1,fh-am-sd-06
+xws__fhamsd07,1,worldhaven,1,fh-am-sd-07
+xws__fhamsd08,1,worldhaven,1,fh-am-sd-08
+xws__fhamsd09,1,worldhaven,1,fh-am-sd-09
+xws__fhamsd10,1,worldhaven,1,fh-am-sd-10
+xws__fhamsd11,1,worldhaven,1,fh-am-sd-11
+xws__fhamsd12,1,worldhaven,1,fh-am-sd-12
+xws__fhamsd13,1,worldhaven,1,fh-am-sd-13
+xws__fhamsd14,1,worldhaven,1,fh-am-sd-14
+xws__fhamsd15,1,worldhaven,1,fh-am-sd-15
+xws__fhamsd16,1,worldhaven,1,fh-am-sd-16
+xws__fhamsd17,1,worldhaven,1,fh-am-sd-17
+xws__fhamsdback,1,worldhaven,1,fh-am-sd-back
+xws__fhamsh01,1,worldhaven,1,fh-am-sh-01
+xws__fhamsh02,1,worldhaven,1,fh-am-sh-02
+xws__fhamsh03,1,worldhaven,1,fh-am-sh-03
+xws__fhamsh04,1,worldhaven,1,fh-am-sh-04
+xws__fhamsh05,1,worldhaven,1,fh-am-sh-05
+xws__fhamsh06,1,worldhaven,1,fh-am-sh-06
+xws__fhamsh07,1,worldhaven,1,fh-am-sh-07
+xws__fhamsh08,1,worldhaven,1,fh-am-sh-08
+xws__fhamsh09,1,worldhaven,1,fh-am-sh-09
+xws__fhamsh10,1,worldhaven,1,fh-am-sh-10
+xws__fhamsh11,1,worldhaven,1,fh-am-sh-11
+xws__fhamsh12,1,worldhaven,1,fh-am-sh-12
+xws__fhamsh13,1,worldhaven,1,fh-am-sh-13
+xws__fhamsh14,1,worldhaven,1,fh-am-sh-14
+xws__fhamsh15,1,worldhaven,1,fh-am-sh-15
+xws__fhamsh16,1,worldhaven,1,fh-am-sh-16
+xws__fhamshback,1,worldhaven,1,fh-am-sh-back
+xws__fhamta01,1,worldhaven,1,fh-am-ta-01
+xws__fhamta02,1,worldhaven,1,fh-am-ta-02
+xws__fhamta03,1,worldhaven,1,fh-am-ta-03
+xws__fhamta04,1,worldhaven,1,fh-am-ta-04
+xws__fhamta05,1,worldhaven,1,fh-am-ta-05
+xws__fhamta06,1,worldhaven,1,fh-am-ta-06
+xws__fhamta07,1,worldhaven,1,fh-am-ta-07
+xws__fhamta08,1,worldhaven,1,fh-am-ta-08
+xws__fhamta09,1,worldhaven,1,fh-am-ta-09
+xws__fhamta10,1,worldhaven,1,fh-am-ta-10
+xws__fhamta11,1,worldhaven,1,fh-am-ta-11
+xws__fhamta12,1,worldhaven,1,fh-am-ta-12
+xws__fhamta13,1,worldhaven,1,fh-am-ta-13
+xws__fhamta14,1,worldhaven,1,fh-am-ta-14
+xws__fhamta15,1,worldhaven,1,fh-am-ta-15
+xws__fhamta16,1,worldhaven,1,fh-am-ta-16
+xws__fhamta17,1,worldhaven,1,fh-am-ta-17
+xws__fhamta18,1,worldhaven,1,fh-am-ta-18
+xws__fhamta19,1,worldhaven,1,fh-am-ta-19
+xws__fhamta20,1,worldhaven,1,fh-am-ta-20
+xws__fhamta21,1,worldhaven,1,fh-am-ta-21
+xws__fhamtaback,1,worldhaven,1,fh-am-ta-back
+xws__fhpebb01,1,worldhaven,1,fh-pe-bb-01
+xws__fhpebb02,1,worldhaven,1,fh-pe-bb-02
+xws__fhpebb03,1,worldhaven,1,fh-pe-bb-03
+xws__fhpebbback,1,worldhaven,1,fh-pe-bb-back
+xws__fhpebn01,1,worldhaven,1,fh-pe-bn-01
+xws__fhpebn02,1,worldhaven,1,fh-pe-bn-02
+xws__fhpebn03,1,worldhaven,1,fh-pe-bn-03
+xws__fhpebnback,1,worldhaven,1,fh-pe-bn-back
+xws__fhpebo01,1,worldhaven,1,fh-pe-bo-01
+xws__fhpebo02,1,worldhaven,1,fh-pe-bo-02
+xws__fhpebo03,1,worldhaven,1,fh-pe-bo-03
+xws__fhpeboback,1,worldhaven,1,fh-pe-bo-back
+xws__fhpecr01,1,worldhaven,1,fh-pe-cr-01
+xws__fhpecr02,1,worldhaven,1,fh-pe-cr-02
+xws__fhpecr03,1,worldhaven,1,fh-pe-cr-03
+xws__fhpecrback,1,worldhaven,1,fh-pe-cr-back
+xws__fhpedf01,1,worldhaven,1,fh-pe-df-01
+xws__fhpedf02,1,worldhaven,1,fh-pe-df-02
+xws__fhpedf03,1,worldhaven,1,fh-pe-df-03
+xws__fhpedfback,1,worldhaven,1,fh-pe-df-back
+xws__fhpedt01,1,worldhaven,1,fh-pe-dt-01
+xws__fhpedt02,1,worldhaven,1,fh-pe-dt-02
+xws__fhpedt03,1,worldhaven,1,fh-pe-dt-03
+xws__fhpedtback,1,worldhaven,1,fh-pe-dt-back
+xws__fhpedw01,1,worldhaven,1,fh-pe-dw-01
+xws__fhpedw02,1,worldhaven,1,fh-pe-dw-02
+xws__fhpedw03,1,worldhaven,1,fh-pe-dw-03
+xws__fhpedwback,1,worldhaven,1,fh-pe-dw-back
+xws__fhpeff01,1,worldhaven,1,fh-pe-ff-01
+xws__fhpeff02,1,worldhaven,1,fh-pe-ff-02
+xws__fhpeff03,1,worldhaven,1,fh-pe-ff-03
+xws__fhpeffback,1,worldhaven,1,fh-pe-ff-back
+xws__fhpege01,1,worldhaven,1,fh-pe-ge-01
+xws__fhpege02,1,worldhaven,1,fh-pe-ge-02
+xws__fhpege03,1,worldhaven,1,fh-pe-ge-03
+xws__fhpegeback,1,worldhaven,1,fh-pe-ge-back
+xws__fhpehv01,1,worldhaven,1,fh-pe-hv-01
+xws__fhpehv02,1,worldhaven,1,fh-pe-hv-02
+xws__fhpehv03,1,worldhaven,1,fh-pe-hv-03
+xws__fhpehvback,1,worldhaven,1,fh-pe-hv-back
+xws__fhpeif01,1,worldhaven,1,fh-pe-if-01
+xws__fhpeif02,1,worldhaven,1,fh-pe-if-02
+xws__fhpeif03,1,worldhaven,1,fh-pe-if-03
+xws__fhpeifback,1,worldhaven,1,fh-pe-if-back
+xws__fhpeme01,1,worldhaven,1,fh-pe-me-01
+xws__fhpeme02,1,worldhaven,1,fh-pe-me-02
+xws__fhpeme03,1,worldhaven,1,fh-pe-me-03
+xws__fhpemeback,1,worldhaven,1,fh-pe-me-back
+xws__fhpepc01,1,worldhaven,1,fh-pe-pc-01
+xws__fhpepc02,1,worldhaven,1,fh-pe-pc-02
+xws__fhpepc03,1,worldhaven,1,fh-pe-pc-03
+xws__fhpepcback,1,worldhaven,1,fh-pe-pc-back
+xws__fhpepy01,1,worldhaven,1,fh-pe-py-01
+xws__fhpepy02,1,worldhaven,1,fh-pe-py-02
+xws__fhpepy03,1,worldhaven,1,fh-pe-py-03
+xws__fhpepyback,1,worldhaven,1,fh-pe-py-back
+xws__fhpesd01,1,worldhaven,1,fh-pe-sd-01
+xws__fhpesd02,1,worldhaven,1,fh-pe-sd-02
+xws__fhpesd03,1,worldhaven,1,fh-pe-sd-03
+xws__fhpesdback,1,worldhaven,1,fh-pe-sd-back
+xws__fhpesh01,1,worldhaven,1,fh-pe-sh-01
+xws__fhpesh02,1,worldhaven,1,fh-pe-sh-02
+xws__fhpesh03,1,worldhaven,1,fh-pe-sh-03
+xws__fhpeshback,1,worldhaven,1,fh-pe-sh-back
+xws__fhpeta01,1,worldhaven,1,fh-pe-ta-01
+xws__fhpeta02,1,worldhaven,1,fh-pe-ta-02
+xws__fhpeta03,1,worldhaven,1,fh-pe-ta-03
+xws__fhpetaback,1,worldhaven,1,fh-pe-ta-back
+xws__ghambe01,1,worldhaven,1,gh-am-be-01
+xws__ghambe02,1,worldhaven,1,gh-am-be-02
+xws__ghambe03,1,worldhaven,1,gh-am-be-03
+xws__ghambe04,1,worldhaven,1,gh-am-be-04
+xws__ghambe05,1,worldhaven,1,gh-am-be-05
+xws__ghambe06,1,worldhaven,1,gh-am-be-06
+xws__ghambe07,1,worldhaven,1,gh-am-be-07
+xws__ghambe08,1,worldhaven,1,gh-am-be-08
+xws__ghambe09,1,worldhaven,1,gh-am-be-09
+xws__ghambe10,1,worldhaven,1,gh-am-be-10
+xws__ghambe11,1,worldhaven,1,gh-am-be-11
+xws__ghambe12,1,worldhaven,1,gh-am-be-12
+xws__ghambe13,1,worldhaven,1,gh-am-be-13
+xws__ghambe14,1,worldhaven,1,gh-am-be-14
+xws__ghambe15,1,worldhaven,1,gh-am-be-15
+xws__ghambeback,1,worldhaven,1,gh-am-be-back
+xws__ghambr01,1,worldhaven,1,gh-am-br-01
+xws__ghambr02,1,worldhaven,1,gh-am-br-02
+xws__ghambr03,1,worldhaven,1,gh-am-br-03
+xws__ghambr04,1,worldhaven,1,gh-am-br-04
+xws__ghambr05,1,worldhaven,1,gh-am-br-05
+xws__ghambr06,1,worldhaven,1,gh-am-br-06
+xws__ghambr07,1,worldhaven,1,gh-am-br-07
+xws__ghambr08,1,worldhaven,1,gh-am-br-08
+xws__ghambr09,1,worldhaven,1,gh-am-br-09
+xws__ghambr10,1,worldhaven,1,gh-am-br-10
+xws__ghambr11,1,worldhaven,1,gh-am-br-11
+xws__ghambr12,1,worldhaven,1,gh-am-br-12
+xws__ghambr13,1,worldhaven,1,gh-am-br-13
+xws__ghambr14,1,worldhaven,1,gh-am-br-14
+xws__ghambr15,1,worldhaven,1,gh-am-br-15
+xws__ghambr16,1,worldhaven,1,gh-am-br-16
+xws__ghambr17,1,worldhaven,1,gh-am-br-17
+xws__ghambr18,1,worldhaven,1,gh-am-br-18
+xws__ghambr19,1,worldhaven,1,gh-am-br-19
+xws__ghambr20,1,worldhaven,1,gh-am-br-20
+xws__ghambr21,1,worldhaven,1,gh-am-br-21
+xws__ghambr22,1,worldhaven,1,gh-am-br-22
+xws__ghambrback,1,worldhaven,1,gh-am-br-back
+xws__ghambs01,1,worldhaven,1,gh-am-bs-01
+xws__ghambs02,1,worldhaven,1,gh-am-bs-02
+xws__ghambs03,1,worldhaven,1,gh-am-bs-03
+xws__ghambs04,1,worldhaven,1,gh-am-bs-04
+xws__ghambs05,1,worldhaven,1,gh-am-bs-05
+xws__ghambs06,1,worldhaven,1,gh-am-bs-06
+xws__ghambs07,1,worldhaven,1,gh-am-bs-07
+xws__ghambs08,1,worldhaven,1,gh-am-bs-08
+xws__ghambs09,1,worldhaven,1,gh-am-bs-09
+xws__ghambs10,1,worldhaven,1,gh-am-bs-10
+xws__ghambs11,1,worldhaven,1,gh-am-bs-11
+xws__ghambs12,1,worldhaven,1,gh-am-bs-12
+xws__ghambs13,1,worldhaven,1,gh-am-bs-13
+xws__ghambs14,1,worldhaven,1,gh-am-bs-14
+xws__ghambs15,1,worldhaven,1,gh-am-bs-15
+xws__ghambs16,1,worldhaven,1,gh-am-bs-16
+xws__ghambs17,1,worldhaven,1,gh-am-bs-17
+xws__ghambsback,1,worldhaven,1,gh-am-bs-back
+xws__ghambt01,1,worldhaven,1,gh-am-bt-01
+xws__ghambt02,1,worldhaven,1,gh-am-bt-02
+xws__ghambt03,1,worldhaven,1,gh-am-bt-03
+xws__ghambt04,1,worldhaven,1,gh-am-bt-04
+xws__ghambt05,1,worldhaven,1,gh-am-bt-05
+xws__ghambt06,1,worldhaven,1,gh-am-bt-06
+xws__ghambt07,1,worldhaven,1,gh-am-bt-07
+xws__ghambt08,1,worldhaven,1,gh-am-bt-08
+xws__ghambt09,1,worldhaven,1,gh-am-bt-09
+xws__ghambt10,1,worldhaven,1,gh-am-bt-10
+xws__ghambt11,1,worldhaven,1,gh-am-bt-11
+xws__ghambt12,1,worldhaven,1,gh-am-bt-12
+xws__ghambt13,1,worldhaven,1,gh-am-bt-13
+xws__ghambt14,1,worldhaven,1,gh-am-bt-14
+xws__ghambt15,1,worldhaven,1,gh-am-bt-15
+xws__ghambt16,1,worldhaven,1,gh-am-bt-16
+xws__ghambt17,1,worldhaven,1,gh-am-bt-17
+xws__ghambtback,1,worldhaven,1,gh-am-bt-back
+xws__ghamch01,1,worldhaven,1,gh-am-ch-01
+xws__ghamch02,1,worldhaven,1,gh-am-ch-02
+xws__ghamch03,1,worldhaven,1,gh-am-ch-03
+xws__ghamch04,1,worldhaven,1,gh-am-ch-04
+xws__ghamch05,1,worldhaven,1,gh-am-ch-05
+xws__ghamch06,1,worldhaven,1,gh-am-ch-06
+xws__ghamch07,1,worldhaven,1,gh-am-ch-07
+xws__ghamch08,1,worldhaven,1,gh-am-ch-08
+xws__ghamch09,1,worldhaven,1,gh-am-ch-09
+xws__ghamch10,1,worldhaven,1,gh-am-ch-10
+xws__ghamch11,1,worldhaven,1,gh-am-ch-11
+xws__ghamch12,1,worldhaven,1,gh-am-ch-12
+xws__ghamch13,1,worldhaven,1,gh-am-ch-13
+xws__ghamch14,1,worldhaven,1,gh-am-ch-14
+xws__ghamch15,1,worldhaven,1,gh-am-ch-15
+xws__ghamch16,1,worldhaven,1,gh-am-ch-16
+xws__ghamch17,1,worldhaven,1,gh-am-ch-17
+xws__ghamch18,1,worldhaven,1,gh-am-ch-18
+xws__ghamchback,1,worldhaven,1,gh-am-ch-back
+xws__ghamds01,1,worldhaven,1,gh-am-ds-01
+xws__ghamds02,1,worldhaven,1,gh-am-ds-02
+xws__ghamds03,1,worldhaven,1,gh-am-ds-03
+xws__ghamds04,1,worldhaven,1,gh-am-ds-04
+xws__ghamds05,1,worldhaven,1,gh-am-ds-05
+xws__ghamds06,1,worldhaven,1,gh-am-ds-06
+xws__ghamds07,1,worldhaven,1,gh-am-ds-07
+xws__ghamds08,1,worldhaven,1,gh-am-ds-08
+xws__ghamds09,1,worldhaven,1,gh-am-ds-09
+xws__ghamds10,1,worldhaven,1,gh-am-ds-10
+xws__ghamds11,1,worldhaven,1,gh-am-ds-11
+xws__ghamds12,1,worldhaven,1,gh-am-ds-12
+xws__ghamds13,1,worldhaven,1,gh-am-ds-13
+xws__ghamds14,1,worldhaven,1,gh-am-ds-14
+xws__ghamds15,1,worldhaven,1,gh-am-ds-15
+xws__ghamds16,1,worldhaven,1,gh-am-ds-16
+xws__ghamds17,1,worldhaven,1,gh-am-ds-17
+xws__ghamdsback,1,worldhaven,1,gh-am-ds-back
+xws__ghamel01,1,worldhaven,1,gh-am-el-01
+xws__ghamel02,1,worldhaven,1,gh-am-el-02
+xws__ghamel03,1,worldhaven,1,gh-am-el-03
+xws__ghamel04,1,worldhaven,1,gh-am-el-04
+xws__ghamel05,1,worldhaven,1,gh-am-el-05
+xws__ghamel06,1,worldhaven,1,gh-am-el-06
+xws__ghamel07,1,worldhaven,1,gh-am-el-07
+xws__ghamel08,1,worldhaven,1,gh-am-el-08
+xws__ghamel09,1,worldhaven,1,gh-am-el-09
+xws__ghamel10,1,worldhaven,1,gh-am-el-10
+xws__ghamel11,1,worldhaven,1,gh-am-el-11
+xws__ghamel12,1,worldhaven,1,gh-am-el-12
+xws__ghamel13,1,worldhaven,1,gh-am-el-13
+xws__ghamel14,1,worldhaven,1,gh-am-el-14
+xws__ghamel15,1,worldhaven,1,gh-am-el-15
+xws__ghamel16,1,worldhaven,1,gh-am-el-16
+xws__ghamel17,1,worldhaven,1,gh-am-el-17
+xws__ghamel18,1,worldhaven,1,gh-am-el-18
+xws__ghamel19,1,worldhaven,1,gh-am-el-19
+xws__ghamel20,1,worldhaven,1,gh-am-el-20
+xws__ghamel21,1,worldhaven,1,gh-am-el-21
+xws__ghamel22,1,worldhaven,1,gh-am-el-22
+xws__ghamel23,1,worldhaven,1,gh-am-el-23
+xws__ghamel24,1,worldhaven,1,gh-am-el-24
+xws__ghamelback,1,worldhaven,1,gh-am-el-back
+xws__ghammt01,1,worldhaven,1,gh-am-mt-01
+xws__ghammt02,1,worldhaven,1,gh-am-mt-02
+xws__ghammt03,1,worldhaven,1,gh-am-mt-03
+xws__ghammt04,1,worldhaven,1,gh-am-mt-04
+xws__ghammt05,1,worldhaven,1,gh-am-mt-05
+xws__ghammt06,1,worldhaven,1,gh-am-mt-06
+xws__ghammt07,1,worldhaven,1,gh-am-mt-07
+xws__ghammt08,1,worldhaven,1,gh-am-mt-08
+xws__ghammt09,1,worldhaven,1,gh-am-mt-09
+xws__ghammt10,1,worldhaven,1,gh-am-mt-10
+xws__ghammt11,1,worldhaven,1,gh-am-mt-11
+xws__ghammt12,1,worldhaven,1,gh-am-mt-12
+xws__ghammt13,1,worldhaven,1,gh-am-mt-13
+xws__ghammt14,1,worldhaven,1,gh-am-mt-14
+xws__ghammt15,1,worldhaven,1,gh-am-mt-15
+xws__ghammt16,1,worldhaven,1,gh-am-mt-16
+xws__ghammt17,1,worldhaven,1,gh-am-mt-17
+xws__ghammt18,1,worldhaven,1,gh-am-mt-18
+xws__ghammt19,1,worldhaven,1,gh-am-mt-19
+xws__ghammt20,1,worldhaven,1,gh-am-mt-20
+xws__ghammtback,1,worldhaven,1,gh-am-mt-back
+xws__ghamns01,1,worldhaven,1,gh-am-ns-01
+xws__ghamns02,1,worldhaven,1,gh-am-ns-02
+xws__ghamns03,1,worldhaven,1,gh-am-ns-03
+xws__ghamns04,1,worldhaven,1,gh-am-ns-04
+xws__ghamns05,1,worldhaven,1,gh-am-ns-05
+xws__ghamns06,1,worldhaven,1,gh-am-ns-06
+xws__ghamns07,1,worldhaven,1,gh-am-ns-07
+xws__ghamns08,1,worldhaven,1,gh-am-ns-08
+xws__ghamns09,1,worldhaven,1,gh-am-ns-09
+xws__ghamns10,1,worldhaven,1,gh-am-ns-10
+xws__ghamns11,1,worldhaven,1,gh-am-ns-11
+xws__ghamns12,1,worldhaven,1,gh-am-ns-12
+xws__ghamns13,1,worldhaven,1,gh-am-ns-13
+xws__ghamns14,1,worldhaven,1,gh-am-ns-14
+xws__ghamns15,1,worldhaven,1,gh-am-ns-15
+xws__ghamns16,1,worldhaven,1,gh-am-ns-16
+xws__ghamns17,1,worldhaven,1,gh-am-ns-17
+xws__ghamns18,1,worldhaven,1,gh-am-ns-18
+xws__ghamns19,1,worldhaven,1,gh-am-ns-19
+xws__ghamnsback,1,worldhaven,1,gh-am-ns-back
+xws__ghamph01,1,worldhaven,1,gh-am-ph-01
+xws__ghamph02,1,worldhaven,1,gh-am-ph-02
+xws__ghamph03,1,worldhaven,1,gh-am-ph-03
+xws__ghamph04,1,worldhaven,1,gh-am-ph-04
+xws__ghamph05,1,worldhaven,1,gh-am-ph-05
+xws__ghamph06,1,worldhaven,1,gh-am-ph-06
+xws__ghamph07,1,worldhaven,1,gh-am-ph-07
+xws__ghamph08,1,worldhaven,1,gh-am-ph-08
+xws__ghamph09,1,worldhaven,1,gh-am-ph-09
+xws__ghamph10,1,worldhaven,1,gh-am-ph-10
+xws__ghamph11,1,worldhaven,1,gh-am-ph-11
+xws__ghamph12,1,worldhaven,1,gh-am-ph-12
+xws__ghamph13,1,worldhaven,1,gh-am-ph-13
+xws__ghamph14,1,worldhaven,1,gh-am-ph-14
+xws__ghamph15,1,worldhaven,1,gh-am-ph-15
+xws__ghamph16,1,worldhaven,1,gh-am-ph-16
+xws__ghamph17,1,worldhaven,1,gh-am-ph-17
+xws__ghamph18,1,worldhaven,1,gh-am-ph-18
+xws__ghamph19,1,worldhaven,1,gh-am-ph-19
+xws__ghamph20,1,worldhaven,1,gh-am-ph-20
+xws__ghamphback,1,worldhaven,1,gh-am-ph-back
+xws__ghamqm01,1,worldhaven,1,gh-am-qm-01
+xws__ghamqm02,1,worldhaven,1,gh-am-qm-02
+xws__ghamqm03,1,worldhaven,1,gh-am-qm-03
+xws__ghamqm04,1,worldhaven,1,gh-am-qm-04
+xws__ghamqm05,1,worldhaven,1,gh-am-qm-05
+xws__ghamqm06,1,worldhaven,1,gh-am-qm-06
+xws__ghamqm07,1,worldhaven,1,gh-am-qm-07
+xws__ghamqm08,1,worldhaven,1,gh-am-qm-08
+xws__ghamqm09,1,worldhaven,1,gh-am-qm-09
+xws__ghamqm10,1,worldhaven,1,gh-am-qm-10
+xws__ghamqm11,1,worldhaven,1,gh-am-qm-11
+xws__ghamqm12,1,worldhaven,1,gh-am-qm-12
+xws__ghamqm13,1,worldhaven,1,gh-am-qm-13
+xws__ghamqm14,1,worldhaven,1,gh-am-qm-14
+xws__ghamqm15,1,worldhaven,1,gh-am-qm-15
+xws__ghamqm16,1,worldhaven,1,gh-am-qm-16
+xws__ghamqm17,1,worldhaven,1,gh-am-qm-17
+xws__ghamqm18,1,worldhaven,1,gh-am-qm-18
+xws__ghamqmback,1,worldhaven,1,gh-am-qm-back
+xws__ghamsb01,1,worldhaven,1,gh-am-sb-01
+xws__ghamsb02,1,worldhaven,1,gh-am-sb-02
+xws__ghamsb03,1,worldhaven,1,gh-am-sb-03
+xws__ghamsb04,1,worldhaven,1,gh-am-sb-04
+xws__ghamsb05,1,worldhaven,1,gh-am-sb-05
+xws__ghamsb06,1,worldhaven,1,gh-am-sb-06
+xws__ghamsb07,1,worldhaven,1,gh-am-sb-07
+xws__ghamsb08,1,worldhaven,1,gh-am-sb-08
+xws__ghamsb09,1,worldhaven,1,gh-am-sb-09
+xws__ghamsb10,1,worldhaven,1,gh-am-sb-10
+xws__ghamsb11,1,worldhaven,1,gh-am-sb-11
+xws__ghamsb12,1,worldhaven,1,gh-am-sb-12
+xws__ghamsb13,1,worldhaven,1,gh-am-sb-13
+xws__ghamsb14,1,worldhaven,1,gh-am-sb-14
+xws__ghamsbback,1,worldhaven,1,gh-am-sb-back
+xws__ghamsc01,1,worldhaven,1,gh-am-sc-01
+xws__ghamsc02,1,worldhaven,1,gh-am-sc-02
+xws__ghamsc03,1,worldhaven,1,gh-am-sc-03
+xws__ghamsc04,1,worldhaven,1,gh-am-sc-04
+xws__ghamsc05,1,worldhaven,1,gh-am-sc-05
+xws__ghamsc06,1,worldhaven,1,gh-am-sc-06
+xws__ghamsc07,1,worldhaven,1,gh-am-sc-07
+xws__ghamsc08,1,worldhaven,1,gh-am-sc-08
+xws__ghamsc09,1,worldhaven,1,gh-am-sc-09
+xws__ghamsc10,1,worldhaven,1,gh-am-sc-10
+xws__ghamsc11,1,worldhaven,1,gh-am-sc-11
+xws__ghamsc12,1,worldhaven,1,gh-am-sc-12
+xws__ghamsc13,1,worldhaven,1,gh-am-sc-13
+xws__ghamsc14,1,worldhaven,1,gh-am-sc-14
+xws__ghamsc15,1,worldhaven,1,gh-am-sc-15
+xws__ghamsc16,1,worldhaven,1,gh-am-sc-16
+xws__ghamsc17,1,worldhaven,1,gh-am-sc-17
+xws__ghamscback,1,worldhaven,1,gh-am-sc-back
+xws__ghamsk01,1,worldhaven,1,gh-am-sk-01
+xws__ghamsk02,1,worldhaven,1,gh-am-sk-02
+xws__ghamsk03,1,worldhaven,1,gh-am-sk-03
+xws__ghamsk04,1,worldhaven,1,gh-am-sk-04
+xws__ghamsk05,1,worldhaven,1,gh-am-sk-05
+xws__ghamsk06,1,worldhaven,1,gh-am-sk-06
+xws__ghamsk07,1,worldhaven,1,gh-am-sk-07
+xws__ghamsk08,1,worldhaven,1,gh-am-sk-08
+xws__ghamsk09,1,worldhaven,1,gh-am-sk-09
+xws__ghamsk10,1,worldhaven,1,gh-am-sk-10
+xws__ghamsk11,1,worldhaven,1,gh-am-sk-11
+xws__ghamsk12,1,worldhaven,1,gh-am-sk-12
+xws__ghamsk13,1,worldhaven,1,gh-am-sk-13
+xws__ghamsk14,1,worldhaven,1,gh-am-sk-14
+xws__ghamsk15,1,worldhaven,1,gh-am-sk-15
+xws__ghamsk16,1,worldhaven,1,gh-am-sk-16
+xws__ghamsk17,1,worldhaven,1,gh-am-sk-17
+xws__ghamsk18,1,worldhaven,1,gh-am-sk-18
+xws__ghamsk19,1,worldhaven,1,gh-am-sk-19
+xws__ghamskback,1,worldhaven,1,gh-am-sk-back
+xws__ghamss01,1,worldhaven,1,gh-am-ss-01
+xws__ghamss02,1,worldhaven,1,gh-am-ss-02
+xws__ghamss03,1,worldhaven,1,gh-am-ss-03
+xws__ghamss04,1,worldhaven,1,gh-am-ss-04
+xws__ghamss05,1,worldhaven,1,gh-am-ss-05
+xws__ghamss06,1,worldhaven,1,gh-am-ss-06
+xws__ghamss07,1,worldhaven,1,gh-am-ss-07
+xws__ghamss08,1,worldhaven,1,gh-am-ss-08
+xws__ghamss09,1,worldhaven,1,gh-am-ss-09
+xws__ghamss10,1,worldhaven,1,gh-am-ss-10
+xws__ghamss11,1,worldhaven,1,gh-am-ss-11
+xws__ghamss12,1,worldhaven,1,gh-am-ss-12
+xws__ghamss13,1,worldhaven,1,gh-am-ss-13
+xws__ghamss14,1,worldhaven,1,gh-am-ss-14
+xws__ghamss15,1,worldhaven,1,gh-am-ss-15
+xws__ghamss16,1,worldhaven,1,gh-am-ss-16
+xws__ghamssback,1,worldhaven,1,gh-am-ss-back
+xws__ghamsu01,1,worldhaven,1,gh-am-su-01
+xws__ghamsu02,1,worldhaven,1,gh-am-su-02
+xws__ghamsu03,1,worldhaven,1,gh-am-su-03
+xws__ghamsu04,1,worldhaven,1,gh-am-su-04
+xws__ghamsu05,1,worldhaven,1,gh-am-su-05
+xws__ghamsu06,1,worldhaven,1,gh-am-su-06
+xws__ghamsu07,1,worldhaven,1,gh-am-su-07
+xws__ghamsu08,1,worldhaven,1,gh-am-su-08
+xws__ghamsu09,1,worldhaven,1,gh-am-su-09
+xws__ghamsu10,1,worldhaven,1,gh-am-su-10
+xws__ghamsu11,1,worldhaven,1,gh-am-su-11
+xws__ghamsu12,1,worldhaven,1,gh-am-su-12
+xws__ghamsu13,1,worldhaven,1,gh-am-su-13
+xws__ghamsu14,1,worldhaven,1,gh-am-su-14
+xws__ghamsu15,1,worldhaven,1,gh-am-su-15
+xws__ghamsu16,1,worldhaven,1,gh-am-su-16
+xws__ghamsu17,1,worldhaven,1,gh-am-su-17
+xws__ghamsu18,1,worldhaven,1,gh-am-su-18
+xws__ghamsu19,1,worldhaven,1,gh-am-su-19
+xws__ghamsu20,1,worldhaven,1,gh-am-su-20
+xws__ghamsu21,1,worldhaven,1,gh-am-su-21
+xws__ghamsu22,1,worldhaven,1,gh-am-su-22
+xws__ghamsuback,1,worldhaven,1,gh-am-su-back
+xws__ghamsw01,1,worldhaven,1,gh-am-sw-01
+xws__ghamsw02,1,worldhaven,1,gh-am-sw-02
+xws__ghamsw03,1,worldhaven,1,gh-am-sw-03
+xws__ghamsw04,1,worldhaven,1,gh-am-sw-04
+xws__ghamsw05,1,worldhaven,1,gh-am-sw-05
+xws__ghamsw06,1,worldhaven,1,gh-am-sw-06
+xws__ghamsw07,1,worldhaven,1,gh-am-sw-07
+xws__ghamsw08,1,worldhaven,1,gh-am-sw-08
+xws__ghamsw09,1,worldhaven,1,gh-am-sw-09
+xws__ghamsw10,1,worldhaven,1,gh-am-sw-10
+xws__ghamsw11,1,worldhaven,1,gh-am-sw-11
+xws__ghamsw12,1,worldhaven,1,gh-am-sw-12
+xws__ghamsw13,1,worldhaven,1,gh-am-sw-13
+xws__ghamsw14,1,worldhaven,1,gh-am-sw-14
+xws__ghamsw15,1,worldhaven,1,gh-am-sw-15
+xws__ghamsw16,1,worldhaven,1,gh-am-sw-16
+xws__ghamsw17,1,worldhaven,1,gh-am-sw-17
+xws__ghamsw18,1,worldhaven,1,gh-am-sw-18
+xws__ghamswback,1,worldhaven,1,gh-am-sw-back
+xws__ghamti01,1,worldhaven,1,gh-am-ti-01
+xws__ghamti02,1,worldhaven,1,gh-am-ti-02
+xws__ghamti03,1,worldhaven,1,gh-am-ti-03
+xws__ghamti04,1,worldhaven,1,gh-am-ti-04
+xws__ghamti05,1,worldhaven,1,gh-am-ti-05
+xws__ghamti06,1,worldhaven,1,gh-am-ti-06
+xws__ghamti07,1,worldhaven,1,gh-am-ti-07
+xws__ghamti08,1,worldhaven,1,gh-am-ti-08
+xws__ghamti09,1,worldhaven,1,gh-am-ti-09
+xws__ghamti10,1,worldhaven,1,gh-am-ti-10
+xws__ghamti11,1,worldhaven,1,gh-am-ti-11
+xws__ghamti12,1,worldhaven,1,gh-am-ti-12
+xws__ghamti13,1,worldhaven,1,gh-am-ti-13
+xws__ghamti14,1,worldhaven,1,gh-am-ti-14
+xws__ghamti15,1,worldhaven,1,gh-am-ti-15
+xws__ghamti16,1,worldhaven,1,gh-am-ti-16
+xws__ghamtiback,1,worldhaven,1,gh-am-ti-back

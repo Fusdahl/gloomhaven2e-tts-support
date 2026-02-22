@@ -1,0 +1,2 @@
+class_id=ST2
+card_count=31

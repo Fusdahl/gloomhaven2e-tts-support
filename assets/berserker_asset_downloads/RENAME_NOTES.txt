@@ -1,0 +1,4 @@
+GH2 target class: berserker (BE2)
+1E reference source: berserker
+Reference deck key: 1341
+All generated artifacts are normalized to "berserker".

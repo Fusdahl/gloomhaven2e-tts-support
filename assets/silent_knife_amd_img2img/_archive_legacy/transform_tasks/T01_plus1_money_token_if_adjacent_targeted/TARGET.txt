@@ -1,0 +1,3 @@
+TARGET_COUNT: 3
+TARGET_RULE_TEXT: +1; Gain one money token if this attack targeted an adjacent enemy
+NOTES: Use Silent Knife perk wording/icons.

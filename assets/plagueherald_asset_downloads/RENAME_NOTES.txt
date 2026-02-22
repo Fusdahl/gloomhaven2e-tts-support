@@ -1,0 +1,6 @@
+GH2 target class: plagueherald (PH2)
+1E reference source: plagueherald
+Reference deck key: 1368
+Reference grid: 8x4
+Output grid: 8x4
+Note: output rows may expand when card count exceeds reference capacity.

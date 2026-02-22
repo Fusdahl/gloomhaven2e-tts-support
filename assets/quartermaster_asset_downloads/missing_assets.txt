@@ -1,0 +1,9 @@
+barbed-strip
+corrosive-coating
+iront-plate
+scroll-of-embers
+scroll-of-foresight
+scroll-of-relocation
+sharpened-dirk
+sturdy-spear
+weighted-bolas

@@ -1,0 +1,6 @@
+Silent Knife extra perks atlas order (2x2, left-to-right, top-to-bottom)
+
+00: silent_knife_extra_1.png
+01: silent_knife_extra_2.png
+02: silent_knife_extra_3.png
+03: silent_knife_back (gh_am_silent_knife_back.png)

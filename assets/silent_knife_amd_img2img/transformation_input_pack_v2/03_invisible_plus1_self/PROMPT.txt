@@ -1,0 +1,19 @@
+Create exactly one Gloomhaven-style attack modifier card image.
+
+Target:
+- Start from the 137816-style effect card.
+- Normalize to regular scoundrel green card style.
+- Change modifier value from +0 to +1.
+- Keep the intended invisible/self-style effect semantics.
+
+Use these attachments:
+- BASE_scoundrel_plus0_invisible_rolling.png as the primary source.
+- DONOR_scoundrel_green_rolling_style.png and REF_scoundrel_plus1_rolling_b.png for green rolling style cues.
+- ALT_DONOR_scoundrel_plus1.png for +1 number style.
+- REF_silent_knife_perks_panel_full.png and REF_silent_knife_perks_panel_zoom.png for perk intent.
+
+Hard constraints:
+- Output one card only.
+- Preserve aspect ratio and resolution.
+- No watermark, border, or background scene.
+- Keep frame style unchanged.

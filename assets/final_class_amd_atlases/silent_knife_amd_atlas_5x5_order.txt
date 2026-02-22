@@ -1,0 +1,27 @@
+Silent Knife AMD atlas order (5x5, left-to-right, top-to-bottom)
+
+00: +1 plain
+01: +1 plain
+02: +1 plain
+03: +1 money-token conditional
+04: +1 money-token conditional
+05: +1 money-token conditional
+06: +2 plain (A)
+07: +2 plain (B)
+08: +1 disarm
+09: +1 disarm
+10: +1 invisible/self
+11: +1 invisible/self
+12: filler (black)
+13: filler (black)
+14: filler (black)
+15: filler (black)
+16: filler (black)
+17: filler (black)
+18: filler (black)
+19: filler (black)
+20: filler (black)
+21: filler (black)
+22: filler (black)
+23: filler (black)
+24: card back

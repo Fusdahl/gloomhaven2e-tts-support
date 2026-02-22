@@ -1,0 +1,5 @@
+Create one Gloomhaven-style attack modifier card image.
+Target effect: (+0) (Disarm) (Rolling).
+Preserve frame style and icon language.
+Use BASE image as source, target_refs as visual target references.
+Output one clean master card face (no watermark/background scene).

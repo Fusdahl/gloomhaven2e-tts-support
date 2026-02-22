@@ -1,0 +1,2 @@
+Create one new Silent Knife AMD card face: (+1) with disarm effect.
+Use scoundrel/silent-knife visual style.

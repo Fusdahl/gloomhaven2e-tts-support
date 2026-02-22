@@ -1,0 +1,4 @@
+GH2 target class: doomstalker (DS2)
+1E reference source: doomstalker
+Reference deck key: 1356
+All generated artifacts are normalized to "doomstalker".

@@ -1,0 +1,17 @@
+{
+  "total_cards": 1129,
+  "by_source": {
+    "gh1_mod_json": 342,
+    "gh2_mod_json": 59,
+    "worldhaven": 728
+  },
+  "by_expansion": {
+    "gloomhaven": 748,
+    "frosthaven": 381
+  },
+  "by_confidence": {
+    "high": 401,
+    "code": 728
+  },
+  "unique_effect_keys": 831
+}

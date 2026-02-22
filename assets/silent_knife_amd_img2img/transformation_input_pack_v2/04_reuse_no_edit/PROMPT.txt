@@ -1,0 +1,2 @@
+No img2img generation required for this folder.
+These are direct-reuse card faces.

@@ -1,0 +1,153 @@
+{
+  "deck_guid": "scoundrel-amd",
+  "deck_ids": [
+    137816,
+    137815,
+    137814,
+    137813,
+    137812,
+    137811,
+    137810,
+    137809,
+    137808,
+    137807,
+    137806,
+    137805,
+    137804,
+    137803,
+    137802,
+    137801,
+    137800,
+    137900
+  ],
+  "custom_deck": {
+    "1378": {
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/15750044261983602967/D7F0CAFD36E9D85796D274ED7541D7E8921D4B2D/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/54701802010896866/AB8DD9E90F1F31A1B80E004A35B46F72FCFE25E1/",
+      "NumWidth": 4,
+      "NumHeight": 5,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    },
+    "1379": {
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/11795177973270976506/3E9C89240E1B431177CD55EAE9E735380537771E/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/13764566333303265669/B1002F95C123267814E7F63B018F9DB30C568666/",
+      "NumWidth": 1,
+      "NumHeight": 1,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  },
+  "cards": [
+    {
+      "card_id": 137800,
+      "deck_id": 1378,
+      "index": 0,
+      "nickname": "Attack Modifier (+1)"
+    },
+    {
+      "card_id": 137801,
+      "deck_id": 1378,
+      "index": 1,
+      "nickname": "Attack Modifier (+0) (Poison) (Rolling)"
+    },
+    {
+      "card_id": 137802,
+      "deck_id": 1378,
+      "index": 2,
+      "nickname": "Attack Modifier (+0) (Poison) (Rolling)"
+    },
+    {
+      "card_id": 137803,
+      "deck_id": 1378,
+      "index": 3,
+      "nickname": "Attack Modifier (+0) (Poison) (Rolling)"
+    },
+    {
+      "card_id": 137804,
+      "deck_id": 1378,
+      "index": 4,
+      "nickname": "Attack Modifier (+0) (Poison) (Rolling)"
+    },
+    {
+      "card_id": 137805,
+      "deck_id": 1378,
+      "index": 5,
+      "nickname": "Attack Modifier (+0)"
+    },
+    {
+      "card_id": 137806,
+      "deck_id": 1378,
+      "index": 6,
+      "nickname": "Attack Modifier (+2)"
+    },
+    {
+      "card_id": 137807,
+      "deck_id": 1378,
+      "index": 7,
+      "nickname": "Attack Modifier (+2)"
+    },
+    {
+      "card_id": 137808,
+      "deck_id": 1378,
+      "index": 8,
+      "nickname": "Attack Modifier (+0) (Muddle) (Rolling)"
+    },
+    {
+      "card_id": 137809,
+      "deck_id": 1378,
+      "index": 9,
+      "nickname": "Attack Modifier (+0) (Muddle) (Rolling)"
+    },
+    {
+      "card_id": 137810,
+      "deck_id": 1378,
+      "index": 10,
+      "nickname": "Attack Modifier (+0) (Pierce 3) (Rolling)"
+    },
+    {
+      "card_id": 137811,
+      "deck_id": 1378,
+      "index": 11,
+      "nickname": "Attack Modifier (+0) (Pierce 3) (Rolling)"
+    },
+    {
+      "card_id": 137812,
+      "deck_id": 1378,
+      "index": 12,
+      "nickname": "Attack Modifier (+1) (Rolling)"
+    },
+    {
+      "card_id": 137813,
+      "deck_id": 1378,
+      "index": 13,
+      "nickname": "Attack Modifier (+1) (Rolling)"
+    },
+    {
+      "card_id": 137814,
+      "deck_id": 1378,
+      "index": 14,
+      "nickname": "Attack Modifier (+1) (Rolling)"
+    },
+    {
+      "card_id": 137815,
+      "deck_id": 1378,
+      "index": 15,
+      "nickname": "Attack Modifier (+1) (Rolling)"
+    },
+    {
+      "card_id": 137816,
+      "deck_id": 1378,
+      "index": 16,
+      "nickname": "Attack Modifier (+0) (Invisible) (Rolling)"
+    },
+    {
+      "card_id": 137900,
+      "deck_id": 1379,
+      "index": 0,
+      "nickname": "Cloak of Invisibility"
+    }
+  ]
+}

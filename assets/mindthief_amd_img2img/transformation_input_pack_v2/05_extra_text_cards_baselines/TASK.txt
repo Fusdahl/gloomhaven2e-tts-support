@@ -1,0 +1,3 @@
+Baseline for Mindthief extra text/rule cards.
+- Start from BASE_gh1_mindthief_136400_lying_low.png
+- Update text to GH2 perk/rule wording as needed.

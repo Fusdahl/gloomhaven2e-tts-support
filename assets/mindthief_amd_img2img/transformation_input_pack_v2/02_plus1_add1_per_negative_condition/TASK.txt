@@ -1,0 +1,7 @@
+Create a new card face for this GH2 perk result:
+- (+1) "Add +1 attack for each negative condition the target has"
+
+Constraints:
+- Keep Mindthief card frame/style.
+- Keep this a rolling modifier card if your base keeps rolling treatment.
+- This output will be used three times in the final deck.

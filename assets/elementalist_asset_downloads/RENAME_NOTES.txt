@@ -1,0 +1,4 @@
+GH2 target class: elementalist (EL2)
+1E reference source: elementalist
+Reference deck key: 1359
+All generated artifacts are normalized to "elementalist".

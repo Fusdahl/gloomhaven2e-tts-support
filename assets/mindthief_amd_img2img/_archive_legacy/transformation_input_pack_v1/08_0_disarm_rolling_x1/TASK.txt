@@ -1,0 +1,4 @@
+Effect: (+0) (Disarm) (Rolling)
+Needed copies in target deck: 1
+Goal: Produce one final master face for this effect, then duplicate to copy count.
+Use BASE_... as source style baseline and target_refs/* as target visual reference.

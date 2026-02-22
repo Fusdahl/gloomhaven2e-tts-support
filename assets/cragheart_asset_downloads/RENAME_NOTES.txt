@@ -1,0 +1,4 @@
+GH2 target class: cragheart (CH2)
+1E reference source: cragheart
+Reference deck key: 1350
+All generated artifacts are normalized to "cragheart".

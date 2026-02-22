@@ -1,0 +1,7 @@
+Create a new card face for this GH2 perk result:
+- (+0) "After the attack ability, control the target: Move 1"
+
+Constraints:
+- Keep Mindthief card frame/style.
+- Preserve AMD symbol area and class styling.
+- This output will be used twice in the final deck.

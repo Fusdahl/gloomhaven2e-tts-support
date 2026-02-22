@@ -1,0 +1,4 @@
+Use these cards directly for the GH2 deck (no image editing):
+- (+2) x2: REUSE_plus2_A_136310.png, REUSE_plus2_B_136311.png
+- (+2 infuse ice) x3: REUSE_plus2_infuse_ice_A_136312.png, REUSE_plus2_infuse_ice_B_136313.png, and duplicate either one once
+- (+1 rolling) x1: REUSE_plus1_rolling_136314.png

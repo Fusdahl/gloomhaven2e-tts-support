@@ -1,0 +1,4 @@
+STYLE LOCK (do not change): keep exact Gloomhaven attack modifier card frame, typography style, icon style,
+paper texture, grayscale/black print look, and symbol alignment conventions from the reference card.
+OUTPUT: one single card image, same aspect ratio and resolution as reference, no watermark, no extra border.
+EDIT ONLY: center rules text/icons and numeric modifier value according to TARGET text below.

@@ -1,0 +1,16 @@
+Task 04: money_token_variant_D_optional
+
+Goal:
+Create exactly ONE new Silent Knife AMD card from INPUT_reference_card.png.
+
+Target rules text/effect:
++1 ; Gain one money token if this attack targeted an adjacent enemy
+
+Output file name:
+silent_knife_amd_money_token_04_optional.png
+
+Hard constraints:
+- Keep exact Gloomhaven modifier card frame style and grayscale print look.
+- Preserve card proportions and resolution.
+- Do not add watermark/border/background.
+- Modify only modifier value + rules text/icons area.

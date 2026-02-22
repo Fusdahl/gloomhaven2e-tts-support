@@ -1,0 +1,4 @@
+Create one new Silent Knife AMD card face from 137816:
+- Keep the invisible/self-type effect semantics,
+- convert to regular scoundrel green card style,
+- and set value to +1.

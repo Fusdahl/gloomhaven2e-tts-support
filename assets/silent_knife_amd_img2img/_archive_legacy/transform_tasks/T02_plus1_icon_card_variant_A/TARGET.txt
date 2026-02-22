@@ -1,0 +1,3 @@
+TARGET_COUNT: 2
+TARGET_RULE_TEXT: +1 with new Silent Knife icon effect (variant A)
+NOTES: Fill exact icon from perk sheet.

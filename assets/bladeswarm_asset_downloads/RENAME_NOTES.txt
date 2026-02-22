@@ -1,0 +1,4 @@
+GH2 target class: bladeswarm (BS2)
+1E reference source: bladeswarm
+Reference deck key: 1344
+All generated artifacts are normalized to "bladeswarm".

@@ -1,0 +1,2 @@
+class_id=WF2
+card_count=29

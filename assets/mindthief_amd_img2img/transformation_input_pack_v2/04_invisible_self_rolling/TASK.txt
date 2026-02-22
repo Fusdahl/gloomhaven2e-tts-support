@@ -1,0 +1,7 @@
+Create a new card face for this GH2 perk result:
+- (Invisible, self) rolling modifier
+
+Constraints:
+- Convert/adapt the scoundrel invisible rolling pattern into Mindthief style.
+- Preserve rolling-card look and class consistency.
+- This output will be used twice in the final deck.

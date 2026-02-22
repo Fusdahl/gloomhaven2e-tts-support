@@ -1,0 +1,11 @@
+line_id,checkboxes,operation,remove,add,notes
+L1,2,replace,"(-1) x2","(+0) 'After the attack ability, control the target: Move 1' x1",From FH-compatible sheet
+L2,3,replace,"(+0) x1","(+1) 'Add +1 attack for each negative condition the target has' x1",From FH-compatible sheet
+L3,2,replace,"(+0) x1","(+2) x1",From FH-compatible sheet
+L4,1,add,,"(+1) (Immobilize) x2",User-confirmed icon mapping
+L5,3,add,,"(+2) [Infuse Ice] x1",From FH-compatible sheet
+L6,2,add,,"(Invisible, self) (Rolling) x1",User-confirmed mapping from GH2 perk symbols
+L7,1,add,,"(+1) (Rolling) x1",Also has 'Ignore scenario effects' non-AMD part
+L8,1,rule_only,,,Whenever you control the attack of an enemy...
+L9,1,rule_only,,,Considered last in initiative order when determining monster focus
+L10,1,rule_only,,,At end of rests ... control one enemy ... non-AMD

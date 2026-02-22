@@ -1,0 +1,12 @@
+task,folder,required,output_filename,status
+01,01_money_token_variant_A,yes,silent_knife_amd_money_token_01.png,pending
+02,02_money_token_variant_B,yes,silent_knife_amd_money_token_02.png,pending
+03,03_money_token_variant_C,yes,silent_knife_amd_money_token_03.png,pending
+04,04_money_token_variant_D_optional,no,silent_knife_amd_money_token_04_optional.png,pending
+05,05_plus1_icon_variant_A_1,yes,silent_knife_amd_iconA_01.png,pending
+06,06_plus1_icon_variant_A_2,yes,silent_knife_amd_iconA_02.png,pending
+07,07_plus1_icon_variant_B_self_1,yes,silent_knife_amd_iconB_01.png,pending
+08,08_plus1_icon_variant_B_self_2,yes,silent_knife_amd_iconB_02.png,pending
+09,09_keep_plain_plus1,yes,silent_knife_amd_keep_plus1.png,pending
+10,10_keep_plain_plus2_A,yes,silent_knife_amd_keep_plus2_a.png,pending
+11,11_keep_plain_plus2_B,yes,silent_knife_amd_keep_plus2_b.png,pending

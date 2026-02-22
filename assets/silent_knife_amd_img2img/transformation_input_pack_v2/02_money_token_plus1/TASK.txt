@@ -1,0 +1,3 @@
+Create one new Silent Knife AMD card face:
+(+1) with the money-token conditional effect text:
+"Gain one money token if this attack targeted an adjacent enemy"

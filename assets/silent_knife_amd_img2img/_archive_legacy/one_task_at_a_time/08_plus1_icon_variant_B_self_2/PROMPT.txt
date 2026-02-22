@@ -1,0 +1,13 @@
+Create one Gloomhaven-style attack modifier card image from the attached INPUT_reference_card.png.
+
+Style lock requirements:
+- Preserve the exact card frame style, grayscale print texture, typography style, and icon visual language.
+- Preserve overall composition and spacing conventions used in official Gloomhaven modifier cards.
+- Do not add borders, watermarks, signatures, or background scene content.
+- Output one card only at the same aspect ratio and resolution as the reference.
+
+Edit requirements:
+- Replace only the central value/rules text and symbols to match TASK.txt.
+- Keep the value clearly readable and icon alignment clean.
+- Keep line breaks and spacing balanced to avoid overlap.
+- Use INPUT_perks_panel_zoom.png as semantic reference for icon choice and wording.

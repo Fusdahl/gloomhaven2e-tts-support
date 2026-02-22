@@ -1,0 +1,9 @@
+step,perk_mapping,output_image,count_needed,input_base,input_donor_or_ref,work_folder
+reuse_1,"Replace (+0) with (+2)","(+2) plain",2,REUSE_plus2_A_136310.png;REUSE_plus2_B_136311.png,,00_reuse_no_edit
+reuse_2,"Add (+2) infuse ice","(+2) infuse ice",3,REUSE_plus2_infuse_ice_A_136312.png;REUSE_plus2_infuse_ice_B_136313.png,"duplicate either A or B once",00_reuse_no_edit
+reuse_3,"Ignore scenario effects and add (+1) rolling","(+1) rolling",1,REUSE_plus1_rolling_136314.png,,00_reuse_no_edit
+new_1,"Replace two (-1) with one (+0) control target move 1","(+0) control target move 1",2,BASE_mindthief_plus0_136302.png,REF_text_layout_gh1_lying_low_136400.png,01_plus0_control_target_move1
+new_2,"Replace one (+0) with one (+1) add +1 per negative condition","(+1) add +1 per negative condition",3,BASE_mindthief_plus1_rolling_136314.png,REF_text_layout_gh1_lying_low_136400.png,02_plus1_add1_per_negative_condition
+new_3,"Add two (+1) immobilize","(+1) immobilize",2,BASE_mindthief_plus1_rolling_136314.png,DONOR_mindthief_plus0_immobilize_rolling_136300.png,03_plus1_immobilize
+new_4,"Add one (invisible self) rolling","(invisible,self) rolling",2,BASE_scoundrel_plus0_invisible_rolling_137816.png,DONOR_mindthief_rolling_style_136314.png,04_invisible_self_rolling
+extra_1,"Extra text/rule card baseline","text baseline",as_needed,BASE_gh1_mindthief_136400_lying_low.png,REF_gh2_mindthief_sheet_front.png,05_extra_text_cards_baselines

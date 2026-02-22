@@ -1,0 +1,7 @@
+Create a new card face for this GH2 perk result:
+- (+1) with Immobilize effect
+
+Constraints:
+- Keep Mindthief class style and rolling-card visual treatment.
+- Reuse immobilize icon/effect language from donor where possible.
+- This output will be used twice in the final deck.

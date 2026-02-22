@@ -1,0 +1,16 @@
+Create exactly one Gloomhaven-style attack modifier card image.
+
+Target:
+- Final effect: +1 with the money-token conditional text/effect.
+- Keep style consistent with Scoundrel/Silent Knife AMD cards.
+
+Use these attachments:
+- BASE_scoundrel_plus1.png as the base style.
+- REF_silent_knife_perks_panel_full.png and REF_silent_knife_perks_panel_zoom.png for exact perk wording/intent.
+- REF_scoundrel_text_layout_poison_rolling.png and REF_scoundrel_plain_plus0.png for text/icon layout style only.
+
+Hard constraints:
+- Output one card only.
+- Preserve aspect ratio and resolution.
+- No watermark, border, or background scene.
+- Keep typography/icon language in official GH style.

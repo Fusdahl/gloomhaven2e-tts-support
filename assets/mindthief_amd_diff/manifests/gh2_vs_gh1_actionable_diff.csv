@@ -1,0 +1,8 @@
+face_or_effect,count_needed_2e,reuse_from_gh1,source_files,action
+(+2) plain,2,yes,"136310_attack_modifier_2.png;136311_attack_modifier_2.png",reuse
+(+2) infuse ice,3,partial,"136312_attack_modifier_2_infuse_ice.png;136313_attack_modifier_2_infuse_ice.png",reuse_2_and_duplicate_1
+(+1) rolling,1,yes,"136314/136315/136316/136317_attack_modifier_1_rolling.png",reuse
+(+0) control target move 1,2,no,"use 136302_attack_modifier_0.png as style base",new_text_effect
+(+1) add +1 attack per negative condition target has,3,no,"use 136314/136315/136316/136317 (+1 rolling) as style base",new_text_effect
+(+1) immobilize,2,partial,"adapt from 136300/136301 (+0 immobilize rolling) or +1 base + immobilize donor",new_icon_effect
+(invisible, self) rolling,2,partial,"adapt from scoundrel 137816 pattern + mindthief style",new_icon_effect

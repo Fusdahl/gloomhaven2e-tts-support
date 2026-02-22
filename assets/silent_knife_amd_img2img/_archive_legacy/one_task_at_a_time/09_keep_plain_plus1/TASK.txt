@@ -1,0 +1,7 @@
+Task 09: keep_plain_plus1
+
+Goal:
+No generation required. Keep this card as-is.
+
+Output file name:
+silent_knife_amd_keep_plus1.png

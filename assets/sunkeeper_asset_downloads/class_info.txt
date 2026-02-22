@@ -1,0 +1,2 @@
+class_id=SK2
+card_count=30
