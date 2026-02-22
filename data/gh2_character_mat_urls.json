@@ -1,0 +1,193 @@
+{
+  "generated_at_utc": "2026-02-22T18:42:51.688374+00:00",
+  "base_url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/",
+  "total": 18,
+  "ok_count": 18,
+  "failed_count": 0,
+  "entries": [
+    {
+      "class_id": "bruiser",
+      "slug": "bruiser",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-bruiser.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "cragheart",
+      "slug": "cragheart",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-cragheart.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "mindthief",
+      "slug": "mindthief",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-mindthief.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "spellweaver",
+      "slug": "spellweaver",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-spellweaver.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "tinkerer",
+      "slug": "tinkerer",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-tinkerer.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "berserker",
+      "slug": "berserker",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-berserker.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "bladeswarm",
+      "slug": "bladeswarm",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-bladeswarm.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "doomstalker",
+      "slug": "doomstalker",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-doomstalker.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "elementalist",
+      "slug": "elementalist",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-elementalist.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "nightshroud",
+      "slug": "nightshroud",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-nightshroud.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "plagueherald",
+      "slug": "plagueherald",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-plagueherald.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "quartermaster",
+      "slug": "quartermaster",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-quartermaster.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "sawbones",
+      "slug": "sawbones",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-sawbones.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "sunkeeper",
+      "slug": "sunkeeper",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-sunkeeper.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "soothsinger",
+      "slug": "soothsinger",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-soothsinger.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "wildfury",
+      "slug": "wildfury",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-wildfury.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "soultether",
+      "slug": "soultether",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven/gh-summoner.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    },
+    {
+      "class_id": "silent_knife",
+      "slug": "silentknife",
+      "url": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-silentknife.jpeg",
+      "ok": true,
+      "status": 200,
+      "error": null
+    }
+  ],
+  "url_map": {
+    "bruiser": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-bruiser.jpeg",
+    "cragheart": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-cragheart.jpeg",
+    "mindthief": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-mindthief.jpeg",
+    "spellweaver": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-spellweaver.jpeg",
+    "tinkerer": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-tinkerer.jpeg",
+    "berserker": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-berserker.jpeg",
+    "bladeswarm": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-bladeswarm.jpeg",
+    "doomstalker": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-doomstalker.jpeg",
+    "elementalist": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-elementalist.jpeg",
+    "nightshroud": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-nightshroud.jpeg",
+    "plagueherald": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-plagueherald.jpeg",
+    "quartermaster": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-quartermaster.jpeg",
+    "sawbones": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-sawbones.jpeg",
+    "sunkeeper": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-sunkeeper.jpeg",
+    "soothsinger": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-soothsinger.jpeg",
+    "wildfury": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-wildfury.jpeg",
+    "soultether": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven/gh-summoner.jpeg",
+    "silent_knife": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-silentknife.jpeg"
+  },
+  "ok_url_map": {
+    "bruiser": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-bruiser.jpeg",
+    "cragheart": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-cragheart.jpeg",
+    "mindthief": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-mindthief.jpeg",
+    "spellweaver": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-spellweaver.jpeg",
+    "tinkerer": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-tinkerer.jpeg",
+    "berserker": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-berserker.jpeg",
+    "bladeswarm": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-bladeswarm.jpeg",
+    "doomstalker": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-doomstalker.jpeg",
+    "elementalist": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-elementalist.jpeg",
+    "nightshroud": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-nightshroud.jpeg",
+    "plagueherald": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-plagueherald.jpeg",
+    "quartermaster": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-quartermaster.jpeg",
+    "sawbones": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-sawbones.jpeg",
+    "sunkeeper": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-sunkeeper.jpeg",
+    "soothsinger": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-soothsinger.jpeg",
+    "wildfury": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-wildfury.jpeg",
+    "soultether": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven/gh-summoner.jpeg",
+    "silent_knife": "https://raw.githubusercontent.com/cmlenius/gloomhaven-card-browser/images/images/character-mats/gloomhaven-2nd-edition/gh2-silentknife.jpeg"
+  }
+}

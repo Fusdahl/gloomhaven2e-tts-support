@@ -3291,6 +3291,124 @@
                           "XmlUI": ""
                         },
                         {
+                          "GUID": "gh2e-spears-mat",
+                          "Name": "Custom_Tile",
+                          "Transform": {
+                            "posX": -3.602722,
+                            "posY": 2.93328667,
+                            "posZ": -4.51671743,
+                            "rotX": 359.885345,
+                            "rotY": 180.000061,
+                            "rotZ": 359.946136,
+                            "scaleX": 1.87,
+                            "scaleY": 1.0,
+                            "scaleZ": 1.87
+                          },
+                          "Nickname": "Character Mat",
+                          "Description": "Silent Knife",
+                          "GMNotes": "",
+                          "AltLookAngle": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                          },
+                          "ColorDiffuse": {
+                            "r": 0.156899333,
+                            "g": 0.164699346,
+                            "b": 0.176499337
+                          },
+                          "Tags": [
+                            "Owner 3"
+                          ],
+                          "LayoutGroupSortIndex": 0,
+                          "Value": 0,
+                          "Locked": false,
+                          "Grid": true,
+                          "Snap": true,
+                          "IgnoreFoW": false,
+                          "MeasureMovement": false,
+                          "DragSelectable": true,
+                          "Autoraise": true,
+                          "Sticky": true,
+                          "Tooltip": true,
+                          "GridProjection": false,
+                          "HideWhenFaceDown": false,
+                          "Hands": false,
+                          "CustomImage": {
+                            "ImageURL": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/silent_knife_character_mat.jpeg?v=r20260222a",
+                            "ImageSecondaryURL": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/silent_knife_character_mat.jpeg?v=r20260222a",
+                            "ImageScalar": 1.0,
+                            "WidthScale": 0.0,
+                            "CustomTile": {
+                              "Type": 0,
+                              "Thickness": 0.1,
+                              "Stackable": false,
+                              "Stretch": true
+                            }
+                          },
+                          "LuaScript": "",
+                          "LuaScriptState": "",
+                          "XmlUI": "",
+                          "AttachedSnapPoints": [
+                            {
+                              "Position": {
+                                "x": -0.184954047,
+                                "y": 0.100000165,
+                                "z": -0.305845737
+                              }
+                            },
+                            {
+                              "Position": {
+                                "x": 0.253894776,
+                                "y": 0.100000143,
+                                "z": 0.130234286
+                              }
+                            },
+                            {
+                              "Position": {
+                                "x": 0.2574495,
+                                "y": 0.100000143,
+                                "z": -0.04994612
+                              }
+                            },
+                            {
+                              "Position": {
+                                "x": 0.254083842,
+                                "y": 0.100000143,
+                                "z": -0.237812638
+                              }
+                            },
+                            {
+                              "Position": {
+                                "x": 0.2544064,
+                                "y": 0.100000143,
+                                "z": -0.4160447
+                              }
+                            },
+                            {
+                              "Position": {
+                                "x": 0.254541934,
+                                "y": 0.100000143,
+                                "z": -0.609472334
+                              }
+                            },
+                            {
+                              "Position": {
+                                "x": 0.2478855,
+                                "y": 0.100000143,
+                                "z": -0.7848807
+                              }
+                            },
+                            {
+                              "Position": {
+                                "x": 0.9051949,
+                                "y": 0.100000143,
+                                "z": -0.186623946
+                              }
+                            }
+                          ]
+                        },
+                        {
                           "GUID": "gh2e-spears-figure",
                           "Name": "Custom_Model",
                           "Transform": {

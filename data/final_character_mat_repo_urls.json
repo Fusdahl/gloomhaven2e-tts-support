@@ -1,0 +1,23 @@
+{
+  "base_url": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/",
+  "urls": {
+    "berserker": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/berserker_character_mat.jpeg",
+    "bladeswarm": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/bladeswarm_character_mat.jpeg",
+    "bruiser": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/bruiser_character_mat.jpeg",
+    "cragheart": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/cragheart_character_mat.jpeg",
+    "doomstalker": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/doomstalker_character_mat.jpeg",
+    "elementalist": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/elementalist_character_mat.jpeg",
+    "mindthief": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/mindthief_character_mat.jpeg",
+    "nightshroud": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/nightshroud_character_mat.jpeg",
+    "plagueherald": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/plagueherald_character_mat.jpeg",
+    "quartermaster": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/quartermaster_character_mat.jpeg",
+    "sawbones": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/sawbones_character_mat.jpeg",
+    "silent_knife": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/silent_knife_character_mat.jpeg",
+    "soothsinger": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/soothsinger_character_mat.jpeg",
+    "soultether": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/soultether_character_mat.jpeg",
+    "spellweaver": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/spellweaver_character_mat.jpeg",
+    "sunkeeper": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/sunkeeper_character_mat.jpeg",
+    "tinkerer": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/tinkerer_character_mat.jpeg",
+    "wildfury": "https://raw.githubusercontent.com/Fusdahl/gloomhaven2e-tts-support/main/assets/final_character_mats/wildfury_character_mat.jpeg"
+  }
+}

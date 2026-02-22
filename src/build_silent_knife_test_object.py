@@ -39,6 +39,7 @@ EXTRA_BACK = AMD_BACK
 
 SHEET_FRONT = RAW_BASE + "FH_compatible_sheets/silent_knife_character_sheet_front.png" + f"?v={ASSET_REV}"
 SHEET_BACK = RAW_BASE + "FH_compatible_sheets/silent_knife_character_sheet_back.png" + f"?v={ASSET_REV}"
+CHARACTER_MAT_IMAGE = RAW_BASE + "final_character_mats/silent_knife_character_mat.jpeg" + f"?v={ASSET_REV}"
 
 # Keep extra cards but prevent 5019 filler slots from becoming drawable.
 SAFE_ATTACK_MODIFIER_DECK_IDS = [
@@ -95,7 +96,6 @@ SILENT_KNIFE_MASTERY_POSITIONS = [
 
 WHITE_DIFFUSE = {"r": 1.0, "g": 1.0, "b": 1.0}
 DROP_OBJECT_NICKNAMES = {
-    "character mat",
     "decorative crate",
     "quartermaster personal supply",
     "silent knife personal supply",
@@ -418,10 +418,15 @@ def _patch_object(obj: dict[str, Any]) -> None:
     if nickname == "Advanced Abilities" and isinstance(obj.get("DeckIDs"), list):
         obj["DeckIDs"] = ADVANCED_ABILITY_DECK_IDS.copy()
 
-    if nickname in {"Character Sheet", "Character Mat"} and isinstance(obj.get("CustomImage"), dict):
+    if nickname == "Character Sheet" and isinstance(obj.get("CustomImage"), dict):
         custom_image = obj["CustomImage"]
         custom_image["ImageURL"] = SHEET_FRONT
         custom_image["ImageSecondaryURL"] = SHEET_BACK
+
+    if nickname == "Character Mat" and isinstance(obj.get("CustomImage"), dict):
+        custom_image = obj["CustomImage"]
+        custom_image["ImageURL"] = CHARACTER_MAT_IMAGE
+        custom_image["ImageSecondaryURL"] = CHARACTER_MAT_IMAGE
 
     if nickname == "Character Sheet" and isinstance(obj.get("LuaScript"), str):
         obj["LuaScript"] = _patch_character_sheet_lua(obj["LuaScript"])

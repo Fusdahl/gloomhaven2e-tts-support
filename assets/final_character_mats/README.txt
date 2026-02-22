@@ -1,0 +1,21 @@
+GH2E character mats for TTS build scripts.
+Files are named <class_id>_character_mat.jpeg
+
+berserker_character_mat.jpeg
+bladeswarm_character_mat.jpeg
+bruiser_character_mat.jpeg
+cragheart_character_mat.jpeg
+doomstalker_character_mat.jpeg
+elementalist_character_mat.jpeg
+mindthief_character_mat.jpeg
+nightshroud_character_mat.jpeg
+plagueherald_character_mat.jpeg
+quartermaster_character_mat.jpeg
+sawbones_character_mat.jpeg
+silent_knife_character_mat.jpeg
+soothsinger_character_mat.jpeg
+soultether_character_mat.jpeg
+spellweaver_character_mat.jpeg
+sunkeeper_character_mat.jpeg
+tinkerer_character_mat.jpeg
+wildfury_character_mat.jpeg
