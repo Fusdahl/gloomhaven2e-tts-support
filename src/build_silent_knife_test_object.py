@@ -101,6 +101,26 @@ DROP_OBJECT_NICKNAMES = {
     "silent knife personal supply",
 }
 
+# Scoundrel 1e working implementation figure model (source of truth for model look/rig).
+SCOUNDREL_FIGURE_BUNDLE = {
+    "AssetbundleURL": RAW_BASE + "final_class_models/scoundrel_source/scoundrel_figure.unity3d" + f"?v={ASSET_REV}",
+    "AssetbundleSecondaryURL": "",
+    "MaterialIndex": 3,
+    "TypeIndex": 1,
+    "LoopingEffectIndex": 0,
+}
+SCOUNDREL_FIGURE_COLOR = {"r": 0.6471, "g": 0.8196, "b": 0.4039}
+SCOUNDREL_CLASS_BOX_MESH_URL = RAW_BASE + "final_class_models/scoundrel_source/scoundrel_box_mesh.obj" + f"?v={ASSET_REV}"
+SCOUNDREL_CLASS_BOX_DIFFUSE_URL = RAW_BASE + "final_class_models/scoundrel_source/scoundrel_box_diffuse.png" + f"?v={ASSET_REV}"
+SCOUNDREL_BOX_MASK_FRONT_URL = RAW_BASE + "final_class_models/scoundrel_source/character_box_mask_front.png" + f"?v={ASSET_REV}"
+SCOUNDREL_BOX_MASK_SIDE_URL = RAW_BASE + "final_class_models/scoundrel_source/character_box_mask_side.png" + f"?v={ASSET_REV}"
+CONTENT_BOX_MESH_URL = RAW_BASE + "final_class_models/content_box_source/content_box_mesh.obj" + f"?v={ASSET_REV}"
+CONTENT_BOX_DIFFUSE_URL = RAW_BASE + "final_class_models/content_box_source/content_box_diffuse.png" + f"?v={ASSET_REV}"
+CONTENT_BOX_ICON_URL = RAW_BASE + "final_class_models/content_box_source/content_icon.png" + f"?v={ASSET_REV}"
+CLASS_BIG_BOX_MESH_URL = RAW_BASE + "final_class_models/class_big_box_source/class_big_box_mesh.obj" + f"?v={ASSET_REV}"
+CLASS_BIG_BOX_DIFFUSE_URL = RAW_BASE + "final_class_models/class_big_box_source/class_big_box_diffuse.png" + f"?v={ASSET_REV}"
+SILENT_KNIFE_ICON_URL = RAW_BASE + "final_class_models/silent_knife_source/silent_knife_icon.png" + f"?v={ASSET_REV}"
+
 _ABILITY_ENTRIES_CACHE: list[dict[str, Any]] | None = None
 _ABILITY_BY_CARD_ID_CACHE: dict[int, dict[str, Any]] | None = None
 
@@ -381,6 +401,9 @@ def _patch_object(obj: dict[str, Any]) -> None:
             name = asset.get("Name")
             if isinstance(name, str) and "Quartermaster" in _normalize_spaces(name):
                 asset["Name"] = CLASS_ICON_NAME
+                name = CLASS_ICON_NAME
+            if name == CLASS_ICON_NAME:
+                asset["URL"] = SILENT_KNIFE_ICON_URL
 
     if isinstance(obj.get("CustomDeck"), dict):
         _patch_custom_deck(obj["CustomDeck"])
@@ -430,6 +453,87 @@ def _patch_object(obj: dict[str, Any]) -> None:
 
     if nickname == "Character Sheet" and isinstance(obj.get("LuaScript"), str):
         obj["LuaScript"] = _patch_character_sheet_lua(obj["LuaScript"])
+
+    # Keep the class tuckbox model aligned with the Scoundrel working implementation.
+    if (
+        nickname == CLASS_NAME
+        and obj.get("Name") == "Custom_Model_Bag"
+        and isinstance(obj.get("CustomMesh"), dict)
+    ):
+        custom_mesh = obj["CustomMesh"]
+        custom_mesh["MeshURL"] = SCOUNDREL_CLASS_BOX_MESH_URL
+        custom_mesh["DiffuseURL"] = SCOUNDREL_CLASS_BOX_DIFFUSE_URL
+        custom_mesh["MaterialIndex"] = 3
+        custom_mesh["TypeIndex"] = 6
+
+        ui_assets = obj.get("CustomUIAssets")
+        if isinstance(ui_assets, list):
+            by_name = {
+                asset.get("Name"): asset
+                for asset in ui_assets
+                if isinstance(asset, dict) and isinstance(asset.get("Name"), str)
+            }
+            front = by_name.get("character-box-mask-front")
+            side = by_name.get("character-box-mask-side")
+            if front is None:
+                front = {"Type": 0, "Name": "character-box-mask-front", "URL": SCOUNDREL_BOX_MASK_FRONT_URL}
+                ui_assets.append(front)
+            if side is None:
+                side = {"Type": 0, "Name": "character-box-mask-side", "URL": SCOUNDREL_BOX_MASK_SIDE_URL}
+                ui_assets.append(side)
+            front["URL"] = SCOUNDREL_BOX_MASK_FRONT_URL
+            side["URL"] = SCOUNDREL_BOX_MASK_SIDE_URL
+
+    # Keep the root content box model/icon in-repo to avoid external dependencies.
+    if (
+        nickname == f"{CLASS_NAME} Content Box"
+        and obj.get("Name") == "Custom_Model_Bag"
+        and isinstance(obj.get("CustomMesh"), dict)
+    ):
+        custom_mesh = obj["CustomMesh"]
+        custom_mesh["MeshURL"] = CONTENT_BOX_MESH_URL
+        custom_mesh["DiffuseURL"] = CONTENT_BOX_DIFFUSE_URL
+        custom_mesh["MaterialIndex"] = 1
+        custom_mesh["TypeIndex"] = 6
+
+        ui_assets = obj.get("CustomUIAssets")
+        if isinstance(ui_assets, list):
+            content_icon = None
+            for asset in ui_assets:
+                if isinstance(asset, dict) and asset.get("Name") == "Gloomhaven 2E_ContentIcon":
+                    content_icon = asset
+                    break
+            if content_icon is None:
+                content_icon = {"Type": 0, "Name": "Gloomhaven 2E_ContentIcon", "URL": CONTENT_BOX_ICON_URL}
+                ui_assets.append(content_icon)
+            content_icon["URL"] = CONTENT_BOX_ICON_URL
+
+    # Keep the large class box model in-repo as well.
+    if (
+        obj.get("GUID") == "gh2e-spears-big-box"
+        and obj.get("Name") == "Custom_Model_Infinite_Bag"
+        and isinstance(obj.get("CustomMesh"), dict)
+    ):
+        custom_mesh = obj["CustomMesh"]
+        custom_mesh["MeshURL"] = CLASS_BIG_BOX_MESH_URL
+        custom_mesh["DiffuseURL"] = CLASS_BIG_BOX_DIFFUSE_URL
+        custom_mesh["MaterialIndex"] = 3
+        custom_mesh["TypeIndex"] = 6
+
+    # Use the Scoundrel character model implementation for Silent Knife figure.
+    # Keep the existing GH2 figure script/state so interactions remain on the same object.
+    tags = obj.get("Tags")
+    if (
+        nickname == CLASS_NAME
+        and obj.get("Description") is not None
+        and isinstance(tags, list)
+        and "Character" in tags
+        and "Figure" in tags
+    ):
+        obj["Name"] = "Custom_Assetbundle"
+        obj["CustomAssetbundle"] = dict(SCOUNDREL_FIGURE_BUNDLE)
+        obj.pop("CustomMesh", None)
+        obj["ColorDiffuse"] = dict(SCOUNDREL_FIGURE_COLOR)
 
 
 def _walk_and_patch(node: Any) -> None:
