@@ -132,8 +132,8 @@ CONTENT_BOX_DIFFUSE_URL = RAW_BASE + "final_class_models/content_box_source/cont
 CONTENT_BOX_ICON_URL = RAW_BASE + "final_class_models/content_box_source/content_icon.png" + f"?v={ASSET_REV}"
 CLASS_TOP_BOX_MESH_URL = RAW_BASE + "final_class_models/scoundrel_top_box_source/scoundrel_top_box_mesh.obj" + f"?v={ASSET_REV}"
 CLASS_TOP_BOX_DIFFUSE_URL = RAW_BASE + "final_class_models/scoundrel_top_box_source/scoundrel_top_box_diffuse.png" + f"?v={ASSET_REV}"
-CLASS_TOP_BOX_ICON_URL = RAW_BASE + "final_class_models/scoundrel_top_box_source/scoundrel_top_box_icon.png" + f"?v={ASSET_REV}"
 SILENT_KNIFE_ICON_URL = RAW_BASE + "final_class_models/silent_knife_source/silent_knife_icon.png" + f"?v={ASSET_REV}"
+CLASS_TOP_BOX_ICON_URL = SILENT_KNIFE_ICON_URL
 
 _ABILITY_ENTRIES_CACHE: list[dict[str, Any]] | None = None
 _ABILITY_BY_CARD_ID_CACHE: dict[int, dict[str, Any]] | None = None
@@ -335,8 +335,11 @@ def _patch_outer_class_lua(lua_script: str) -> str:
 def _patch_text_value(text: str) -> str:
     out = _normalize_spaces(text)
     out = out.replace("Quartermaster", CLASS_NAME)
+    out = out.replace("Scoundrel", CLASS_NAME)
     out = out.replace("Valrath Silent Knife", "Human Silent Knife")
     out = out.replace("Quartermaster clone", "Silent Knife clone")
+    out = out.replace("Scoundrel_Icon", CLASS_ICON_NAME)
+    out = out.replace("Scoundrel _Icon", CLASS_ICON_NAME)
     out = re.sub(r"\s+", " ", out).strip()
     return out
 
@@ -492,6 +495,9 @@ def _patch_object(obj: dict[str, Any]) -> None:
         xml = xml.replace("Quartermaster _Icon", CLASS_ICON_NAME)
         xml = xml.replace("Quartermaster_Icon", CLASS_ICON_NAME)
         xml = xml.replace("Quartermaster\u00A0_Icon", CLASS_ICON_NAME)
+        xml = xml.replace("Scoundrel _Icon", CLASS_ICON_NAME)
+        xml = xml.replace("Scoundrel_Icon", CLASS_ICON_NAME)
+        xml = xml.replace("Scoundrel\u00A0_Icon", CLASS_ICON_NAME)
         obj["XmlUI"] = xml
 
     custom_ui_assets = obj.get("CustomUIAssets")
@@ -501,6 +507,9 @@ def _patch_object(obj: dict[str, Any]) -> None:
                 continue
             name = asset.get("Name")
             if isinstance(name, str) and "Quartermaster" in _normalize_spaces(name):
+                asset["Name"] = CLASS_ICON_NAME
+                name = CLASS_ICON_NAME
+            if isinstance(name, str) and "Scoundrel" in _normalize_spaces(name) and "icon" in _normalize_spaces(name):
                 asset["Name"] = CLASS_ICON_NAME
                 name = CLASS_ICON_NAME
             if name == CLASS_ICON_NAME:
@@ -632,7 +641,14 @@ def _patch_object(obj: dict[str, Any]) -> None:
         ui_assets = obj.get("CustomUIAssets")
         if isinstance(ui_assets, list):
             for asset in ui_assets:
-                if isinstance(asset, dict) and asset.get("Name") == CLASS_ICON_NAME:
+                if not isinstance(asset, dict):
+                    continue
+                asset_name = asset.get("Name")
+                if isinstance(asset_name, str) and (
+                    asset_name == CLASS_ICON_NAME
+                    or ("Scoundrel" in _normalize_spaces(asset_name) and "icon" in _normalize_spaces(asset_name))
+                ):
+                    asset["Name"] = CLASS_ICON_NAME
                     asset["URL"] = CLASS_TOP_BOX_ICON_URL
                     break
 
