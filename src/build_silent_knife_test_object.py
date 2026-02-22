@@ -99,7 +99,7 @@ SILENT_KNIFE_PERK_POSITIONS = [
     (80, -86),
     (80, -241),
     (80, -390),
-    (80, -393),
+    (80, -408),
 ]
 
 SILENT_KNIFE_MASTERY_POSITIONS = [
