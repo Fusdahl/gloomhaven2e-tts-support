@@ -1,0 +1,7 @@
+Goal: Create a Cragheart-style plain `+0` card.
+
+Instructions:
+1. Start from `BASE_any_plus0_scoundrel_00228.png`.
+2. Keep card frame, number, and plain layout.
+3. Replace class icon + accent styling to match Cragheart references.
+4. Do not add rolling or extra effect text/icons.

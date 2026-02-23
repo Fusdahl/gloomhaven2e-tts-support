@@ -1,0 +1,7 @@
+Goal: Create a Cragheart-style `+1` card with custom text/effect.
+
+Instructions:
+1. Start from one of the `BASE_any_plus1_with_text_*` files.
+2. Keep a clean `+1` card structure and text area.
+3. Replace effect text/icons to your target perk text.
+4. Convert class icon/styling to Cragheart.

@@ -1,0 +1,6 @@
+Cragheart extra perks atlas order (2x2, left-to-right, top-to-bottom)
+
+00: Gemini_Generated_Image_ivgtyfivgtyfivgt.png
+01: Gemini_Generated_Image_vaegdxvaegdxvaeg.png
+02: REF_cragheart_earthquakes_135200.png
+03: cragheart_amd_back_815x531.png

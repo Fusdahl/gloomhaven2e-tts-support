@@ -1,0 +1,7 @@
+Goal: Build Cragheart extra-perk text cards using `earthquakes` as style reference.
+
+Instructions:
+1. Use `REF_cragheart_earthquakes_135200.png` as the primary reference image.
+2. Create the required extra perk cards from this style baseline.
+3. Keep final extra cards in matching dimensions for 2x2 atlas assembly.
+4. Use `REF_amd_back_815x531.png` as the back card reference.

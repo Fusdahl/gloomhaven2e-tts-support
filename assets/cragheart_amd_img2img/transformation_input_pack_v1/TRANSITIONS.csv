@@ -1,0 +1,8 @@
+task_id,task_folder,target_card,count,base_inputs,references
+T00,00_initial_reuse_atlas,+1 (reuse),3,"REUSE_01_plus1_a.png;REUSE_02_plus1_b.png;REUSE_03_plus1_c.png","BACK_amd_generic_815x531.png"
+T01,01_plus0_icon_swap_to_cragheart,+0 plain (cragheart style),1,BASE_any_plus0_scoundrel_00228.png,"REF_cragheart_plus1_135100.png;REF_cragheart_class_icon.png"
+T02,02_plus0_rolling_muddle_icon_swap,+0 rolling muddle (cragheart style),1,BASE_any_plus0_muddle_rolling_00224.png,"REF_cragheart_plus1_135100.png;REF_cragheart_class_icon.png"
+T03,03_plus2_immobilize_from_plus1,+2 immobilize (cragheart style),1,"BASE_cragheart_plus1_immobilize_135105.png;BASE_cragheart_plus1_immobilize_135106.png","REF_cragheart_plus2_135107.png;REF_cragheart_plus2_135108.png"
+T04,04_plus1_push1,+1 push 1 (cragheart style),1,"BASE_any_plus0_push1_rolling_brute_00015.png;BASE_any_plus0_push1_rolling_brute_00016.png","REF_cragheart_plus1_135100.png;REF_cragheart_push_style_135103.png;REF_cragheart_class_icon.png"
+T05,05_plus1_custom_text,+1 custom text/effect (cragheart style),1,"BASE_any_plus1_with_text_tinkerer_00310.png;BASE_any_plus1_with_text_tinkerer_00311.png","REF_cragheart_plus1_135100.png;REF_cragheart_class_icon.png"
+T06,06_extra_cards_earthquakes_reference,extra perk cards (earthquakes style),3,REF_cragheart_earthquakes_135200.png,"REF_cragheart_earthquakes_135200.png;REF_amd_back_815x531.png"

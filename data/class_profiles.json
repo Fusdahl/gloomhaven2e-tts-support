@@ -117,6 +117,72 @@
         [-336, -339],
         [-336, -387]
       ]
+    },
+    "cragheart": {
+      "class_id": "cragheart",
+      "class_name": "Cragheart",
+      "class_icon_name": "Cragheart_Icon",
+      "output_prefix": "Cragheart",
+      "hp": [10, 11, 13, 14, 16, 17, 19, 20, 22],
+      "ability_order_file": "assets/cragheart_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 30,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/cragheart_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/cragheart_ability_back.png",
+      "amd_face_path": "final_class_amd_atlases/cragheart_amd_atlas_5x5.png",
+      "amd_back_path": "final_class_amd_atlases/cragheart_amd_back_815x531.png",
+      "extra_face_path": "final_class_amd_atlases/cragheart_extra_perks_atlas_2x2.png",
+      "extra_back_path": "final_class_amd_atlases/cragheart_amd_back_815x531.png",
+      "attack_modifier_deck_ids": [
+        501911,
+        501910,
+        501909,
+        501908,
+        501907,
+        501906,
+        501905,
+        501904,
+        501903,
+        501902,
+        501901,
+        501900,
+        502102,
+        502101,
+        502100
+      ],
+      "sheet_front_path": "FH_compatible_sheets/savvas_cragheart_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/savvas_cragheart_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/cragheart_character_mat.jpeg",
+      "model_source_dir": "cragheart_source",
+      "top_model_source_dir": "cragheart_source",
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "perk_positions": [
+        [78, 318],
+        [78, 260],
+        [103, 261],
+        [128, 261],
+        [77, 208],
+        [102, 207],
+        [126, 207],
+        [77, 72],
+        [102, 73],
+        [77, 12],
+        [103, 12],
+        [129, 12],
+        [78, -22],
+        [78, -80],
+        [78, -119],
+        [78, -228],
+        [78, -337],
+        [78, -352]
+      ],
+      "mastery_positions": [
+        [-334, -330],
+        [-335, -371]
+      ]
     }
   }
 }

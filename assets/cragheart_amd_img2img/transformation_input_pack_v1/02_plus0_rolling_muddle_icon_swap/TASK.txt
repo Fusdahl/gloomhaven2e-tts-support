@@ -1,0 +1,6 @@
+Goal: Create a Cragheart-style `+0 Rolling Muddle` card.
+
+Instructions:
+1. Start from `BASE_any_plus0_muddle_rolling_00224.png`.
+2. Keep `+0`, muddle icon, and rolling icon layout.
+3. Replace class icon + accent styling to Cragheart style.

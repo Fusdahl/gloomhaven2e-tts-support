@@ -1,0 +1,7 @@
+Goal: Create a Cragheart-style `+2 Immobilize` card.
+
+Instructions:
+1. Start from one of the `BASE_cragheart_plus1_immobilize_*` files.
+2. Keep immobilize icon and Cragheart frame/icon.
+3. Change the attack value from `+1` to `+2`.
+4. Use `REF_cragheart_plus2_*` for number style and scale.

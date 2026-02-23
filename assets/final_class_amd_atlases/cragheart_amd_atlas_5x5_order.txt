@@ -1,0 +1,27 @@
+Cragheart AMD atlas order (5x5, left-to-right, top-to-bottom)
+
+00: +0
+01: +1
+02: +1
+03: +1
+04: Rolling obstacle
+05: Rolling obstacle
+06: Rolling obstacle
+07: +1 Push 1
+08: +1 Push 1
+09: +1 Push 1
+10: +1 Push 1
+11: +2 Immobilize
+12: +2 Immobilize
+13: +2 Immobilize
+14: Rolling Muddle (+0)
+15: filler (black)
+16: filler (black)
+17: filler (black)
+18: filler (black)
+19: filler (black)
+20: filler (black)
+21: filler (black)
+22: filler (black)
+23: filler (black)
+24: card back

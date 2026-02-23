@@ -1,0 +1,11 @@
+Goal: Create a Cragheart-style `+1 Push 1` card.
+
+Note: No exact `+1 Push 1` source was found in the local GH1/GH2 effect library.
+Use the provided `+0 Push 1 (Rolling)` base and convert it.
+
+Instructions:
+1. Start from one of the `BASE_any_plus0_push1_rolling_*` files.
+2. Change attack value from `+0` to `+1`.
+3. Keep `Push 1` effect.
+4. Keep or remove rolling icon based on your target interpretation.
+5. Convert class icon/styling to Cragheart.

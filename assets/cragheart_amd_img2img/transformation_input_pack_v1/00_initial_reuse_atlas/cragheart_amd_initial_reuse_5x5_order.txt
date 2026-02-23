@@ -1,0 +1,6 @@
+Grid: 5x5, slot order left-to-right, top-to-bottom.
+01 REUSE_01_plus1_a.png
+02 REUSE_02_plus1_b.png
+03 REUSE_03_plus1_c.png
+04-24 FILLER_black_815x531.png
+25 BACK_amd_generic_815x531.png

@@ -72,3 +72,13 @@ Last updated: 2026-02-22
 - Decide if Character Mat should remain as an object in class bag or be pruned in final release.
 - Apply same final-character-mat wiring approach to additional classes beyond Silent Knife.
 - If desired, re-enable and rework perk transformations class-by-class after AMD assets are finalized.
+
+## Sheet Position Workflow (New)
+- Reusable store for class sheet click maps:
+  - `data/class_sheet_positions.json`
+- Click capture tool:
+  - `tools/sheet_click_mapper.html`
+- Sync mapped positions into class profiles:
+  - `python3 src/sync_sheet_positions.py --class-id <class_id>`
+- Full reference:
+  - `docs/sheet_positions_store.md`
