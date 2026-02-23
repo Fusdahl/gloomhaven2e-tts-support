@@ -123,7 +123,7 @@
       "class_name": "Cragheart",
       "class_icon_name": "Cragheart_Icon",
       "output_prefix": "Cragheart",
-      "hp": [10, 11, 13, 14, 16, 17, 19, 20, 22],
+      "hp": [10, 12, 14, 16, 18, 20, 22, 24, 26],
       "ability_order_file": "assets/cragheart_asset_downloads/ordered_for_rows/ORDER.txt",
       "expected_ability_count": 30,
       "ability_card_base": 345299,
@@ -134,6 +134,9 @@
       "extra_face_path": "final_class_amd_atlases/cragheart_extra_perks_atlas_2x2.png",
       "extra_back_path": "final_class_amd_atlases/cragheart_amd_back_815x531.png",
       "attack_modifier_deck_ids": [
+        501914,
+        501913,
+        501912,
         501911,
         501910,
         501909,
@@ -145,10 +148,7 @@
         501903,
         501902,
         501901,
-        501900,
-        502102,
-        502101,
-        502100
+        501900
       ],
       "sheet_front_path": "FH_compatible_sheets/savvas_cragheart_character_sheet_front.png",
       "sheet_back_path": "FH_compatible_sheets/savvas_cragheart_character_sheet_back.png",
