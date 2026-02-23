@@ -226,6 +226,26 @@
       "legacy_class_bag_guid": "gh2e-spears-big-box",
       "legacy_small_box_guid": "gh2e-spears-small-box",
       "legacy_id_prefix": "gh2e-spears",
+      "summon_card_lua_aliases": {
+        "Gangling Abomination": "Wretched Creature"
+      },
+      "summon_stats": {
+        "Rat Swarm": {
+          "health": 5,
+          "movement": 2,
+          "attack": 2
+        },
+        "Monstrous Rat": {
+          "health": 8,
+          "movement": 3,
+          "attack": 3
+        },
+        "Rat King": {
+          "health": 10,
+          "movement": 3,
+          "attack": "X"
+        }
+      },
       "perk_positions": [
         [76, 326],
         [101, 326],

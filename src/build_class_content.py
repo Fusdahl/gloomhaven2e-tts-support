@@ -78,6 +78,10 @@ def _slug_to_display_name(slug: str) -> str:
     return " ".join(out_parts)
 
 
+def _strip_initiative_suffix(name: str) -> str:
+    return re.sub(r"\s*\(\d+\)\s*$", "", name).strip()
+
+
 def _load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -358,6 +362,29 @@ def _extract_summons_bag_from_source(profile: dict[str, Any]) -> dict[str, Any] 
     return None
 
 
+def _extract_source_summon_card_scripts(profile: dict[str, Any]) -> dict[str, str]:
+    source_path = _resolve_source_saved_object(profile)
+    if source_path is None:
+        return {}
+    source = _load_json(source_path)
+    root = _extract_root_state(source)
+    scripts: dict[str, str] = {}
+    for obj in _iter_objects(root):
+        if obj.get("Name") != "Card":
+            continue
+        lua = obj.get("LuaScript")
+        nick = obj.get("Nickname")
+        if not isinstance(lua, str) or not lua.strip():
+            continue
+        if "SummonCard.forSummon(" not in lua:
+            continue
+        if not isinstance(nick, str) or not nick.strip():
+            continue
+        key = _normalize_key(_strip_initiative_suffix(nick))
+        scripts[key] = lua
+    return scripts
+
+
 def _remap_summon_asset_urls(summons_bag: dict[str, Any], profile: dict[str, Any]) -> None:
     model_source_dir = profile["model_source_dir"]
     asset_rev = profile["asset_rev"]
@@ -390,6 +417,83 @@ def _remap_summon_asset_urls(summons_bag: dict[str, Any], profile: dict[str, Any
         model_index += 1
 
 
+def _format_lua_scalar(value: Any) -> str:
+    if isinstance(value, str):
+        return '"' + value.replace('"', '\\"') + '"'
+    return str(value)
+
+
+def _patch_summon_lua_stats(lua_script: str, override: dict[str, Any]) -> str:
+    if not lua_script or not isinstance(override, dict):
+        return lua_script
+
+    block_match = re.search(r"stats\s*=\s*\{.*?\n\}", lua_script, flags=re.S)
+    if not block_match:
+        return lua_script
+
+    block = block_match.group(0)
+    patched = block
+
+    if "health" in override:
+        patched = re.sub(
+            r"(\bhealth\s*=\s*)(\"[^\"]*\"|-?\d+)(\s*,)",
+            rf"\g<1>{_format_lua_scalar(override['health'])}\g<3>",
+            patched,
+            count=1,
+        )
+
+    if "movement" in override:
+        patched = re.sub(
+            r"(\bmovement\s*=\s*)(\"[^\"]*\"|-?\d+)(\s*,)",
+            rf"\g<1>{_format_lua_scalar(override['movement'])}\g<3>",
+            patched,
+            count=1,
+        )
+
+    if "attack" in override:
+        attack_value = _format_lua_scalar(override["attack"])
+        if re.search(r"\battack\s*=\s*\{", patched):
+            patched = re.sub(
+                r"(\battack\s*=\s*\{.*?\bvalue\s*=\s*)(\"[^\"]*\"|-?\d+)(\s*,)",
+                rf"\g<1>{attack_value}\g<3>",
+                patched,
+                count=1,
+                flags=re.S,
+            )
+        else:
+            patched = re.sub(
+                r"(\battack\s*=\s*)(\"[^\"]*\"|-?\d+)(\s*,)",
+                rf"\g<1>{attack_value}\g<3>",
+                patched,
+                count=1,
+            )
+
+    if patched == block:
+        return lua_script
+    return lua_script[: block_match.start()] + patched + lua_script[block_match.end() :]
+
+
+def _apply_summon_stats_overrides(summons_bag: dict[str, Any], profile: dict[str, Any]) -> None:
+    overrides = profile.get("summon_stats")
+    if not isinstance(overrides, dict):
+        return
+    contained = summons_bag.get("ContainedObjects")
+    if not isinstance(contained, list):
+        return
+    for summon in contained:
+        if not isinstance(summon, dict):
+            continue
+        nickname = summon.get("Nickname")
+        if not isinstance(nickname, str):
+            continue
+        override = overrides.get(nickname)
+        if not isinstance(override, dict):
+            continue
+        lua = summon.get("LuaScript")
+        if isinstance(lua, str) and lua:
+            summon["LuaScript"] = _patch_summon_lua_stats(lua, override)
+
+
 def _ensure_class_summons(root_data: dict[str, Any], profile: dict[str, Any]) -> None:
     class_name = profile["class_name"]
     class_box = None
@@ -406,16 +510,100 @@ def _ensure_class_summons(root_data: dict[str, Any], profile: dict[str, Any]) ->
         if isinstance(child, dict) and child.get("Name") == "Bag" and _normalize_key(child.get("Nickname", "")) == "summons":
             # Summons already present; still remap assets in case URLs are stale.
             _remap_summon_asset_urls(child, profile)
+            _apply_summon_stats_overrides(child, profile)
             return
 
     summons_bag = _extract_summons_bag_from_source(profile)
     if not isinstance(summons_bag, dict):
         return
     _remap_summon_asset_urls(summons_bag, profile)
+    _apply_summon_stats_overrides(summons_bag, profile)
 
     used_guids = build_skeleton.collect_guids(root_data)
     build_skeleton.regenerate_guids(summons_bag, seen=used_guids)
     contained.append(summons_bag)
+
+
+def _collect_class_summon_defs(root_data: dict[str, Any], profile: dict[str, Any]) -> list[dict[str, str]]:
+    class_name = profile["class_name"]
+    class_box = None
+    for obj in _iter_objects(root_data):
+        if obj.get("Name") == "Custom_Model_Bag" and _normalize_key(obj.get("Nickname", "")) == _normalize_key(class_name):
+            class_box = obj
+            break
+    if not isinstance(class_box, dict):
+        return []
+    contained = class_box.get("ContainedObjects")
+    if not isinstance(contained, list):
+        return []
+    summons_bag = next(
+        (o for o in contained if isinstance(o, dict) and o.get("Name") == "Bag" and _normalize_key(o.get("Nickname", "")) == "summons"),
+        None,
+    )
+    if not isinstance(summons_bag, dict):
+        return []
+
+    defs: list[dict[str, str]] = []
+    for summon in summons_bag.get("ContainedObjects", []) or []:
+        if not isinstance(summon, dict):
+            continue
+        name = summon.get("Nickname")
+        if not isinstance(name, str) or not name.strip():
+            continue
+        custom_mesh = summon.get("CustomMesh")
+        if not isinstance(custom_mesh, dict):
+            continue
+        image = custom_mesh.get("DiffuseURL")
+        if not isinstance(image, str) or not image.strip():
+            continue
+        defs.append({"name": name.strip(), "image": image.strip()})
+    return defs
+
+
+def _patch_outer_lua_summon_registration(lua_script: str, summon_defs: list[dict[str, str]]) -> str:
+    if not lua_script:
+        return lua_script
+
+    out = re.sub(r"\r?\n\s*--\s*ContentApi\.registerSummon\(\{[^\n]*\}\)", "", lua_script)
+    out = re.sub(r"\r?\n\s*ContentApi\.registerSummon\(\{[^\n]*\}\)", "", out)
+
+    if summon_defs:
+        block_lines = ["  --summon registration"]
+        for summon in summon_defs:
+            name = summon["name"].replace('"', '\\"')
+            image = summon["image"].replace('"', '\\"')
+            block_lines.append(f'  ContentApi.registerSummon({{ name = "{name}", image = "{image}"}})')
+        block = "\n".join(block_lines)
+    else:
+        block = "  --summon registration"
+
+    marker = "  --solo scenario registration"
+    if marker in out:
+        out = re.sub(
+            r"(  --summon registration\s*)(.*?)(?=\r?\n\s*  --solo scenario registration)",
+            block,
+            out,
+            count=1,
+            flags=re.S,
+        )
+        if block not in out:
+            out = out.replace(marker, block + "\n\n" + marker, 1)
+    else:
+        out = out.replace("end\n\nend)", block + "\nend\n\nend)", 1)
+    return out
+
+
+def _ensure_outer_class_summon_registration(root_data: dict[str, Any], profile: dict[str, Any]) -> None:
+    summon_defs = _collect_class_summon_defs(root_data, profile)
+    if not summon_defs:
+        return
+    class_name = profile["class_name"]
+    for obj in _iter_objects(root_data):
+        if obj.get("Name") == "Custom_Model_Infinite_Bag" and _normalize_key(obj.get("Nickname", "")) == _normalize_key(class_name):
+            lua = obj.get("LuaScript")
+            if isinstance(lua, str):
+                obj["LuaScript"] = _patch_outer_lua_summon_registration(lua, summon_defs)
+            break
 
 
 def _patch_character_sheet_lua(lua_script: str, profile: dict[str, Any]) -> str:
@@ -539,6 +727,10 @@ def _apply_class_patch(root_data: dict[str, Any], profile: dict[str, Any]) -> di
     patch_text_value = _make_text_patcher(profile)
     ability_entries = _parse_ability_entries(profile)
     ability_by_card_id = {e["card_id"]: e for e in ability_entries}
+    summon_card_scripts = _extract_source_summon_card_scripts(profile)
+    summon_card_aliases = profile.get("summon_card_lua_aliases", {})
+    if not isinstance(summon_card_aliases, dict):
+        summon_card_aliases = {}
     starting_ids, advanced_ids = _compute_ability_deck_ids(ability_entries)
     attack_modifier_ids = profile.get("attack_modifier_deck_ids")
 
@@ -617,6 +809,11 @@ def _apply_class_patch(root_data: dict[str, Any], profile: dict[str, Any]) -> di
             meta = ability_by_card_id.get(card_id)
             if meta is not None:
                 obj["Nickname"] = f'{meta["name"]} ({meta["initiative"]})'
+                lookup = summon_card_aliases.get(meta["name"], meta["name"])
+                summon_lua = summon_card_scripts.get(_normalize_key(lookup))
+                if isinstance(summon_lua, str) and summon_lua.strip():
+                    obj["LuaScript"] = summon_lua
+                    obj["LuaScriptState"] = ""
 
         if nickname == "Attack Modifiers" and isinstance(obj.get("DeckIDs"), list) and isinstance(attack_modifier_ids, list):
             obj["DeckIDs"] = attack_modifier_ids.copy()
@@ -847,11 +1044,28 @@ def _apply_class_patch(root_data: dict[str, Any], profile: dict[str, Any]) -> di
             for cid in deck_ids:
                 card = card_by_id.get(cid)
                 if card is not None:
+                    meta = ability_by_card_id.get(cid)
+                    if meta is not None:
+                        card["Nickname"] = f'{meta["name"]} ({meta["initiative"]})'
+                        lookup = summon_card_aliases.get(meta["name"], meta["name"])
+                        summon_lua = summon_card_scripts.get(_normalize_key(lookup))
+                        if isinstance(summon_lua, str) and summon_lua.strip():
+                            card["LuaScript"] = summon_lua
+                            card["LuaScriptState"] = ""
                     out.append(card)
                     continue
                 clone = dict(template)
                 clone["CardID"] = cid
-                clone["Nickname"] = f"Ability Card {cid}"
+                meta = ability_by_card_id.get(cid)
+                if meta is not None:
+                    clone["Nickname"] = f'{meta["name"]} ({meta["initiative"]})'
+                    lookup = summon_card_aliases.get(meta["name"], meta["name"])
+                    summon_lua = summon_card_scripts.get(_normalize_key(lookup))
+                    if isinstance(summon_lua, str) and summon_lua.strip():
+                        clone["LuaScript"] = summon_lua
+                        clone["LuaScriptState"] = ""
+                else:
+                    clone["Nickname"] = f"Ability Card {cid}"
                 out.append(clone)
             return out
 
@@ -862,6 +1076,7 @@ def _apply_class_patch(root_data: dict[str, Any], profile: dict[str, Any]) -> di
     walk(data)
     prune(data)
     _ensure_class_summons(data, profile)
+    _ensure_outer_class_summon_registration(data, profile)
     rebalance_ability_contained_objects(data)
     if isinstance(data, dict) and "SaveName" in data:
         data["SaveName"] = f"{profile['class_name']} Test Save (v2)"
