@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GH2E Sheet Click Mapper</title>
+  <style>
+    :root {
+      --bg: #121416;
+      --panel: #1d2226;
+      --panel-2: #2a3238;
+      --text: #e8eef2;
+      --muted: #a9b6c2;
+      --perk: #ff7068;
+      --mastery: #4dd8ff;
+      --calib: #ffde6a;
+      --ok: #7ce38b;
+      --warn: #ffba75;
+    }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .app {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      min-height: 100vh;
+    }
+    .left {
+      border-right: 1px solid #303940;
+      background: linear-gradient(180deg, var(--panel), #1a2025);
+      padding: 14px;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+    .right {
+      overflow: auto;
+      background: #0f1214;
+      padding: 14px;
+      box-sizing: border-box;
+    }
+    .card {
+      background: var(--panel-2);
+      border: 1px solid #3a434a;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 6px 0;
+    }
+    button, input, select {
+      background: #2b343b;
+      color: var(--text);
+      border: 1px solid #47525a;
+      border-radius: 8px;
+      padding: 6px 8px;
+      font-size: 13px;
+    }
+    button {
+      cursor: pointer;
+    }
+    button.active {
+      border-color: #85d8ff;
+      box-shadow: 0 0 0 1px #85d8ff inset;
+      background: #33454f;
+    }
+    button.warn {
+      border-color: #da8a5f;
+    }
+    .hint {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .status {
+      font-size: 13px;
+      margin-top: 4px;
+      color: var(--warn);
+    }
+    .status.ok {
+      color: var(--ok);
+    }
+    #canvas {
+      border: 1px solid #384149;
+      border-radius: 8px;
+      display: block;
+      max-width: none;
+      cursor: crosshair;
+      background: #fff;
+    }
+    textarea {
+      width: 100%;
+      min-height: 170px;
+      background: #11171b;
+      color: #deecff;
+      border: 1px solid #42505a;
+      border-radius: 8px;
+      padding: 8px;
+      box-sizing: border-box;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .list {
+      max-height: 170px;
+      overflow: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      border: 1px solid #475159;
+      border-radius: 8px;
+      padding: 6px;
+      background: #151b20;
+      white-space: pre;
+    }
+    .perkDot { color: var(--perk); }
+    .masteryDot { color: var(--mastery); }
+    .calibDot { color: var(--calib); }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="left">
+      <div class="card">
+        <div><strong>Image</strong></div>
+        <div class="row">
+          <input id="fileInput" type="file" accept="image/*" />
+        </div>
+        <div class="row">
+          <label for="zoom">Zoom</label>
+          <input id="zoom" type="range" min="0.4" max="2.6" step="0.05" value="0.8" />
+          <span id="zoomText">0.80x</span>
+        </div>
+        <div class="hint">
+          Load a class sheet front image from <code>assets/FH_compatible_sheets</code>.
+        </div>
+      </div>
+
+      <div class="card">
+        <div><strong>Calibration</strong></div>
+        <div class="hint">
+          Click <span class="calibDot">level 1</span> then <span class="calibDot">level 9</span> checkbox centers.
+          This calibrates pixel -> Lua offsets using known sheet UI math.
+        </div>
+        <div class="row">
+          <button id="modeCalib1">Set Level 1</button>
+          <button id="modeCalib9">Set Level 9</button>
+          <button id="resetCalib" class="warn">Reset</button>
+        </div>
+        <div id="calibInfo" class="status">Not calibrated</div>
+      </div>
+
+      <div class="card">
+        <div><strong>Capture</strong></div>
+        <div class="row">
+          <button id="modePerk">Add Perk</button>
+          <button id="modeMastery">Add Mastery</button>
+        </div>
+        <div class="row">
+          <button id="undo">Undo Last</button>
+          <button id="clearAll" class="warn">Clear All</button>
+        </div>
+        <div id="modeInfo" class="status">Mode: none</div>
+      </div>
+
+      <div class="card">
+        <div><strong>Points</strong></div>
+        <div class="hint">
+          Order is click order. Perks should be 18 entries, masteries usually 2 entries.
+        </div>
+        <div class="row"><span class="perkDot">Perks</span></div>
+        <div id="perkList" class="list"></div>
+        <div class="row"><span class="masteryDot">Masteries</span></div>
+        <div id="masteryList" class="list"></div>
+      </div>
+
+      <div class="card">
+        <div><strong>Output</strong></div>
+        <div class="row">
+          <button id="copyOut">Copy</button>
+          <button id="regenOut">Refresh</button>
+        </div>
+        <textarea id="out" spellcheck="false"></textarea>
+        <div class="hint">
+          Paste into <code>data/class_profiles.json</code> for your class:
+          <code>perk_positions</code> and <code>mastery_positions</code>.
+        </div>
+      </div>
+    </aside>
+
+    <main class="right">
+      <canvas id="canvas"></canvas>
+    </main>
+  </div>
+
+  <script>
+    const LEVEL1_LUA = { x: -251, y: 322 };
+    const LEVEL9_LUA = { x: 13, y: 322 };
+
+    const state = {
+      img: null,
+      zoom: 0.8,
+      mode: "none",
+      calibration: {
+        level1Px: null,
+        level9Px: null,
+        scale: null,
+        xOffset: null,
+        yLevelPx: null,
+      },
+      perks: [],
+      masteries: [],
+      history: [],
+    };
+
+    const el = {
+      canvas: document.getElementById("canvas"),
+      ctx: document.getElementById("canvas").getContext("2d"),
+      fileInput: document.getElementById("fileInput"),
+      zoom: document.getElementById("zoom"),
+      zoomText: document.getElementById("zoomText"),
+      modeCalib1: document.getElementById("modeCalib1"),
+      modeCalib9: document.getElementById("modeCalib9"),
+      resetCalib: document.getElementById("resetCalib"),
+      modePerk: document.getElementById("modePerk"),
+      modeMastery: document.getElementById("modeMastery"),
+      undo: document.getElementById("undo"),
+      clearAll: document.getElementById("clearAll"),
+      calibInfo: document.getElementById("calibInfo"),
+      modeInfo: document.getElementById("modeInfo"),
+      perkList: document.getElementById("perkList"),
+      masteryList: document.getElementById("masteryList"),
+      out: document.getElementById("out"),
+      regenOut: document.getElementById("regenOut"),
+      copyOut: document.getElementById("copyOut"),
+    };
+
+    function setMode(mode) {
+      state.mode = mode;
+      for (const b of [el.modeCalib1, el.modeCalib9, el.modePerk, el.modeMastery]) b.classList.remove("active");
+      if (mode === "calib1") el.modeCalib1.classList.add("active");
+      if (mode === "calib9") el.modeCalib9.classList.add("active");
+      if (mode === "perk") el.modePerk.classList.add("active");
+      if (mode === "mastery") el.modeMastery.classList.add("active");
+      el.modeInfo.textContent = `Mode: ${mode}`;
+    }
+
+    function hasCalibration() {
+      return state.calibration.scale !== null;
+    }
+
+    function refreshCalibration() {
+      const c = state.calibration;
+      if (!c.level1Px || !c.level9Px) {
+        c.scale = null;
+        c.xOffset = null;
+        c.yLevelPx = null;
+        el.calibInfo.textContent = "Not calibrated";
+        el.calibInfo.className = "status";
+        return;
+      }
+      const dxPx = c.level9Px.x - c.level1Px.x;
+      if (Math.abs(dxPx) < 1e-6) {
+        c.scale = null;
+        el.calibInfo.textContent = "Calibration invalid (level points overlap)";
+        el.calibInfo.className = "status";
+        return;
+      }
+      c.scale = (LEVEL9_LUA.x - LEVEL1_LUA.x) / dxPx;
+      c.xOffset = LEVEL1_LUA.x - c.scale * c.level1Px.x;
+      c.yLevelPx = (c.level1Px.y + c.level9Px.y) / 2;
+      el.calibInfo.textContent = `Calibrated: scale=${c.scale.toFixed(4)}, yLevelPx=${c.yLevelPx.toFixed(1)}`;
+      el.calibInfo.className = "status ok";
+    }
+
+    function toLua(p) {
+      const c = state.calibration;
+      if (!hasCalibration()) return null;
+      const x = Math.round(c.scale * p.x + c.xOffset);
+      const y = Math.round(LEVEL1_LUA.y + c.scale * (c.yLevelPx - p.y));
+      return { x, y };
+    }
+
+    function draw() {
+      const { canvas, ctx } = el;
+      const img = state.img;
+      if (!img) {
+        canvas.width = 1200;
+        canvas.height = 800;
+        ctx.fillStyle = "#0f1214";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#93a0aa";
+        ctx.font = "20px sans-serif";
+        ctx.fillText("Load an image to start.", 30, 40);
+        return;
+      }
+      canvas.width = Math.round(img.naturalWidth * state.zoom);
+      canvas.height = Math.round(img.naturalHeight * state.zoom);
+      ctx.imageSmoothingEnabled = true;
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+      function drawPoint(p, color, label) {
+        const x = p.x * state.zoom;
+        const y = p.y * state.zoom;
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(x, y, 11, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x - 14, y);
+        ctx.lineTo(x + 14, y);
+        ctx.moveTo(x, y - 14);
+        ctx.lineTo(x, y + 14);
+        ctx.stroke();
+        ctx.fillStyle = color;
+        ctx.font = "15px sans-serif";
+        ctx.fillText(label, x + 10, y - 10);
+      }
+
+      if (state.calibration.level1Px) drawPoint(state.calibration.level1Px, "#ffde6a", "L1");
+      if (state.calibration.level9Px) drawPoint(state.calibration.level9Px, "#ffde6a", "L9");
+      state.perks.forEach((p, i) => drawPoint(p.px, "#ff7068", String(i + 1)));
+      state.masteries.forEach((p, i) => drawPoint(p.px, "#4dd8ff", String(i + 1)));
+    }
+
+    function refreshLists() {
+      el.perkList.textContent = state.perks.map((p, i) => {
+        const lua = p.lua || { x: "?", y: "?" };
+        return `${String(i + 1).padStart(2, "0")}  px(${Math.round(p.px.x)}, ${Math.round(p.px.y)})  lua(${lua.x}, ${lua.y})`;
+      }).join("\n");
+      el.masteryList.textContent = state.masteries.map((p, i) => {
+        const lua = p.lua || { x: "?", y: "?" };
+        return `${String(i + 1).padStart(2, "0")}  px(${Math.round(p.px.x)}, ${Math.round(p.px.y)})  lua(${lua.x}, ${lua.y})`;
+      }).join("\n");
+    }
+
+    function buildOutput() {
+      const perks = state.perks.map(p => [p.lua?.x ?? null, p.lua?.y ?? null]);
+      const masteries = state.masteries.map(p => [p.lua?.x ?? null, p.lua?.y ?? null]);
+      return [
+        `"perk_positions": [`,
+        ...perks.map(v => `  [${v[0]}, ${v[1]}],`),
+        `],`,
+        `"mastery_positions": [`,
+        ...masteries.map(v => `  [${v[0]}, ${v[1]}],`),
+        `]`,
+      ].join("\n");
+    }
+
+    function refreshOutput() {
+      el.out.value = buildOutput();
+    }
+
+    function addPoint(kind, px) {
+      const lua = toLua(px);
+      const item = { px, lua };
+      if (kind === "perk") state.perks.push(item);
+      if (kind === "mastery") state.masteries.push(item);
+      state.history.push(kind);
+    }
+
+    function recalcAllLua() {
+      state.perks.forEach(p => p.lua = toLua(p.px));
+      state.masteries.forEach(p => p.lua = toLua(p.px));
+    }
+
+    el.fileInput.addEventListener("change", (ev) => {
+      const file = ev.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const img = new Image();
+        img.onload = () => {
+          state.img = img;
+          draw();
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    el.zoom.addEventListener("input", () => {
+      state.zoom = Number(el.zoom.value);
+      el.zoomText.textContent = `${state.zoom.toFixed(2)}x`;
+      draw();
+    });
+
+    el.modeCalib1.addEventListener("click", () => setMode("calib1"));
+    el.modeCalib9.addEventListener("click", () => setMode("calib9"));
+    el.modePerk.addEventListener("click", () => setMode("perk"));
+    el.modeMastery.addEventListener("click", () => setMode("mastery"));
+
+    el.resetCalib.addEventListener("click", () => {
+      state.calibration.level1Px = null;
+      state.calibration.level9Px = null;
+      refreshCalibration();
+      recalcAllLua();
+      refreshLists();
+      refreshOutput();
+      draw();
+    });
+
+    el.undo.addEventListener("click", () => {
+      const kind = state.history.pop();
+      if (!kind) return;
+      if (kind === "perk" && state.perks.length) state.perks.pop();
+      if (kind === "mastery" && state.masteries.length) state.masteries.pop();
+      refreshLists();
+      refreshOutput();
+      draw();
+    });
+
+    el.clearAll.addEventListener("click", () => {
+      state.perks = [];
+      state.masteries = [];
+      state.history = [];
+      refreshLists();
+      refreshOutput();
+      draw();
+    });
+
+    el.regenOut.addEventListener("click", refreshOutput);
+
+    el.copyOut.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(el.out.value);
+        el.copyOut.textContent = "Copied";
+        setTimeout(() => (el.copyOut.textContent = "Copy"), 1000);
+      } catch {
+        el.copyOut.textContent = "Copy failed";
+        setTimeout(() => (el.copyOut.textContent = "Copy"), 1200);
+      }
+    });
+
+    el.canvas.addEventListener("click", (ev) => {
+      if (!state.img) return;
+      const rect = el.canvas.getBoundingClientRect();
+      const px = {
+        x: (ev.clientX - rect.left) / state.zoom,
+        y: (ev.clientY - rect.top) / state.zoom,
+      };
+
+      if (state.mode === "calib1") {
+        state.calibration.level1Px = px;
+        refreshCalibration();
+        recalcAllLua();
+      } else if (state.mode === "calib9") {
+        state.calibration.level9Px = px;
+        refreshCalibration();
+        recalcAllLua();
+      } else if (state.mode === "perk") {
+        if (!hasCalibration()) return;
+        addPoint("perk", px);
+      } else if (state.mode === "mastery") {
+        if (!hasCalibration()) return;
+        addPoint("mastery", px);
+      }
+
+      refreshLists();
+      refreshOutput();
+      draw();
+    });
+
+    refreshLists();
+    refreshOutput();
+    draw();
+  </script>
+</body>
+</html>
