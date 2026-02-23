@@ -1,0 +1,7 @@
+task_id,task_folder,target_card,count,base_inputs,references
+T00,00_initial_reuse_atlas,+2 (reuse),2,"REUSE_01_plus2_a_136310.png;REUSE_02_plus2_b_136311.png","REUSE_03_plus2_create_ice_a_136312.png"
+T00b,00_initial_reuse_atlas,+2 create ice (reuse),3,"REUSE_03_plus2_create_ice_a_136312.png;REUSE_04_plus2_create_ice_b_136313.png;REUSE_05_plus2_create_ice_c_136312_copy.png","BACK_mindthief_815x531.png"
+T01,01_plus1_immobilize_logo_swap,+1 immobilize (mindthief style),1,BASE_any_plus1_immobilize_00068_cragheart.png,"REF_mindthief_style_136314.png;REF_mindthief_class_icon.png"
+T02,02_invisible_self_rolling_logo_swap,invisible self rolling (mindthief style),1,BASE_silent_knife_final_invis_plus1.png,"REF_mindthief_style_136314.png;REF_mindthief_class_icon.png"
+T03,03_money_token_text_logo_swap,+1 custom text card from silent-knife money-token base (mindthief style),1,BASE_silent_knife_money_token_plus1.png,"REF_mindthief_style_136314.png;REF_mindthief_class_icon.png"
+T04,04_extra_cards_lying_low_baseline,extra perk text cards (Lying Low baseline),3,BASE_lying_low_136400.png,"REF_lying_low_00148.png;REF_mindthief_amd_back_815x531.png"

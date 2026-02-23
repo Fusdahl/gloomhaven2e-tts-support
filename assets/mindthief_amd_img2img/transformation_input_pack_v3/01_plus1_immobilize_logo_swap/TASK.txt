@@ -1,0 +1,6 @@
+Goal: Create one Mindthief-style `+1 Immobilize` card.
+
+Instructions:
+1. Start from `BASE_any_plus1_immobilize_00068_cragheart.png`.
+2. Keep `+1` and immobilize effect.
+3. Convert class icon/styling to Mindthief.

@@ -1,0 +1,19 @@
+Mindthief final AMD deck plan (5x5 atlas)
+
+Live cards (15 total):
+1. 2x mindthief_move_1
+2. 3x mindthief_plus_1_negative
+3. 2x +2 (reuse GH1 mindthief)
+4. 3x +2 create ice (reuse GH1 mindthief)
+5. 2x mindthief_immobilize_1
+6. 2x mindthief_invis_self_rolling
+7. 1x +1 rolling (GH1 mindthief)
+
+Atlas assembly:
+- Slots 00-14: live cards
+- Slots 15-23: black filler (9 cards)
+- Slot 24: mindthief AMD back
+
+Card sources:
+- Transformed cards from: assets/mindthief_amd_img2img/transformation_input_pack_v3/99_outputs_drop_here
+- Reuse cards from: assets/mindthief_amd_img2img/transformation_input_pack_v3/00_initial_reuse_atlas

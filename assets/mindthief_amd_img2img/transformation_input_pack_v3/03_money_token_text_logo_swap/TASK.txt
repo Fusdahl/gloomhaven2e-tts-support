@@ -1,0 +1,6 @@
+Goal: Create one Mindthief-style +1 text card using the Silent Knife money-token card as text/layout base.
+
+Instructions:
+1. Start from `BASE_silent_knife_money_token_plus1.png`.
+2. Replace card text/effect to the Mindthief target text.
+3. Convert class icon/styling to Mindthief.

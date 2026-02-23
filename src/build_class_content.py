@@ -330,6 +330,94 @@ def _build_single_base_object(global_cfg: dict[str, Any], profile: dict[str, Any
     return build_skeleton.wrap_as_save(single_object, profile["class_name"])
 
 
+def _resolve_source_saved_object(profile: dict[str, Any]) -> Path | None:
+    rel = profile.get("source_saved_object")
+    if not isinstance(rel, str) or not rel.strip():
+        return None
+    path = Path(__file__).resolve().parent.parent / rel
+    return path if path.exists() else None
+
+
+def _extract_root_state(data: dict[str, Any]) -> dict[str, Any]:
+    if isinstance(data.get("ObjectStates"), list) and data["ObjectStates"]:
+        root = data["ObjectStates"][0]
+        if isinstance(root, dict):
+            return root
+    return data
+
+
+def _extract_summons_bag_from_source(profile: dict[str, Any]) -> dict[str, Any] | None:
+    source_path = _resolve_source_saved_object(profile)
+    if source_path is None:
+        return None
+    source = _load_json(source_path)
+    root = _extract_root_state(source)
+    for obj in _iter_objects(root):
+        if obj.get("Name") == "Bag" and _normalize_key(obj.get("Nickname", "")) == "summons":
+            return copy.deepcopy(obj)
+    return None
+
+
+def _remap_summon_asset_urls(summons_bag: dict[str, Any], profile: dict[str, Any]) -> None:
+    model_source_dir = profile["model_source_dir"]
+    asset_rev = profile["asset_rev"]
+    summon_dir = Path(__file__).resolve().parent.parent / "assets" / "final_class_models" / model_source_dir / "summons"
+    if not summon_dir.exists():
+        return
+
+    mesh_files = sorted(summon_dir.glob("*mesh*.obj"))
+    diffuse_files = sorted(summon_dir.glob("*diffuse*.png"))
+    mesh_url = _to_asset_url(f"final_class_models/{model_source_dir}/summons/{mesh_files[0].name}", asset_rev) if mesh_files else None
+    diffuse_urls = [_to_asset_url(f"final_class_models/{model_source_dir}/summons/{p.name}", asset_rev) for p in diffuse_files]
+
+    contained = summons_bag.get("ContainedObjects")
+    if not isinstance(contained, list):
+        return
+
+    model_index = 0
+    for obj in contained:
+        if not isinstance(obj, dict):
+            continue
+        custom_mesh = obj.get("CustomMesh")
+        if not isinstance(custom_mesh, dict):
+            continue
+        if mesh_url:
+            custom_mesh["MeshURL"] = mesh_url
+        if model_index < len(diffuse_urls):
+            custom_mesh["DiffuseURL"] = diffuse_urls[model_index]
+        # Avoid external dependencies; TTS can use mesh for collider if URL is empty.
+        custom_mesh["ColliderURL"] = ""
+        model_index += 1
+
+
+def _ensure_class_summons(root_data: dict[str, Any], profile: dict[str, Any]) -> None:
+    class_name = profile["class_name"]
+    class_box = None
+    for obj in _iter_objects(root_data):
+        if obj.get("Name") == "Custom_Model_Bag" and _normalize_key(obj.get("Nickname", "")) == _normalize_key(class_name):
+            class_box = obj
+            break
+    if not isinstance(class_box, dict):
+        return
+    contained = class_box.get("ContainedObjects")
+    if not isinstance(contained, list):
+        return
+    for child in contained:
+        if isinstance(child, dict) and child.get("Name") == "Bag" and _normalize_key(child.get("Nickname", "")) == "summons":
+            # Summons already present; still remap assets in case URLs are stale.
+            _remap_summon_asset_urls(child, profile)
+            return
+
+    summons_bag = _extract_summons_bag_from_source(profile)
+    if not isinstance(summons_bag, dict):
+        return
+    _remap_summon_asset_urls(summons_bag, profile)
+
+    used_guids = build_skeleton.collect_guids(root_data)
+    build_skeleton.regenerate_guids(summons_bag, seen=used_guids)
+    contained.append(summons_bag)
+
+
 def _patch_character_sheet_lua(lua_script: str, profile: dict[str, Any]) -> str:
     perk_lines = "\n".join(f"    {{ {x} , {y} }}," for x, y in profile["perk_positions"])
     mastery_lines = "\n".join(f"    {{ {x} , {y} }}," for x, y in profile["mastery_positions"])
@@ -773,6 +861,7 @@ def _apply_class_patch(root_data: dict[str, Any], profile: dict[str, Any]) -> di
     data = copy.deepcopy(root_data)
     walk(data)
     prune(data)
+    _ensure_class_summons(data, profile)
     rebalance_ability_contained_objects(data)
     if isinstance(data, dict) and "SaveName" in data:
         data["SaveName"] = f"{profile['class_name']} Test Save (v2)"

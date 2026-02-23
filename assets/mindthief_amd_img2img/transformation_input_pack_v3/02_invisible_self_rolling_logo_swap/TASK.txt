@@ -1,0 +1,7 @@
+Goal: Create one Mindthief-style invisible self rolling card.
+
+Instructions:
+1. Start from `BASE_silent_knife_final_invis_plus1.png`.
+2. Keep invisible self rolling structure.
+3. Convert class icon/styling to Mindthief.
+4. Adjust attack value (+1 vs +0) to match your target perk text.

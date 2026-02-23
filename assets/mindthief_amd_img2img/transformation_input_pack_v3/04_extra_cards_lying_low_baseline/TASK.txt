@@ -1,0 +1,6 @@
+Goal: Use `Lying Low` as baseline for Mindthief extra-perk cards.
+
+Instructions:
+1. Use `BASE_lying_low_136400.png` as primary baseline.
+2. Produce the required extra text cards.
+3. Keep card dimensions compatible with 2x2 extra atlas build.

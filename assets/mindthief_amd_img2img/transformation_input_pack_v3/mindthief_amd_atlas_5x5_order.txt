@@ -1,0 +1,27 @@
+Mindthief AMD atlas order (5x5, left-to-right, top-to-bottom)
+
+00: mindthief_move_1
+01: mindthief_move_1
+02: mindthief_plus_1_negative
+03: mindthief_plus_1_negative
+04: mindthief_plus_1_negative
+05: +2 (reuse A)
+06: +2 (reuse B)
+07: +2 create ice (reuse A)
+08: +2 create ice (reuse B)
+09: +2 create ice (reuse C)
+10: mindthief_immobilize_1
+11: mindthief_immobilize_1
+12: mindthief_invis_self_rolling
+13: mindthief_invis_self_rolling
+14: mindthief_plus_1_rolling
+15: filler (black)
+16: filler (black)
+17: filler (black)
+18: filler (black)
+19: filler (black)
+20: filler (black)
+21: filler (black)
+22: filler (black)
+23: filler (black)
+24: card back
