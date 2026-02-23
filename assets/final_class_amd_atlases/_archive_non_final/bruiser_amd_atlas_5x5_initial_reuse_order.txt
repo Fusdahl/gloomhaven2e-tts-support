@@ -1,0 +1,10 @@
+Grid: 5x5, slot order left-to-right, top-to-bottom.
+01 REUSE_01_rolling_disarm.png
+02 REUSE_02_rolling_muddle.png
+03 REUSE_03_plus3.png
+04 REUSE_04_plus1_a.png
+05 REUSE_05_plus1_b.png
+06 REUSE_06_plus1_c.png
+07 REUSE_07_plus1_d.png
+08-24 FILLER_black_815x531.png
+25 BACK_bruiser_norm_815x531.png

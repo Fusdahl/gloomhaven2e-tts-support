@@ -1,0 +1,6 @@
+Bruiser extra perks atlas order (2x2, left-to-right, top-to-bottom)
+
+00: Gemini_Generated_Image_8t4b6j8t4b6j8t4b.png
+01: Gemini_Generated_Image_n10m50n10m50n10m.png
+02: Gemini_Generated_Image_n5gj3gn5gj3gn5gj.png
+03: bruiser_amd_back

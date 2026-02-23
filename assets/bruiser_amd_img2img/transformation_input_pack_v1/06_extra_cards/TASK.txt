@@ -1,0 +1,6 @@
+Goal: create 3 Bruiser extra cards from extra-card templates.
+Edit card text/effects to match Bruiser extra perk entries.
+Output filenames:
+- final_extra_1.png
+- final_extra_2.png
+- final_extra_3.png

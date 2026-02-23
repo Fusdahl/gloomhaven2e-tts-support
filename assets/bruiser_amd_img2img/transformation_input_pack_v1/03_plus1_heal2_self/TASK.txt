@@ -1,0 +1,3 @@
+Goal: create (+1) Heal 2, self card in Bruiser style.
+Start from BASE_plus1_heal2.png and convert text/effect target to explicit self where needed.
+Output filename: final_plus1_heal2_self.png

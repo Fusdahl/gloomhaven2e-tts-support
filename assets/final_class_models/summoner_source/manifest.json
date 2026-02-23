@@ -1,0 +1,148 @@
+{
+  "class_id": "summoner",
+  "class_name": "Summoner",
+  "source_saved_object": "saved objects for working 1st class/Summoner  top box.json",
+  "figure_type": "custom_mesh",
+  "has_summons": true,
+  "summon_models_extracted": 12,
+  "files": [
+    {
+      "filename": "character_box_mask_front.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2021595193334529091/F8593555C762DF7D70BA18A139B2EBFF6CA0D67F/",
+      "sha256": "23dea288cb007fa574e5c5fcbca695bdc2b26fd41eae3b48b8f1fa45033b469e",
+      "bytes": 4477
+    },
+    {
+      "filename": "character_box_mask_side.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2021595193334529169/D408CC9967A5BB6099A23FE13AA8C2490FAFA7C1/",
+      "sha256": "80dd3f814ed08a033fe8c2b862f7ce8821ec9ec8c2e61b3b217a5e18700642c1",
+      "bytes": 4470
+    },
+    {
+      "filename": "class_box_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421490118/526F24F12AB92FFA4F0BD83CD21E62EC0DEA48FF/",
+      "sha256": "d8b15e8f8336b46239507ce0cd86fcec402c61f8f7c6789996d7b8137b50d5cc",
+      "bytes": 3116217
+    },
+    {
+      "filename": "class_box_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421489969/779BFCDA894CC0166974C1C700C2F9ED4C271A56/",
+      "sha256": "3cb9d2ec62f72b70465702e233c03b3aceafe2ef39b52d9c8a48244a8ffbafe9",
+      "bytes": 6928
+    },
+    {
+      "filename": "class_icon.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/10216467921459307489/C77C0DE8A236D88918907A67339F5ED9C76D75A9/",
+      "sha256": "8bb5ab39fde69e05bd14fc98d9994e1e742d3c946810df4d095c3c5517c233c4",
+      "bytes": 57368
+    },
+    {
+      "filename": "class_top_box_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421489497/13AB16240720E6718AEA0B86F1DAD30A645D80FE/",
+      "sha256": "fcbe7428f66a5b6ac161fd51a946c91664bf3dc78d37ddd17d964ecc676e701e",
+      "bytes": 4777199
+    },
+    {
+      "filename": "class_top_box_icon.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/10216467921459307489/C77C0DE8A236D88918907A67339F5ED9C76D75A9/",
+      "sha256": "8bb5ab39fde69e05bd14fc98d9994e1e742d3c946810df4d095c3c5517c233c4",
+      "bytes": 57368
+    },
+    {
+      "filename": "class_top_box_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421489249/E26B270BEE6BFD67D125554419B351BAB8C3282E/",
+      "sha256": "59c252394686656cada3664422c329d31aa58ed60d51c9dc3a843ea937997f04",
+      "bytes": 13375
+    },
+    {
+      "filename": "class_figure_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/14833700145225238293/17C2FC606DE53C46DDACFA4EC831F2E54439DE9A/",
+      "sha256": "765899f85cb3a974309b271061c2b98c400b45371107178a1f91b649538cba04",
+      "bytes": 6573646
+    },
+    {
+      "filename": "class_figure_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/14780983964852273405/7F14B968E3DC10A98AA16C98405FBD6D25960D79/",
+      "sha256": "6e158f945092193c05a7bd2bf87d14b874ff17a5546f4d8ad80c4a208690de19",
+      "bytes": 2366622
+    },
+    {
+      "filename": "summons/00_iron_beast_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/9597369640169931166/150AB285F3CF3759DABA87F752330E845C24AC47/",
+      "sha256": "089580eceb552fb7b05265808dba80001de21fcb2d2c4a56365d9e135eed7c2b",
+      "bytes": 6379
+    },
+    {
+      "filename": "summons/00_iron_beast_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/955230308960191057/D3DE549A824CF90D03A22BB1D0CBC39B39715A6C/",
+      "sha256": "bd92041b34e093ad12264034e8093f0d1a515031833f79a0c1744d13b8cb7b11",
+      "bytes": 11563
+    },
+    {
+      "filename": "summons/01_thorn_shooter_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/13100981278179966342/B457ADCE66E42162492EB18357D6C1CC4115A076/",
+      "sha256": "d51583b55cf0b2c457fb69bd9b4756a73f55c5993dd01e3da9674197f181be84",
+      "bytes": 11535
+    },
+    {
+      "filename": "summons/02_shadow_wolf_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/15478087511359115997/671BA75E1D287D5EC8757CE52C2008E24B0B3B33/",
+      "sha256": "cfb0d34a1bd21d1c44075bc96985a043c050082f56477aecb4dde44b65f07f1f",
+      "bytes": 7700
+    },
+    {
+      "filename": "summons/03_lava_golem_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/12647530661577621938/2299723C1302A70ED48CB260C560B94272AB6502/",
+      "sha256": "7806553cf361927faef12315ea5b345c226b363adee816351c0dfadcde4f8182",
+      "bytes": 4597
+    },
+    {
+      "filename": "summons/04_bat_swarm_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/9297789660756275938/4208FC5620E08B8C2D01899C68B18E0603FF9A93/",
+      "sha256": "8d153c6633d0c7bb48935e03611ae9b9d8c542f18f14b466ec05777b9cea2835",
+      "bytes": 7252
+    },
+    {
+      "filename": "summons/05_living_bomb_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/12691353535425094669/73483EB48298A758893220B91C1927F7E9DE66FB/",
+      "sha256": "462502898c0962ba1526d8399d9b77bdff7b66f4934c3dbad8b0244ab84ff1c8",
+      "bytes": 9579
+    },
+    {
+      "filename": "summons/06_slime_spirit_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/15481577894134929302/BD3EB5EB5C60604255125BCFFA538BC55BF29EE3/",
+      "sha256": "3d1150b220f057cd9a646617fcccfd88fbfa45c01c7e64fc32b47caf10dc4932",
+      "bytes": 6505
+    },
+    {
+      "filename": "summons/07_rock_colossus_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/9636291505962200801/6A14E78D4F6A555A0317F1B109AB542C7FB82878/",
+      "sha256": "c83d5738f91dea1fab39b0ee0d3f056d86f6e140a365e535d6b619803ca60b28",
+      "bytes": 9366
+    },
+    {
+      "filename": "summons/08_healing_sprite_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/14477742423061733559/5742E7A039AF1B461050DB6C8A7C3492CD25B622/",
+      "sha256": "811f43391d62f6f88351e0256a9ad2726c842a423182192da4b9d8f130a394c6",
+      "bytes": 11571
+    },
+    {
+      "filename": "summons/09_nail_sphere_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/14270475814130789105/7E826CD49EED097FD056592AAAD38C5D6DAE378F/",
+      "sha256": "0f83caf4e0c92749c1e5a2aaa903291be7ddb96a715ce3883fc95eeab1eb2988",
+      "bytes": 5157
+    },
+    {
+      "filename": "summons/10_void_eater_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/13219921426206315001/FA22990E8DA98704857C8C0114402ED33B763F16/",
+      "sha256": "a1e7d0f3e0c0fb98d246ba22118f90f19558d3e98ef07e898d5ba37892fb1708",
+      "bytes": 11828
+    },
+    {
+      "filename": "summons/11_black_unicorn_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/10797495617884101053/1956ED5201F167E530FC1225F2319C45354BCAFB/",
+      "sha256": "26d512be94ab7b470f7992dd1b5ccf8dd026115b715315f7e930541d447cec88",
+      "bytes": 4667
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "class_id": "bladeswarm",
+  "class_name": "Bladeswarm",
+  "source_saved_object": "saved objects for working 1st class/Bladeswarm  top box.json",
+  "figure_type": "custom_mesh",
+  "has_summons": true,
+  "summon_models_extracted": 8,
+  "files": [
+    {
+      "filename": "class_figure_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/10160978232895202259/C75C624DC8C868CA7AC7D58062CC4E35B6AD3DB5/",
+      "sha256": "1a8354a93529b3f307f5a3e1be699875ae2094490f27e9d8e688957b74fb07ce",
+      "bytes": 426588
+    },
+    {
+      "filename": "class_figure_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/11805846711744181617/2F8EC66F3878AC99B7E1BC81E16A1CAC85B314E5/",
+      "sha256": "1782a7ad40eceb66dedf80e3a06bb7e43edaf7333f9debd0a7f28e295ead8925",
+      "bytes": 11638
+    },
+    {
+      "filename": "character_box_mask_front.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2021595193334529091/F8593555C762DF7D70BA18A139B2EBFF6CA0D67F/",
+      "sha256": "23dea288cb007fa574e5c5fcbca695bdc2b26fd41eae3b48b8f1fa45033b469e",
+      "bytes": 4477
+    },
+    {
+      "filename": "character_box_mask_side.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2021595193334529169/D408CC9967A5BB6099A23FE13AA8C2490FAFA7C1/",
+      "sha256": "80dd3f814ed08a033fe8c2b862f7ce8821ec9ec8c2e61b3b217a5e18700642c1",
+      "bytes": 4470
+    },
+    {
+      "filename": "class_box_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421490118/526F24F12AB92FFA4F0BD83CD21E62EC0DEA48FF/",
+      "sha256": "d8b15e8f8336b46239507ce0cd86fcec402c61f8f7c6789996d7b8137b50d5cc",
+      "bytes": 3116217
+    },
+    {
+      "filename": "class_box_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421489969/779BFCDA894CC0166974C1C700C2F9ED4C271A56/",
+      "sha256": "3cb9d2ec62f72b70465702e233c03b3aceafe2ef39b52d9c8a48244a8ffbafe9",
+      "bytes": 6928
+    },
+    {
+      "filename": "class_icon.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/18140682678684263627/9C0F3DB037CAB39CF5145E4DEC11477BF852FC6C/",
+      "sha256": "4910d67517243f8094355ad48c62d69e51c47666b114fca168ebec5a40875084",
+      "bytes": 24487
+    },
+    {
+      "filename": "class_top_box_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421489497/13AB16240720E6718AEA0B86F1DAD30A645D80FE/",
+      "sha256": "fcbe7428f66a5b6ac161fd51a946c91664bf3dc78d37ddd17d964ecc676e701e",
+      "bytes": 4777199
+    },
+    {
+      "filename": "class_top_box_icon.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/18140682678684263627/9C0F3DB037CAB39CF5145E4DEC11477BF852FC6C/",
+      "sha256": "4910d67517243f8094355ad48c62d69e51c47666b114fca168ebec5a40875084",
+      "bytes": 24487
+    },
+    {
+      "filename": "class_top_box_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421489249/E26B270BEE6BFD67D125554419B351BAB8C3282E/",
+      "sha256": "59c252394686656cada3664422c329d31aa58ed60d51c9dc3a843ea937997f04",
+      "bytes": 13375
+    },
+    {
+      "filename": "summons/00_soul_leeches_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/10780418017720352435/DDE0B20A4D5F2F6DB223349CB65E42D9C39F3454/",
+      "sha256": "ab1d7e40438a7553040392d3c3b08bb4b29c7710f0256e6e8cfc72cf05ec6d16",
+      "bytes": 8363
+    },
+    {
+      "filename": "summons/00_soul_leeches_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/955230308960191057/D3DE549A824CF90D03A22BB1D0CBC39B39715A6C/",
+      "sha256": "bd92041b34e093ad12264034e8093f0d1a515031833f79a0c1744d13b8cb7b11",
+      "bytes": 11563
+    },
+    {
+      "filename": "summons/01_creeping_beetles_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/14521343693881203519/7978A9B3AFC0CE175DACD933A25877AC37C21955/",
+      "sha256": "5d0b910e29bfded72a29a7e2b99766774c0d17794c0e712523be027f5ae35d5f",
+      "bytes": 8146
+    },
+    {
+      "filename": "summons/02_angry_wasps_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/15043441452609079427/CC156814A1B89B1F686291D2661E208E3A972EB1/",
+      "sha256": "e2a58e4674539eb7d6d9332453927edbd816471266fd2622565d8d2a06f8dca9",
+      "bytes": 8337
+    },
+    {
+      "filename": "summons/03_steel_scarabs_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/10473352905460085877/F1E97C8270B27C21A9A09AF4D4EE61C2581B8ED2/",
+      "sha256": "85eb4e51ca629f1335d069aa0ebc19ee3f1b67d3538d2cf0cc4460174cf37136",
+      "bytes": 8963
+    },
+    {
+      "filename": "summons/04_bloat_maggots_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/17570911808556297470/A7D2FC517773B041E38D6228A2F2338A30EC50DE/",
+      "sha256": "7e33e5c6150a4b2209ef1da180577ac519e9572f294bacf9748a87207d6b7e97",
+      "bytes": 7362
+    },
+    {
+      "filename": "summons/05_lightning_moth_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/9769867129055771659/F5214F48AF34027EA37A3E5CA296B85B496F39BA/",
+      "sha256": "1f1cb1daffc0d6d7e89d27a9b72c615b44d0a2b7cd2e4987a92cd3e317d68804",
+      "bytes": 10348
+    },
+    {
+      "filename": "summons/06_rage_hornets_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/10702678741182907960/4F00CD491FA2802B561478F1A7E3E01E306B9499/",
+      "sha256": "b48c67f71446e22c92ed793e04e0fa91aa849501e4e6fff3b2c0697467fdea3e",
+      "bytes": 10083
+    },
+    {
+      "filename": "summons/07_rust_vermin_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/9329947975196326828/59C81FBFE2FC02450AC68D28BF270A41968EF434/",
+      "sha256": "ed9d0db946d1c89330245369d8e5216d97d5c27bfebc85751107c0232d89b45a",
+      "bytes": 8565
+    }
+  ]
+}

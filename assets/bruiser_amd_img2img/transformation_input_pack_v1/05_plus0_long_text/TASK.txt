@@ -1,0 +1,3 @@
+Goal: create one new (+0) card with long custom text from Bruiser perk requirements.
+Use BASE_plus0_plain.png as the base canvas and match wording/icons from the Bruiser perk sheet.
+Output filename: final_plus0_long_text.png

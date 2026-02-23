@@ -1,0 +1,3 @@
+Goal: create a Bruiser-style non-rolling stun AMD card.
+Start from BASE_brute_rolling_stun_a.png (or _b), remove the rolling marker, keep stun effect, and preserve Bruiser visual style.
+Output filename: final_non_rolling_stun_bruiser.png

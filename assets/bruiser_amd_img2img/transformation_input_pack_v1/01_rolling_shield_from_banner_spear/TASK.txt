@@ -1,0 +1,4 @@
+Goal: produce one Bruiser-style rolling Shield card.
+Use one of the Banner Spear candidates as the visual base, then adapt styling toward Bruiser AMD visuals.
+If Banner Spear candidates are not ideal, use REF_gh1_known_rolling_shield.png as effect reference.
+Output filename: final_rolling_shield.png

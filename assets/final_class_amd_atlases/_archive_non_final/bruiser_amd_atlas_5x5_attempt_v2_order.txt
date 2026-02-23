@@ -1,0 +1,18 @@
+Grid: 5x5, slot order left-to-right, top-to-bottom.
+01 REUSE_01_rolling_disarm
+02 REUSE_02_rolling_muddle
+03 REUSE_03_plus3
+04 REUSE_04_plus1_a
+05 REUSE_05_plus1_b
+06 REUSE_06_plus1_c
+07 REUSE_07_plus1_d
+08 NEW plus_two_push_two_bruiser (copy 1)
+09 NEW plus_two_push_two_bruiser (copy 2)
+10 NEW rolling_shield_bruiser (copy 1)
+11 NEW rolling_shield_bruiser (copy 2)
+12 NEW plus_one_heal_self_two_bruiser (copy 1)
+13 NEW plus_one_heal_self_two_bruiser (copy 2)
+14 NEW rolling_retaliate_bruiser (copy 1)
+15 NEW rolling_retaliate_bruiser (copy 2)
+16-24 FILLER_black_815x531
+25 BACK_bruiser_norm_815x531

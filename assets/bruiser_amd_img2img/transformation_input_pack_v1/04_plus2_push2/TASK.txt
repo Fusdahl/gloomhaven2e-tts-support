@@ -1,0 +1,3 @@
+Goal: create (+2) Push 2 card from Brute push baseline.
+Remove rolling marker and update modifier/effect text to (+2) Push 2.
+Output filename: final_plus2_push2.png

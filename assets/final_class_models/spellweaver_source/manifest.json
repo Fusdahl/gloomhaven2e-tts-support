@@ -1,0 +1,82 @@
+{
+  "class_id": "spellweaver",
+  "class_name": "Spellweaver",
+  "source_saved_object": "saved objects for working 1st class/Spellweaver  top box.json",
+  "figure_type": "assetbundle",
+  "has_summons": true,
+  "summon_models_extracted": 2,
+  "files": [
+    {
+      "filename": "character_box_mask_front.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2021595193334529091/F8593555C762DF7D70BA18A139B2EBFF6CA0D67F/",
+      "sha256": "23dea288cb007fa574e5c5fcbca695bdc2b26fd41eae3b48b8f1fa45033b469e",
+      "bytes": 4477
+    },
+    {
+      "filename": "character_box_mask_side.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2021595193334529169/D408CC9967A5BB6099A23FE13AA8C2490FAFA7C1/",
+      "sha256": "80dd3f814ed08a033fe8c2b862f7ce8821ec9ec8c2e61b3b217a5e18700642c1",
+      "bytes": 4470
+    },
+    {
+      "filename": "class_box_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421490118/526F24F12AB92FFA4F0BD83CD21E62EC0DEA48FF/",
+      "sha256": "d8b15e8f8336b46239507ce0cd86fcec402c61f8f7c6789996d7b8137b50d5cc",
+      "bytes": 3116217
+    },
+    {
+      "filename": "class_box_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421489969/779BFCDA894CC0166974C1C700C2F9ED4C271A56/",
+      "sha256": "3cb9d2ec62f72b70465702e233c03b3aceafe2ef39b52d9c8a48244a8ffbafe9",
+      "bytes": 6928
+    },
+    {
+      "filename": "class_icon.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/14155140828421099638/9E6FE7572104936A35B2AF734D0E9388F33AB330/",
+      "sha256": "56bb0f2f75fadaf3db6a1d7ad7bc463872dd94513bccf0fda6db891201237c29",
+      "bytes": 38359
+    },
+    {
+      "filename": "class_top_box_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421489497/13AB16240720E6718AEA0B86F1DAD30A645D80FE/",
+      "sha256": "fcbe7428f66a5b6ac161fd51a946c91664bf3dc78d37ddd17d964ecc676e701e",
+      "bytes": 4777199
+    },
+    {
+      "filename": "class_top_box_icon.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/14155140828421099638/9E6FE7572104936A35B2AF734D0E9388F33AB330/",
+      "sha256": "56bb0f2f75fadaf3db6a1d7ad7bc463872dd94513bccf0fda6db891201237c29",
+      "bytes": 38359
+    },
+    {
+      "filename": "class_top_box_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/2482131851421489249/E26B270BEE6BFD67D125554419B351BAB8C3282E/",
+      "sha256": "59c252394686656cada3664422c329d31aa58ed60d51c9dc3a843ea937997f04",
+      "bytes": 13375
+    },
+    {
+      "filename": "class_figure.unity3d",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/16418256685856633081/FD925C6FE813AC40C7F20C78E58DB40875E25E65/",
+      "sha256": "f91224cc42113422027bab9e3bed60dc81b6d5b339e18ee261f04a511c7a0b5c",
+      "bytes": 3085408
+    },
+    {
+      "filename": "summons/00_mystic_ally_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/12810344370067201699/AA433DDFA5E7E3F76CD35CBF10748DB0633B2E21/",
+      "sha256": "75dba9ebd9fd0aebefd3239da465169f9b476020123d71165a49364c84458520",
+      "bytes": 8472
+    },
+    {
+      "filename": "summons/00_mystic_ally_mesh.obj",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/955230308960191057/D3DE549A824CF90D03A22BB1D0CBC39B39715A6C/",
+      "sha256": "bd92041b34e093ad12264034e8093f0d1a515031833f79a0c1744d13b8cb7b11",
+      "bytes": 11563
+    },
+    {
+      "filename": "summons/01_burning_avatar_diffuse.png",
+      "source_url": "https://steamusercontent-a.akamaihd.net/ugc/10008658709463814096/10A01272F4F90B009DCFC26ED885653BCFC3CF91/",
+      "sha256": "0e042a1e8157b357469372bfbf72b092a96044f63d39b777ccfdf465c6986030",
+      "bytes": 11644
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+Goal: convert a rolling Shield card into a non-rolling Shield card, in Bruiser style.
+Keep attack modifier look consistent with Bruiser AMD cards.
+Output filename: final_non_rolling_shield.png
