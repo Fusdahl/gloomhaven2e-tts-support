@@ -1,5 +1,5 @@
 {
-  "asset_rev": "r20260222b",
+  "asset_rev": "r20260224a",
   "source_mod": "original_mod_json/Gloomhaven 2e classes  mod.json",
   "classes": {
     "silent_knife": {
@@ -184,6 +184,260 @@
         [-335, -371]
       ]
     },
+    "doomstalker": {
+      "class_id": "doomstalker",
+      "class_name": "Doomstalker",
+      "class_icon_name": "Doomstalker_Icon",
+      "output_prefix": "Doomstalker",
+      "hp": [8, 9, 11, 12, 14, 15, 17, 18, 20],
+      "ability_order_file": "assets/doomstalker_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 30,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/doomstalker_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/doomstalker_ability_back.png",
+      "sheet_front_path": "FH_compatible_sheets/orchid_doomstalker_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/orchid_doomstalker_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/doomstalker_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Doomstalker  top box.json",
+      "model_source_dir": "doomstalker_source",
+      "top_model_source_dir": "doomstalker_source",
+      "use_source_attack_modifiers": true,
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "summon_names": [
+        "Green Snake",
+        "Vicious Jackal",
+        "Battle Boar",
+        "Staunch Garralev",
+        "War Raptor",
+        "Horned Hristek",
+        "Great Archinotl"
+      ],
+      "summon_card_lua_aliases": {
+        "Hidden Danger": "The Hunt Begins",
+        "Race To The Grave": "Felling Swoop",
+        "Fierce Fighter": "Vital Charge",
+        "Walking Bastion": "Nature's Hunger",
+        "Felling Swoop": "Felling Swoop",
+        "Charging Beast": "Nature's Hunger",
+        "Predator And Prey": "Predator And Prey"
+      },
+      "summon_card_spawns": {
+        "Hidden Danger": { "name": "Green Snake", "count": 1 },
+        "Race To The Grave": { "name": "Vicious Jackal", "count": 1 },
+        "Fierce Fighter": { "name": "Battle Boar", "count": 1 },
+        "Walking Bastion": { "name": "Staunch Garralev", "count": 1 },
+        "Felling Swoop": { "name": "War Raptor", "count": 1 },
+        "Charging Beast": { "name": "Horned Hristek", "count": 1 },
+        "Predator And Prey": { "name": "Great Archinotl", "count": 1 }
+      },
+      "summon_stats": {
+        "Green Snake": {
+          "health": 5,
+          "movement": 3,
+          "attack": 2,
+          "range": "-"
+        },
+        "Vicious Jackal": {
+          "health": 4,
+          "movement": 3,
+          "attack": 2,
+          "range": "-"
+        },
+        "Battle Boar": {
+          "health": 7,
+          "movement": 2,
+          "attack": 2,
+          "range": "-"
+        },
+        "Staunch Garralev": {
+          "health": 8,
+          "movement": 2,
+          "attack": 2,
+          "range": "-"
+        },
+        "War Raptor": {
+          "health": 6,
+          "movement": 5,
+          "attack": 3,
+          "range": "-"
+        },
+        "Horned Hristek": {
+          "health": 7,
+          "movement": 3,
+          "attack": 2,
+          "range": "-"
+        },
+        "Great Archinotl": {
+          "health": 8,
+          "movement": 4,
+          "attack": 3,
+          "range": "-"
+        }
+      },
+      "perk_positions": [
+        [78, 324],
+        [77, 262],
+        [103, 261],
+        [128, 262],
+        [78, 177],
+        [104, 177],
+        [78, 117],
+        [103, 116],
+        [77, 31],
+        [102, 31],
+        [77, -12],
+        [103, -14],
+        [77, -55],
+        [78, -116],
+        [79, -225],
+        [77, -240],
+        [78, -362],
+        [78, -379]
+      ],
+      "mastery_positions": [
+        [-335, -343],
+        [-335, -372]
+      ]
+    },
+    "berserker": {
+      "class_id": "berserker",
+      "class_name": "Berserker",
+      "class_icon_name": "Berserker_Icon",
+      "output_prefix": "Berserker",
+      "hp": [10, 12, 14, 16, 18, 20, 22, 24, 26],
+      "ability_order_file": "assets/berserker_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 28,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/berserker_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/berserker_ability_back.png",
+      "sheet_front_path": "FH_compatible_sheets/inox_berserker_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/inox_berserker_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/berserker_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Berserker  top box.json",
+      "model_source_dir": "berserker_source",
+      "top_model_source_dir": "berserker_source",
+      "use_source_attack_modifiers": true,
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "perk_positions": [
+        [79, 320],
+        [78, 277],
+        [102, 277],
+        [132, 277],
+        [78, 215],
+        [103, 214],
+        [78, 128],
+        [77, 67],
+        [102, 66],
+        [78, 23],
+        [78, -21],
+        [78, -108],
+        [77, -167],
+        [78, -232],
+        [78, -247],
+        [78, -389],
+        [78, -404],
+        [79, -418]
+      ],
+      "mastery_positions": [
+        [-334, -342],
+        [-335, -373]
+      ]
+    },
+    "bladeswarm": {
+      "class_id": "bladeswarm",
+      "class_name": "Bladeswarm",
+      "class_icon_name": "Bladeswarm_Icon",
+      "output_prefix": "Bladeswarm",
+      "hp": [8, 9, 11, 12, 14, 15, 17, 18, 20],
+      "ability_order_file": "assets/bladeswarm_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 30,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/bladeswarm_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/bladeswarm_ability_back.png",
+      "sheet_front_path": "FH_compatible_sheets/harrower_bladeswarm_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/harrower_bladeswarm_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/bladeswarm_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Bladeswarm  top box.json",
+      "model_source_dir": "bladeswarm_source",
+      "top_model_source_dir": "bladeswarm_source",
+      "use_source_attack_modifiers": true,
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "summon_stats": {
+        "Soul Leeches": {
+          "health": 4,
+          "movement": 3,
+          "attack": "X"
+        },
+        "Creeping Beetles": {
+          "health": 5,
+          "movement": 2,
+          "attack": 2
+        },
+        "Angry Wasps": {
+          "health": 3,
+          "movement": 4,
+          "attack": 0
+        },
+        "Steel Scarabs": {
+          "health": 4,
+          "movement": 2,
+          "attack": 1
+        },
+        "Bloat Maggots": {
+          "health": 3,
+          "movement": 3,
+          "attack": 1
+        },
+        "Lightning Moth": {
+          "health": 3,
+          "movement": 3,
+          "attack": 0
+        },
+        "Rage Hornets": {
+          "health": 5,
+          "movement": 3,
+          "attack": 3
+        },
+        "Rust Vermin": {
+          "health": 7,
+          "movement": 4,
+          "attack": 3
+        }
+      },
+      "perk_positions": [
+        [78, 328],
+        [103, 327],
+        [77, 272],
+        [104, 271],
+        [78, 217],
+        [104, 217],
+        [78, 161],
+        [104, 162],
+        [78, 106],
+        [104, 107],
+        [78, 3],
+        [78, -51],
+        [78, -107],
+        [79, -237],
+        [77, -251],
+        [79, -368],
+        [78, -381],
+        [78, -396]
+      ],
+      "mastery_positions": [
+        [-336, -342],
+        [-334, -417]
+      ]
+    },
     "mindthief": {
       "class_id": "mindthief",
       "class_name": "Mindthief",
@@ -352,6 +606,506 @@
       "mastery_positions": [
         [-334, -339],
         [-335, -428]
+      ]
+    },
+    "nightshroud": {
+      "class_id": "nightshroud",
+      "class_name": "Nightshroud",
+      "class_icon_name": "Nightshroud_Icon",
+      "output_prefix": "Nightshroud",
+      "hp": [8, 9, 11, 12, 14, 15, 17, 18, 20],
+      "ability_order_file": "assets/nightshroud_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 28,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/nightshroud_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/nightshroud_ability_back.png",
+      "sheet_front_path": "FH_compatible_sheets/aesther_nightshroud_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/aesther_nightshroud_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/nightshroud_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Nightshroud  top box.json",
+      "model_source_dir": "nightshroud_source",
+      "top_model_source_dir": "nightshroud_source",
+      "use_source_attack_modifiers": true,
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "perk_positions": [
+        [78, 320],
+        [78, 283],
+        [103, 282],
+        [78, 244],
+        [78, 140],
+        [79, 79],
+        [103, 79],
+        [77, -49],
+        [103, -49],
+        [78, -105],
+        [102, -105],
+        [77, -186],
+        [77, -245],
+        [78, -309],
+        [78, -325],
+        [79, -393],
+        [77, -409],
+        [77, -422]
+      ],
+      "mastery_positions": [
+        [-335, -340],
+        [-335, -396]
+      ]
+    },
+    "plagueherald": {
+      "class_id": "plagueherald",
+      "class_name": "Plagueherald",
+      "class_icon_name": "Plagueherald_Icon",
+      "output_prefix": "Plagueherald",
+      "hp": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+      "ability_order_file": "assets/plagueherald_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 29,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/plagueherald_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/plagueherald_ability_back.png",
+      "sheet_front_path": "FH_compatible_sheets/harrower_plagueherald_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/harrower_plagueherald_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/plagueherald_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Plagueherald  top box.json",
+      "model_source_dir": "plagueherald_source",
+      "top_model_source_dir": "plagueherald_source",
+      "use_source_attack_modifiers": true,
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "perk_positions": [
+        [78, 320],
+        [103, 320],
+        [77, 266],
+        [103, 267],
+        [77, 163],
+        [103, 164],
+        [78, 108],
+        [103, 109],
+        [78, 56],
+        [78, 1],
+        [103, 0],
+        [79, -35],
+        [79, -115],
+        [77, -151],
+        [78, -205],
+        [78, -242],
+        [79, -318],
+        [77, -336]
+      ],
+      "mastery_positions": [
+        [-335, -342],
+        [-334, -394]
+      ]
+    },
+    "sawbones": {
+      "class_id": "sawbones",
+      "class_name": "Sawbones",
+      "class_icon_name": "Sawbones_Icon",
+      "output_prefix": "Sawbones",
+      "hp": [8, 9, 11, 12, 14, 15, 17, 18, 20],
+      "ability_order_file": "assets/sawbones_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 35,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/sawbones_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/sawbones_ability_back.png",
+      "ability_num_width": 8,
+      "ability_num_height": 5,
+      "sheet_front_path": "FH_compatible_sheets/human_sawbones_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/human_sawbones_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/sawbones_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Sawbones  top box.json",
+      "model_source_dir": "sawbones_source",
+      "top_model_source_dir": "sawbones_source",
+      "use_source_attack_modifiers": true,
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "perk_positions": [
+        [78, 319],
+        [77, 269],
+        [78, 177],
+        [103, 178],
+        [128, 178],
+        [79, 109],
+        [103, 110],
+        [79, 17],
+        [103, 18],
+        [78, -51],
+        [103, -51],
+        [78, -101],
+        [77, -116],
+        [79, -169],
+        [78, -183],
+        [78, -310],
+        [79, -326],
+        [77, -338]
+      ],
+      "mastery_positions": [
+        [-335, -291],
+        [-335, -369]
+      ]
+    },
+    "sunkeeper": {
+      "class_id": "sunkeeper",
+      "class_name": "Sunkeeper",
+      "class_icon_name": "Sunkeeper_Icon",
+      "output_prefix": "Sunkeeper",
+      "hp": [10, 12, 14, 16, 18, 20, 22, 24, 26],
+      "ability_order_file": "assets/sunkeeper_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 30,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/sunkeeper_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/sunkeeper_ability_back.png",
+      "sheet_front_path": "FH_compatible_sheets/valrath_sunkeeper_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/valrath_sunkeeper_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/sunkeeper_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Sunkeeper  top box.json",
+      "model_source_dir": "sunkeeper_source",
+      "top_model_source_dir": "sunkeeper_source",
+      "use_source_attack_modifiers": true,
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "perk_positions": [
+        [78, 319],
+        [104, 319],
+        [79, 255],
+        [103, 255],
+        [128, 256],
+        [79, 189],
+        [104, 189],
+        [79, 124],
+        [103, 124],
+        [78, 78],
+        [78, -11],
+        [78, -58],
+        [78, -123],
+        [79, -189],
+        [78, -204],
+        [79, -280],
+        [78, -344],
+        [78, -358]
+      ],
+      "mastery_positions": [
+        [-334, -342],
+        [-335, -395]
+      ]
+    },
+    "soultether": {
+      "class_id": "soultether",
+      "class_name": "Soultether",
+      "source_class_name": "Summoner",
+      "class_icon_name": "Soultether_Icon",
+      "output_prefix": "Soultether",
+      "hp": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+      "ability_order_file": "assets/soultetherer_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 31,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/soultether_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/soultether_ability_back.png",
+      "sheet_front_path": "FH_compatible_sheets/aesther_soultether_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/aesther_soultether_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/soultether_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Summoner  top box.json",
+      "model_source_dir": "summoner_source",
+      "top_model_source_dir": "summoner_source",
+      "use_source_attack_modifiers": true,
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "summon_names": [
+        "Iron Beast",
+        "Shadow Wolves",
+        "Rift Spirit",
+        "Floating Jellyfish",
+        "Covetous Imp",
+        "Ember Sprite",
+        "Rock Colossus",
+        "Slime Spirit",
+        "Void Eater",
+        "Prismatic Unicorn",
+        "Fey Subjugator"
+      ],
+      "summon_model_aliases": {
+        "Iron Beast": "Iron Beast",
+        "Shadow Wolves": "Shadow Wolf",
+        "Rift Spirit": "Healing Sprite",
+        "Floating Jellyfish": "Bat Swarm",
+        "Covetous Imp": "Living Bomb",
+        "Ember Sprite": "Thorn Shooter",
+        "Rock Colossus": "Rock Colossus",
+        "Slime Spirit": "Slime Spirit",
+        "Void Eater": "Void Eater",
+        "Prismatic Unicorn": "Black Unicorn",
+        "Fey Subjugator": "Nail Sphere"
+      },
+      "summon_card_lua_aliases": {
+        "Forged Ferocity": "Forged Ferocity",
+        "Living Night": "Living Night",
+        "Planar Protection": "Conjured Aid",
+        "Drifting Stingers": "Leathery Wings",
+        "Deadly Mischief": "Wild Animation",
+        "Volatile Flame": "Volatile Flame",
+        "Living Mountain": "Living Mountain",
+        "Oozing Manifestation": "Oozing Manifestation",
+        "Negative Energy": "Negative Energy",
+        "Horned Nightmare": "Horned Majesty",
+        "Imposed Will": "Endless Spikes"
+      },
+      "summon_card_spawns": {
+        "Forged Ferocity": { "name": "Iron Beast", "count": 1 },
+        "Living Night": { "name": "Shadow Wolves", "count": 2 },
+        "Planar Protection": { "name": "Rift Spirit", "count": 1 },
+        "Drifting Stingers": { "name": "Floating Jellyfish", "count": 1 },
+        "Deadly Mischief": { "name": "Covetous Imp", "count": 1 },
+        "Volatile Flame": { "name": "Ember Sprite", "count": 1 },
+        "Living Mountain": { "name": "Rock Colossus", "count": 1 },
+        "Oozing Manifestation": { "name": "Slime Spirit", "count": 1 },
+        "Negative Energy": { "name": "Void Eater", "count": 1 },
+        "Horned Nightmare": { "name": "Prismatic Unicorn", "count": 1 },
+        "Imposed Will": { "name": "Fey Subjugator", "count": 1 }
+      },
+      "summon_stats": {
+        "Iron Beast": {
+          "health": 7,
+          "movement": 2,
+          "attack": 1,
+          "range": "-"
+        },
+        "Shadow Wolves": {
+          "health": 2,
+          "movement": 3,
+          "attack": 2,
+          "range": "-"
+        },
+        "Rift Spirit": {
+          "health": 2,
+          "movement": 2,
+          "attack": "?",
+          "range": 3
+        },
+        "Floating Jellyfish": {
+          "health": 5,
+          "movement": 1,
+          "attack": 3,
+          "range": "-"
+        },
+        "Covetous Imp": {
+          "health": 5,
+          "movement": 3,
+          "attack": 3,
+          "range": "-"
+        },
+        "Ember Sprite": {
+          "health": 3,
+          "movement": 3,
+          "attack": 1,
+          "range": 3
+        },
+        "Rock Colossus": {
+          "health": 12,
+          "movement": 2,
+          "attack": 1,
+          "range": "-"
+        },
+        "Slime Spirit": {
+          "health": 5,
+          "movement": 2,
+          "attack": 2,
+          "range": "-"
+        },
+        "Void Eater": {
+          "health": 6,
+          "movement": 3,
+          "attack": 4,
+          "range": "-"
+        },
+        "Prismatic Unicorn": {
+          "health": 8,
+          "movement": 4,
+          "attack": 3,
+          "range": "-"
+        },
+        "Fey Subjugator": {
+          "health": 4,
+          "movement": 2,
+          "attack": 1,
+          "range": 4
+        }
+      },
+      "perk_positions": [
+        [78, 329],
+        [76, 280],
+        [102, 279],
+        [127, 279],
+        [77, 179],
+        [102, 179],
+        [127, 178],
+        [79, 106],
+        [79, 56],
+        [78, 4],
+        [78, -52],
+        [79, -82],
+        [78, -113],
+        [78, -142],
+        [78, -192],
+        [78, -268],
+        [79, -344],
+        [77, -358]
+      ],
+      "mastery_positions": [
+        [-335, -336],
+        [-334, -404]
+      ]
+    },
+    "wildfury": {
+      "class_id": "wildfury",
+      "class_name": "Wildfury",
+      "source_class_name": "Beast Tyrant",
+      "class_icon_name": "Wildfury_Icon",
+      "output_prefix": "Wildfury",
+      "hp": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+      "ability_order_file": "assets/wildfury_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 29,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/wildfury_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/wildfury_ability_back.png",
+      "sheet_front_path": "FH_compatible_sheets/vermling_wildfury_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/vermling_wildfury_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/wildfury_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Beast Tyrant  top box.json",
+      "source_class_objects": ["Bear Companion", "Bear"],
+      "model_source_dir": "beast_tyrant_source",
+      "top_model_source_dir": "beast_tyrant_source",
+      "use_source_attack_modifiers": true,
+      "remap_summon_assets": false,
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "summon_names": [
+        "Wind Idol",
+        "Monolith",
+        "Vital Force"
+      ],
+      "summon_model_aliases": {
+        "Wind Idol": "Wind Totem",
+        "Monolith": "Monolith",
+        "Vital Force": "Spirit Banner"
+      },
+      "summon_card_lua_aliases": {
+        "Gust Sigil": "Storm Sigil",
+        "Stone Sigil": "Stone Sigil",
+        "Spirit Sigil": "Tribal Sigil"
+      },
+      "summon_card_spawns": {
+        "Gust Sigil": { "name": "Wind Idol", "count": 1 },
+        "Stone Sigil": { "name": "Monolith", "count": 1 },
+        "Spirit Sigil": { "name": "Vital Force", "count": 1 }
+      },
+      "summon_lua_replacements": {
+        "Wind Totem": "Wind Idol",
+        "Spirit Banner": "Vital Force"
+      },
+      "summon_stats": {
+        "Wind Idol": {
+          "health": 1,
+          "movement": "-",
+          "attack": "-",
+          "range": "-"
+        },
+        "Monolith": {
+          "health": 2,
+          "movement": "-",
+          "attack": "-",
+          "range": "-"
+        },
+        "Vital Force": {
+          "health": 3,
+          "movement": "-",
+          "attack": "-",
+          "range": "-"
+        }
+      },
+      "perk_positions": [
+        [78, 320],
+        [104, 321],
+        [128, 319],
+        [77, 259],
+        [103, 260],
+        [131, 260],
+        [78, 200],
+        [104, 200],
+        [78, 94],
+        [77, 34],
+        [102, 34],
+        [79, -7],
+        [104, -6],
+        [78, -49],
+        [78, -107],
+        [79, -192],
+        [78, -345],
+        [79, -360]
+      ],
+      "mastery_positions": [
+        [-335, -342],
+        [-336, -395]
+      ]
+    },
+    "spellweaver": {
+      "class_id": "spellweaver",
+      "class_name": "Spellweaver",
+      "class_icon_name": "Spellweaver_Icon",
+      "output_prefix": "Spellweaver",
+      "hp": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+      "ability_order_file": "assets/spellweaver_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 27,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/spellweaver_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/spellweaver_ability_back.png",
+      "sheet_front_path": "FH_compatible_sheets/orchid_spellweaver_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/orchid_spellweaver_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/spellweaver_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Spellweaver  top box.json",
+      "model_source_dir": "spellweaver_source",
+      "top_model_source_dir": "spellweaver_source",
+      "disable_summons": true,
+      "use_source_attack_modifiers": true,
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "perk_positions": [
+        [79, 323],
+        [78, 261],
+        [103, 260],
+        [129, 261],
+        [77, 189],
+        [100, 189],
+        [126, 189],
+        [78, 64],
+        [102, 64],
+        [77, -11],
+        [104, -11],
+        [77, -62],
+        [103, -61],
+        [79, -109],
+        [79, -173],
+        [78, -268],
+        [78, -368],
+        [78, -383]
+      ],
+      "mastery_positions": [
+        [-334, -338],
+        [-334, -404]
       ]
     }
   }
