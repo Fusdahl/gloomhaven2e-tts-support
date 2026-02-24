@@ -1,0 +1,8 @@
+slot,kind,plan,source,output_filename,status
+1,reuse,+0,139302_attack_modifier_0.png,REUSE_01_plus0_139302.png,ready
+2,reuse,+1 wound,139304_attack_modifier_1_wound.png,REUSE_02_plus1_wound_139304.png,ready
+3,reuse,+1 immobilize,139306_attack_modifier_1_immobilize.png,REUSE_03_plus1_immobilize_139306.png,ready
+4,transform,+1 poison,135708_attack_modifier_1_poison.png,tinkerer_plus1_poison.png,todo
+5,transform,+0 heal 1 target ally,135408_attack_modifier_1_heal_2_target_ally.png,tinkerer_plus0_heal1_target_ally.png,todo
+6,transform,+2 strengthen target ally,501710_attack_modifier_1_strengthen_target_1_ally.png,tinkerer_plus2_strengthen_target_ally.png,todo
+extra,baseline,rejuvenating_vapor,139400_rejuvenating_vapor.png,tinkerer_extra_card_01.png,ready

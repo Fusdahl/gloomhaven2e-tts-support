@@ -1,0 +1,6 @@
+Goal: Create a Tinkerer-style `+1 Poison` card.
+
+Instructions:
+1. Start from `BASE_any_plus1_poison_135708.png`.
+2. Convert class icon/styling to Tinkerer using refs.
+3. Keep `+1` value and poison effect.

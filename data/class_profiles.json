@@ -270,6 +270,89 @@
         [-335, -338],
         [-335, -398]
       ]
+    },
+    "tinkerer": {
+      "class_id": "tinkerer",
+      "class_name": "Tinkerer",
+      "class_icon_name": "Tinkerer_Icon",
+      "output_prefix": "Tinkerer",
+      "hp": [8, 9, 11, 12, 14, 15, 17, 18, 20],
+      "ability_order_file": "assets/tinkerer_asset_downloads/ordered_for_rows/ORDER.txt",
+      "expected_ability_count": 31,
+      "ability_card_base": 345299,
+      "ability_face_path": "final_class_ability_atlases/tinkerer_ability_atlas.png",
+      "ability_back_path": "final_class_ability_atlases/tinkerer_ability_back.png",
+      "amd_face_path": "final_class_amd_atlases/tinkerer_amd_atlas_5x5.png",
+      "amd_back_path": "final_class_amd_atlases/tinkerer_amd_back_815x531.png",
+      "extra_face_path": "final_class_amd_atlases/tinkerer_extra_perks_atlas_2x2.png",
+      "extra_back_path": "final_class_amd_atlases/tinkerer_amd_back_815x531.png",
+      "attack_modifier_deck_ids": [
+        501913,
+        501912,
+        501911,
+        501910,
+        501909,
+        501908,
+        501907,
+        501906,
+        501905,
+        501904,
+        501903,
+        501902,
+        501901,
+        501900
+      ],
+      "sheet_front_path": "FH_compatible_sheets/quatryl_tinkerer_character_sheet_front.png",
+      "sheet_back_path": "FH_compatible_sheets/quatryl_tinkerer_character_sheet_back.png",
+      "character_mat_path": "final_character_mats/tinkerer_character_mat.jpeg",
+      "source_saved_object": "saved objects for working 1st class/Tinkerer  top box.json",
+      "model_source_dir": "tinkerer_source",
+      "top_model_source_dir": "tinkerer_source",
+      "template_aliases": ["Quartermaster", "Three Spears", "Scoundrel"],
+      "legacy_class_bag_guid": "gh2e-spears-big-box",
+      "legacy_small_box_guid": "gh2e-spears-small-box",
+      "legacy_id_prefix": "gh2e-spears",
+      "summon_stats": {
+        "Decoy": {
+          "health": 10,
+          "movement": 3,
+          "attack": 0
+        },
+        "Battle Bot": {
+          "health": 7,
+          "movement": 3,
+          "attack": 3
+        },
+        "Kill Bot": {
+          "health": 8,
+          "movement": 4,
+          "attack": 3
+        }
+      },
+      "perk_positions": [
+        [78, 323],
+        [77, 257],
+        [103, 257],
+        [128, 257],
+        [77, 164],
+        [103, 166],
+        [77, 88],
+        [101, 91],
+        [78, 21],
+        [104, 22],
+        [77, -49],
+        [101, -48],
+        [126, -49],
+        [80, -113],
+        [77, -187],
+        [78, -305],
+        [79, -380],
+        [78, -395]
+      ],
+      "mastery_positions": [
+        [-334, -339],
+        [-335, -428]
+      ]
     }
   }
 }

@@ -1,0 +1,6 @@
+Goal: Create a Tinkerer-style `+2 Strengthen (target ally)` card.
+
+Instructions:
+1. Start from `BASE_soothsinger_plus1_strengthen_target_ally_501710.png`.
+2. Change value from `+1` to `+2`.
+3. Convert class icon/styling to Tinkerer using refs.

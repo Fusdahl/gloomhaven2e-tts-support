@@ -147,6 +147,31 @@ def _collect_guid_counts(node: Any) -> dict[str, int]:
     return counts
 
 
+def _dedupe_guids(node: Any) -> int:
+    used = build_skeleton.collect_guids(node)
+    seen: set[str] = set()
+    changed = 0
+
+    def walk(obj: Any) -> None:
+        nonlocal changed
+        if isinstance(obj, dict):
+            guid = obj.get("GUID")
+            if isinstance(guid, str):
+                if guid in seen:
+                    obj["GUID"] = build_skeleton.random_guid(used)
+                    changed += 1
+                else:
+                    seen.add(guid)
+            for value in obj.values():
+                walk(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                walk(item)
+
+    walk(node)
+    return changed
+
+
 def _load_scoundrel_figure_template() -> dict[str, Any]:
     global _SCOUNDREL_FIGURE_TEMPLATE_CACHE
     if _SCOUNDREL_FIGURE_TEMPLATE_CACHE is not None:
@@ -1106,6 +1131,9 @@ def _build_single(global_cfg: dict[str, Any], profile: dict[str, Any], out_saved
     base = _build_single_base_object(global_cfg, profile)
     patched = _apply_class_patch(base, profile)
     root = _extract_root_object(patched)
+    deduped = _dedupe_guids(root)
+    if deduped:
+        print(f"Deduped {deduped} duplicate GUID(s) in {profile['class_id']} output.")
 
     wrapped = patched if "ObjectStates" in patched else build_skeleton.wrap_as_save(root, profile["class_name"])
     if isinstance(wrapped, dict):

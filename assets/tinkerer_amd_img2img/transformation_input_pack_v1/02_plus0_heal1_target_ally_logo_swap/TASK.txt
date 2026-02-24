@@ -1,0 +1,6 @@
+Goal: Create a Tinkerer-style `+0 Heal 1 (target ally)` card.
+
+Instructions:
+1. Start from `BASE_diviner_plus1_heal2_target_ally_135408_upscaled_815x531.png`.
+2. Convert card value/effect text to `+0 Heal 1, target ally`.
+3. Convert class icon/styling to Tinkerer using refs.

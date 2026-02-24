@@ -1,0 +1,6 @@
+Goal: Use `Rejuvenating Vapor` as baseline for Tinkerer extra perk cards.
+
+Instructions:
+1. Start from `BASE_139400_rejuvenating_vapor.png`.
+2. Edit text/effects per target extra perk.
+3. Keep Tinkerer visual style.
