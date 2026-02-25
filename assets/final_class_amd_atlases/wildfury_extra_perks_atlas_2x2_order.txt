@@ -1,0 +1,6 @@
+Wildfury extra perks atlas order (2x2, left-to-right, top-to-bottom)
+
+00: extra_1
+01: extra_2
+02: extra_3
+03: card back

@@ -1,0 +1,13 @@
+Sawbones AMD atlas order (5x5, left-to-right, top-to-bottom)
+1. -2_medical_pack
+2. +1_disarm_for_stun (copy A)
+3. +1_disarm_for_stun (copy B)
+4. +1_prescription (copy A)
+5. +1_prescription (copy B)
+6. sawbones_heal_3 (copy A)
+7. sawbones_heal_3 (copy B)
+8. gh1_sawbones_+1 (from gh_am_sawbones_05)
+9. gh1_sawbones_+1 (from gh_am_sawbones_06)
+10. gh1_sawbones_+1 (from gh_am_sawbones_05 duplicate)
+11-24. black filler
+25. AMD back

@@ -1,0 +1,5 @@
+Sawbones extra perks atlas order (2x2, left-to-right, top-to-bottom)
+1. sawbones_extra_1
+2. sawbones_extra_2
+3. sawbones_extra_3
+4. AMD back

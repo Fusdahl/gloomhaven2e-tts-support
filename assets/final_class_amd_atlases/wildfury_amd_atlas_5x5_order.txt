@@ -1,0 +1,27 @@
+Wildfury AMD atlas order (5x5, left-to-right, top-to-bottom)
+
+00: heal_bear_2_rolling
+01: heal_bear_2_rolling
+02: heal_bear_2_rolling
+03: +1 wound
+04: +1 wound
+05: +1 wound
+06: +2_wildfury_bear
+07: +2_wildfury_bear
+08: +4
+09: plus_1_air_earth
+10: plus_1_air_earth
+11: plus_2_push_2
+12: plus_2_push_2
+13: plus1_safeguard
+14: filler (black)
+15: filler (black)
+16: filler (black)
+17: filler (black)
+18: filler (black)
+19: filler (black)
+20: filler (black)
+21: filler (black)
+22: filler (black)
+23: filler (black)
+24: card back
