@@ -1,0 +1,5 @@
+Sunkeeper extra perks atlas order (2x2, left-to-right, top-to-bottom)
+1. sunkeeper_extra_1
+2. sunkeeper_extra_2
+3. sunkeeper_extra_3
+4. AMD back

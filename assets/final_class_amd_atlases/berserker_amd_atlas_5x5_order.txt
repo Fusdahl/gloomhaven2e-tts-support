@@ -1,0 +1,14 @@
+Berserker AMD atlas order (5x5, left-to-right, top-to-bottom)
+1. berserker_+1_self (copy A)
+2. berserker_+1_self (copy B)
+3. berserker_+1_self (copy C)
+4. +1_suffer_dmg (copy A)
+5. +1_suffer_dmg (copy B)
+6. +0_rolling_bleed (copy A)
+7. +0_rolling_bleed (copy B)
+8. +2_fire (copy A)
+9. +2_fire (copy B)
+10. +0_rolling_stun
+11. +1_regular
+12-24. black filler
+25. AMD back

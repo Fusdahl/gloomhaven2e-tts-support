@@ -1,0 +1,19 @@
+Sunkeeper AMD atlas order (5x5, left-to-right, top-to-bottom)
+1. +0_light (A)
+2. +0_light (B)
+3. +0_light (C)
+4. +0_light (D)
+5. +1_rolling_shield (A)
+6. +1_rolling_shield (B)
+7. +1_rolling_shield (C)
+8. +2 (A)
+9. +2 (B)
+10. +1_heal_range_3 (A)
+11. +1_heal_range_3 (B)
+12. +1_heal_range_3 (C)
+13. +1_heal_range_3 (D)
+14. -1_pickup
+15. rolling_stun
+16. +1_regular
+17-24. black filler
+25. AMD back

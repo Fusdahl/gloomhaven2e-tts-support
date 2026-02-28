@@ -1,0 +1,5 @@
+Plagueherald extra perks atlas order (2x2, left-to-right, top-to-bottom)
+1. plague_extra_1
+2. plague_extra_2
+3. plague_extra_3
+4. AMD back

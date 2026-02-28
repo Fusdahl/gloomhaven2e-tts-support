@@ -1,0 +1,5 @@
+Berserker extra perks atlas order (2x2, left-to-right, top-to-bottom)
+1. berserker_extra_1
+2. berserker_extra_2
+3. berserker_extra_3
+4. AMD back
